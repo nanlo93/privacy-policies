@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoulMile 개인정보 처리방침</title>
+  <meta name="description" content="SoulMile 앱의 개인정보 처리방침">
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #ff5533;
+  --accent-soft: #fff0eb;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent-soft: #40241d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">SoulMile</p>
+      <h1>개인정보 처리방침</h1>
+      <p class="summary">SoulMile은 러닝 기록을 감지해 사용자가 등록한 러닝화에 주행 거리를 적립하는 iOS 앱입니다. 계정 생성이나 자체 서버 로그인을 제공하지 않으며, 러닝화와 건강 데이터는 원칙적으로 사용자의 기기 안에서 처리됩니다.</p>
+      <div class="meta">
+        <span class="pill">시행일: 2026년 6월 30일</span>
+        <span class="pill">대상: iOS 앱 SoulMile</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>1. 처리하는 정보</h2>
+        <p>앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <div class="grid">
+          <div class="item">
+            <strong>HealthKit 러닝 데이터</strong>
+            <span>사용자가 권한을 허용한 경우 달리기 워크아웃, 이동 거리, 시작/종료 시각, 운동 출처 정보를 읽습니다.</span>
+          </div>
+          <div class="item">
+            <strong>러닝화 정보</strong>
+            <span>브랜드, 모델명, 색상, 구매일, 초기 주행 거리, 교체 기준, 회복 시간 설정, 대표 러닝화 여부를 저장합니다.</span>
+          </div>
+          <div class="item">
+            <strong>러닝화 사진</strong>
+            <span>사용자가 직접 선택한 사진을 러닝화 식별과 표시 목적으로 저장합니다.</span>
+          </div>
+          <div class="item">
+            <strong>앱 설정 및 감지 상태</strong>
+            <span>자동 감지 설정, 단위, HealthKit 증분 감지 상태, 중복 알림 방지 식별자 등을 저장합니다.</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. HealthKit 데이터 사용</h2>
+        <p>SoulMile은 사용자가 HealthKit 읽기 권한을 허용한 경우에만 달리기 워크아웃을 읽습니다. 읽은 정보는 러닝화별 주행 거리 계산, 미등록 러닝 세션 제안, 중복 적립 방지, 삭제된 워크아웃 반영에 사용됩니다.</p>
+        <ul>
+          <li>앱은 건강 데이터를 Apple 건강 앱에 새로 쓰거나 수정하지 않습니다.</li>
+          <li>HealthKit에서 읽은 러닝 데이터는 SoulMile의 자체 서버로 전송되지 않습니다.</li>
+          <li>사용자는 iOS 설정 또는 건강 앱에서 언제든지 HealthKit 권한을 변경할 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>3. 저장 위치와 보관</h2>
+        <p>러닝화 정보, 사진, 러닝 세션, 앱 설정은 사용자의 기기 내 저장소에 보관됩니다. 앱을 삭제하면 앱이 기기에 저장한 데이터도 함께 삭제될 수 있습니다. HealthKit 원본 데이터는 Apple 건강 앱에 남아 있으며, SoulMile에서 앱 데이터를 지워도 건강 앱의 원본 기록을 삭제하지 않습니다.</p>
+      </section>
+
+      <section>
+        <h2>4. 알림</h2>
+        <p>SoulMile은 새 달리기 워크아웃을 감지했을 때 로컬 알림을 보낼 수 있습니다. 알림은 사용자의 기기에서 생성되며, 원격 푸시 서버를 사용하지 않습니다. 사용자는 iOS 설정에서 알림 권한을 변경할 수 있습니다.</p>
+      </section>
+
+      <section>
+        <h2>5. 광고 및 제3자 SDK</h2>
+        <p>SoulMile은 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK를 사용할 수 있습니다. 광고 SDK는 광고 제공, 광고 성과 측정, 부정 사용 방지, 맞춤형 광고 제공 여부 판단을 위해 기기 식별자, 광고 식별자, 광고 상호작용 정보, 진단 정보 등을 처리할 수 있습니다.</p>
+        <ul>
+          <li>앱은 iOS의 앱 추적 투명성(ATT) 권한 상태에 따라 광고 식별자 사용 가능 여부를 따릅니다.</li>
+          <li>사용자가 추적을 허용하지 않아도 SoulMile의 핵심 기능은 계속 사용할 수 있습니다.</li>
+          <li>Google의 데이터 처리 방식은 Google의 정책과 사용자의 광고 설정에 따릅니다.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. 외부 전송 및 공유</h2>
+        <p>SoulMile은 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. HealthKit 러닝 데이터, 러닝화 정보, 러닝화 사진은 앱 기능 제공을 위해 기기 안에서 처리되며 개발자에게 전송되지 않습니다. 다만 광고 SDK가 광고 제공을 위해 필요한 데이터를 Google 및 관련 광고 파트너에게 전송할 수 있습니다.</p>
+      </section>
+
+      <section>
+        <h2>7. 사용자의 선택</h2>
+        <ul>
+          <li>HealthKit 권한은 iOS 설정 또는 건강 앱에서 변경할 수 있습니다.</li>
+          <li>알림 권한은 iOS 설정에서 변경할 수 있습니다.</li>
+          <li>앱 추적 권한은 iOS 설정의 개인정보 보호 및 보안 항목에서 변경할 수 있습니다.</li>
+          <li>앱에 저장된 데이터는 앱 삭제를 통해 기기에서 제거할 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>8. 아동의 개인정보</h2>
+        <p>SoulMile은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+      </section>
+
+      <section>
+        <h2>9. 변경</h2>
+        <p>앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+      </section>
+
+      <section>
+        <h2>10. 문의</h2>
+        <p>개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
+        <p class="notice">이 문서는 SoulMile의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="./index.html">Privacy Policies</a></p>
+    </footer>
+  </div>
+</body>
+</html>

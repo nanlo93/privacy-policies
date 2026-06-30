@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policies</title>
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #ff5533;
+  --accent-soft: #fff0eb;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent-soft: #40241d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Personal side projects</p>
+      <h1>Privacy Policies</h1>
+      <p class="summary">개인 사이드 프로젝트 앱의 개인정보 처리방침을 앱별로 게시합니다.</p>
+    </header>
+    <main>
+      <section>
+        <h2>앱별 문서</h2>
+        <div class="grid">
+          <a class="item" href="./soulmile.html">
+            <strong>SoulMile</strong>
+            <span>러닝화 마일리지 관리 앱</span>
+          </a>
+          <a class="item" href="./pin-reminder.html">
+            <strong>Pin Reminder</strong>
+            <span>위치 기반 미리알림 생성 앱</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>문의: <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a></p>
+    </footer>
+  </div>
+</body>
+</html>
