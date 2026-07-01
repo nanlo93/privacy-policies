@@ -40,6 +40,7 @@ body {
   color: var(--text);
   line-height: 1.72;
   word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -54,6 +55,7 @@ a {
 }
 
 .hero {
+  position: relative;
   padding-bottom: 28px;
   border-bottom: 1px solid var(--line);
 }
@@ -96,6 +98,32 @@ h1 {
   background: var(--surface);
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 main {
@@ -169,6 +197,14 @@ footer {
   font-size: 0.92rem;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"] {
+  word-break: normal;
+}
+
 @media (max-width: 720px) {
   .page {
     width: min(var(--max), calc(100% - 28px));
@@ -178,6 +214,13 @@ footer {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
 }
 
   </style>
@@ -185,98 +228,226 @@ footer {
 <body>
   <div class="page">
     <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
       <p class="eyebrow">SoulMile</p>
-      <h1>개인정보 처리방침</h1>
-      <p class="summary">SoulMile은 러닝 기록을 감지해 사용자가 등록한 러닝화에 주행 거리를 적립하는 iOS 앱입니다. 계정 생성이나 자체 서버 로그인을 제공하지 않으며, 러닝화와 건강 데이터는 원칙적으로 사용자의 기기 안에서 처리됩니다.</p>
+      <h1 data-lang="ko">개인정보 처리방침</h1>
+      <h1 data-lang="en" hidden>Privacy Policy</h1>
+      <h1 data-lang="ja" hidden>プライバシーポリシー</h1>
+      <p class="summary" data-lang="ko">SoulMile은 러닝 기록을 감지해 사용자가 등록한 러닝화에 주행 거리를 적립하는 iOS 앱입니다. 계정 생성이나 자체 서버 로그인을 제공하지 않으며, 러닝화와 건강 데이터는 원칙적으로 사용자의 기기 안에서 처리됩니다.</p>
+      <p class="summary" data-lang="en" hidden>SoulMile is an iOS app that detects your running workouts and credits the mileage to the running shoes you register. It does not offer account creation or its own server-based login, and your shoe and health data are processed on your device in principle.</p>
+      <p class="summary" data-lang="ja" hidden>SoulMileは、ランニング記録を検知して登録したランニングシューズに走行距離を積算するiOSアプリです。アカウント作成や自社サーバーへのログインは提供せず、シューズや健康データは原則として端末内で処理されます。</p>
       <div class="meta">
-        <span class="pill">시행일: 2026년 6월 30일</span>
-        <span class="pill">대상: iOS 앱 SoulMile</span>
+        <span class="pill" data-lang="ko">시행일: 2026년 6월 30일</span>
+        <span class="pill" data-lang="en" hidden>Effective Date: June 30, 2026</span>
+        <span class="pill" data-lang="ja" hidden>施行日: 2026年6月30日</span>
+        <span class="pill" data-lang="ko">대상: iOS 앱 SoulMile</span>
+        <span class="pill" data-lang="en" hidden>Applies to: SoulMile for iOS</span>
+        <span class="pill" data-lang="ja" hidden>対象: iOSアプリ SoulMile</span>
       </div>
     </header>
 
     <main>
       <section>
-        <h2>1. 처리하는 정보</h2>
-        <p>앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <h2 data-lang="ko">1. 처리하는 정보</h2>
+        <h2 data-lang="en" hidden>1. Information We Process</h2>
+        <h2 data-lang="ja" hidden>1. 取り扱う情報</h2>
+        <p data-lang="ko">앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <p data-lang="en" hidden>We may use the following information to provide the app's features.</p>
+        <p data-lang="ja" hidden>アプリの機能提供のため、以下の情報を利用する場合があります。</p>
         <div class="grid">
           <div class="item">
-            <strong>HealthKit 러닝 데이터</strong>
-            <span>사용자가 권한을 허용한 경우 달리기 워크아웃, 이동 거리, 시작/종료 시각, 운동 출처 정보를 읽습니다.</span>
+            <div data-lang="ko">
+              <strong>HealthKit 러닝 데이터</strong>
+              <span>사용자가 권한을 허용한 경우 달리기 워크아웃, 이동 거리, 시작/종료 시각, 운동 출처 정보를 읽습니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>HealthKit Running Data</strong>
+              <span>If you grant permission, we read your running workouts, distance, start/end times, and workout source information.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>HealthKitのランニングデータ</strong>
+              <span>ユーザーが権限を許可した場合、ランニングワークアウト、移動距離、開始・終了時刻、運動のソース情報を読み取ります。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>러닝화 정보</strong>
-            <span>브랜드, 모델명, 색상, 구매일, 초기 주행 거리, 교체 기준, 회복 시간 설정, 대표 러닝화 여부를 저장합니다.</span>
+            <div data-lang="ko">
+              <strong>러닝화 정보</strong>
+              <span>브랜드, 모델명, 색상, 구매일, 초기 주행 거리, 교체 기준, 회복 시간 설정, 대표 러닝화 여부를 저장합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Running Shoe Information</strong>
+              <span>We store the brand, model name, color, purchase date, initial mileage, replacement threshold, recovery time setting, and whether the shoe is set as your primary pair.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>ランニングシューズ情報</strong>
+              <span>ブランド、モデル名、カラー、購入日、初期走行距離、交換基準、リカバリー時間の設定、代表シューズかどうかを保存します。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>러닝화 사진</strong>
-            <span>사용자가 직접 선택한 사진을 러닝화 식별과 표시 목적으로 저장합니다.</span>
+            <div data-lang="ko">
+              <strong>러닝화 사진</strong>
+              <span>사용자가 직접 선택한 사진을 러닝화 식별과 표시 목적으로 저장합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Running Shoe Photos</strong>
+              <span>We store photos you select yourself for the purpose of identifying and displaying your running shoes.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>ランニングシューズの写真</strong>
+              <span>ユーザーが直接選択した写真を、シューズの識別および表示の目的で保存します。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>앱 설정 및 감지 상태</strong>
-            <span>자동 감지 설정, 단위, HealthKit 증분 감지 상태, 중복 알림 방지 식별자 등을 저장합니다.</span>
+            <div data-lang="ko">
+              <strong>앱 설정 및 감지 상태</strong>
+              <span>자동 감지 설정, 단위, HealthKit 증분 감지 상태, 중복 알림 방지 식별자 등을 저장합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>App Settings and Detection State</strong>
+              <span>We store automatic detection settings, unit preferences, HealthKit incremental detection state, and identifiers used to prevent duplicate notifications.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>アプリ設定と検知状態</strong>
+              <span>自動検知設定、単位、HealthKitの増分検知状態、重複通知防止用の識別子などを保存します。</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <h2>2. HealthKit 데이터 사용</h2>
-        <p>SoulMile은 사용자가 HealthKit 읽기 권한을 허용한 경우에만 달리기 워크아웃을 읽습니다. 읽은 정보는 러닝화별 주행 거리 계산, 미등록 러닝 세션 제안, 중복 적립 방지, 삭제된 워크아웃 반영에 사용됩니다.</p>
-        <ul>
+        <h2 data-lang="ko">2. HealthKit 데이터 사용</h2>
+        <h2 data-lang="en" hidden>2. Use of HealthKit Data</h2>
+        <h2 data-lang="ja" hidden>2. HealthKitデータの利用</h2>
+        <p data-lang="ko">SoulMile은 사용자가 HealthKit 읽기 권한을 허용한 경우에만 달리기 워크아웃을 읽습니다. 읽은 정보는 러닝화별 주행 거리 계산, 미등록 러닝 세션 제안, 중복 적립 방지, 삭제된 워크아웃 반영에 사용됩니다.</p>
+        <p data-lang="en" hidden>SoulMile reads your running workouts only if you have granted HealthKit read permission. The information read is used to calculate mileage per shoe, suggest unregistered running sessions, prevent duplicate credit, and reflect deleted workouts.</p>
+        <p data-lang="ja" hidden>SoulMileは、ユーザーがHealthKitの読み取り権限を許可した場合にのみランニングワークアウトを読み取ります。読み取った情報は、シューズごとの走行距離計算、未登録のランニングセッションの提案、重複積算の防止、削除されたワークアウトの反映に使用されます。</p>
+        <ul data-lang="ko">
           <li>앱은 건강 데이터를 Apple 건강 앱에 새로 쓰거나 수정하지 않습니다.</li>
           <li>HealthKit에서 읽은 러닝 데이터는 SoulMile의 자체 서버로 전송되지 않습니다.</li>
           <li>사용자는 iOS 설정 또는 건강 앱에서 언제든지 HealthKit 권한을 변경할 수 있습니다.</li>
         </ul>
-      </section>
-
-      <section>
-        <h2>3. 저장 위치와 보관</h2>
-        <p>러닝화 정보, 사진, 러닝 세션, 앱 설정은 사용자의 기기 내 저장소에 보관됩니다. 앱을 삭제하면 앱이 기기에 저장한 데이터도 함께 삭제될 수 있습니다. HealthKit 원본 데이터는 Apple 건강 앱에 남아 있으며, SoulMile에서 앱 데이터를 지워도 건강 앱의 원본 기록을 삭제하지 않습니다.</p>
-      </section>
-
-      <section>
-        <h2>4. 알림</h2>
-        <p>SoulMile은 새 달리기 워크아웃을 감지했을 때 로컬 알림을 보낼 수 있습니다. 알림은 사용자의 기기에서 생성되며, 원격 푸시 서버를 사용하지 않습니다. 사용자는 iOS 설정에서 알림 권한을 변경할 수 있습니다.</p>
-      </section>
-
-      <section>
-        <h2>5. 광고 및 제3자 SDK</h2>
-        <p>SoulMile은 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK를 사용할 수 있습니다. 광고 SDK는 광고 제공, 광고 성과 측정, 부정 사용 방지, 맞춤형 광고 제공 여부 판단을 위해 기기 식별자, 광고 식별자, 광고 상호작용 정보, 진단 정보 등을 처리할 수 있습니다.</p>
-        <ul>
-          <li>앱은 iOS의 앱 추적 투명성(ATT) 권한 상태에 따라 광고 식별자 사용 가능 여부를 따릅니다.</li>
-          <li>사용자가 추적을 허용하지 않아도 SoulMile의 핵심 기능은 계속 사용할 수 있습니다.</li>
-          <li>Google의 데이터 처리 방식은 Google의 정책과 사용자의 광고 설정에 따릅니다.</li>
+        <ul data-lang="en" hidden>
+          <li>The app does not write new data to or modify data in Apple Health.</li>
+          <li>Running data read from HealthKit is not transmitted to any SoulMile server.</li>
+          <li>You can change HealthKit permissions at any time in iOS Settings or the Health app.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>アプリは健康データをApple「ヘルスケア」アプリに新規書き込みしたり変更したりしません。</li>
+          <li>HealthKitから読み取ったランニングデータは、SoulMileの自社サーバーへ送信されません。</li>
+          <li>ユーザーはiOSの設定または「ヘルスケア」アプリからいつでもHealthKitの権限を変更できます。</li>
         </ul>
       </section>
 
       <section>
-        <h2>6. 외부 전송 및 공유</h2>
-        <p>SoulMile은 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. HealthKit 러닝 데이터, 러닝화 정보, 러닝화 사진은 앱 기능 제공을 위해 기기 안에서 처리되며 개발자에게 전송되지 않습니다. 다만 광고 SDK가 광고 제공을 위해 필요한 데이터를 Google 및 관련 광고 파트너에게 전송할 수 있습니다.</p>
+        <h2 data-lang="ko">3. 저장 위치와 보관</h2>
+        <h2 data-lang="en" hidden>3. Storage Location and Retention</h2>
+        <h2 data-lang="ja" hidden>3. 保存場所と保管</h2>
+        <p data-lang="ko">러닝화 정보, 사진, 러닝 세션, 앱 설정은 사용자의 기기 내 저장소에 보관됩니다. 앱을 삭제하면 앱이 기기에 저장한 데이터도 함께 삭제될 수 있습니다. HealthKit 원본 데이터는 Apple 건강 앱에 남아 있으며, SoulMile에서 앱 데이터를 지워도 건강 앱의 원본 기록을 삭제하지 않습니다.</p>
+        <p data-lang="en" hidden>Running shoe information, photos, running sessions, and app settings are stored in on-device storage. Deleting the app may also delete the data the app stored on your device. The original HealthKit data remains in the Apple Health app, and deleting app data in SoulMile does not delete the original records in Health.</p>
+        <p data-lang="ja" hidden>シューズ情報、写真、ランニングセッション、アプリ設定は端末内のストレージに保管されます。アプリを削除すると、アプリが端末に保存したデータも一緒に削除される場合があります。HealthKitの元データはApple「ヘルスケア」アプリに残り、SoulMileでアプリデータを削除しても「ヘルスケア」アプリの元の記録は削除されません。</p>
       </section>
 
       <section>
-        <h2>7. 사용자의 선택</h2>
-        <ul>
+        <h2 data-lang="ko">4. 알림</h2>
+        <h2 data-lang="en" hidden>4. Notifications</h2>
+        <h2 data-lang="ja" hidden>4. 通知</h2>
+        <p data-lang="ko">SoulMile은 새 달리기 워크아웃을 감지했을 때 로컬 알림을 보낼 수 있습니다. 알림은 사용자의 기기에서 생성되며, 원격 푸시 서버를 사용하지 않습니다. 사용자는 iOS 설정에서 알림 권한을 변경할 수 있습니다.</p>
+        <p data-lang="en" hidden>SoulMile may send a local notification when it detects a new running workout. Notifications are generated on your device, and no remote push server is used. You can change notification permissions in iOS Settings.</p>
+        <p data-lang="ja" hidden>SoulMileは、新しいランニングワークアウトを検知した際にローカル通知を送信する場合があります。通知は端末上で生成され、リモートのプッシュサーバーは使用しません。ユーザーはiOSの設定から通知権限を変更できます。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">5. 광고 및 제3자 SDK</h2>
+        <h2 data-lang="en" hidden>5. Advertising and Third-Party SDKs</h2>
+        <h2 data-lang="ja" hidden>5. 広告および第三者SDK</h2>
+        <p data-lang="ko">SoulMile은 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK를 사용할 수 있습니다. 광고 SDK는 광고 제공, 광고 성과 측정, 부정 사용 방지, 맞춤형 광고 제공 여부 판단을 위해 기기 식별자, 광고 식별자, 광고 상호작용 정보, 진단 정보 등을 처리할 수 있습니다.</p>
+        <p data-lang="en" hidden>SoulMile may use the Google Mobile Ads (AdMob) SDK to display in-app banner ads. The advertising SDK may process device identifiers, advertising identifiers, ad interaction data, and diagnostic information to serve ads, measure ad performance, prevent fraudulent use, and determine eligibility for personalized ads.</p>
+        <p data-lang="ja" hidden>SoulMileは、アプリ内バナー広告の表示のためにGoogle Mobile Ads（AdMob）SDKを使用する場合があります。広告SDKは、広告の配信、広告効果の測定、不正利用の防止、パーソナライズ広告の提供可否の判断のために、デバイス識別子、広告識別子、広告とのインタラクション情報、診断情報などを処理する場合があります。</p>
+        <ul data-lang="ko">
+          <li>앱은 iOS의 앱 추적 투명성(ATT) 권한 상태에 따라 광고 식별자 사용 가능 여부를 따릅니다.</li>
+          <li>사용자가 추적을 허용하지 않아도 SoulMile의 핵심 기능은 계속 사용할 수 있습니다.</li>
+          <li>Google의 데이터 처리 방식은 Google의 정책과 사용자의 광고 설정에 따릅니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Whether the advertising identifier can be used depends on the status of iOS App Tracking Transparency (ATT) permission.</li>
+          <li>SoulMile's core features remain fully usable even if you do not allow tracking.</li>
+          <li>How Google processes data is governed by Google's own policies and your ad settings.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>広告識別子が利用可能かどうかは、iOSのApp Tracking Transparency（ATT）権限の状態に従います。</li>
+          <li>ユーザーがトラッキングを許可しない場合でも、SoulMileの主要機能は引き続き利用できます。</li>
+          <li>Googleのデータ処理方法は、Googleのポリシーおよびユーザーの広告設定に従います。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">6. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>6. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>6. 外部への送信および共有</h2>
+        <p data-lang="ko">SoulMile은 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. HealthKit 러닝 데이터, 러닝화 정보, 러닝화 사진은 앱 기능 제공을 위해 기기 안에서 처리되며 개발자에게 전송되지 않습니다. 다만 광고 SDK가 광고 제공을 위해 필요한 데이터를 Google 및 관련 광고 파트너에게 전송할 수 있습니다.</p>
+        <p data-lang="en" hidden>SoulMile does not use its own account system or backend server. HealthKit running data, running shoe information, and running shoe photos are processed on your device to provide the app's features and are not transmitted to the developer. However, the advertising SDK may transmit data necessary for serving ads to Google and its advertising partners.</p>
+        <p data-lang="ja" hidden>SoulMileは自社のアカウントシステムやバックエンドサーバーを使用しません。HealthKitのランニングデータ、シューズ情報、シューズの写真は、アプリの機能提供のため端末内で処理され、開発者へ送信されることはありません。ただし、広告SDKが広告配信のために必要なデータをGoogleおよび関連する広告パートナーへ送信する場合があります。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">7. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>7. Your Choices</h2>
+        <h2 data-lang="ja" hidden>7. ユーザーの選択</h2>
+        <ul data-lang="ko">
           <li>HealthKit 권한은 iOS 설정 또는 건강 앱에서 변경할 수 있습니다.</li>
           <li>알림 권한은 iOS 설정에서 변경할 수 있습니다.</li>
           <li>앱 추적 권한은 iOS 설정의 개인정보 보호 및 보안 항목에서 변경할 수 있습니다.</li>
           <li>앱에 저장된 데이터는 앱 삭제를 통해 기기에서 제거할 수 있습니다.</li>
         </ul>
+        <ul data-lang="en" hidden>
+          <li>HealthKit permission can be changed in iOS Settings or the Health app.</li>
+          <li>Notification permission can be changed in iOS Settings.</li>
+          <li>App tracking permission can be changed under Privacy &amp; Security in iOS Settings.</li>
+          <li>Data stored by the app can be removed from your device by deleting the app.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>HealthKitの権限はiOSの設定または「ヘルスケア」アプリから変更できます。</li>
+          <li>通知権限はiOSの設定から変更できます。</li>
+          <li>アプリのトラッキング権限は、iOSの設定の「プライバシーとセキュリティ」から変更できます。</li>
+          <li>アプリに保存されたデータは、アプリを削除することで端末から消去できます。</li>
+        </ul>
       </section>
 
       <section>
-        <h2>8. 아동의 개인정보</h2>
-        <p>SoulMile은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+        <h2 data-lang="ko">8. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>8. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>8. 児童の個人情報</h2>
+        <p data-lang="ko">SoulMile은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+        <p data-lang="en" hidden>SoulMile is not designed for children, and the developer does not knowingly collect personal information from children.</p>
+        <p data-lang="ja" hidden>SoulMileは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
       </section>
 
       <section>
-        <h2>9. 변경</h2>
-        <p>앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+        <h2 data-lang="ko">9. 변경</h2>
+        <h2 data-lang="en" hidden>9. Changes</h2>
+        <h2 data-lang="ja" hidden>9. 変更</h2>
+        <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+        <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
+        <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
       </section>
 
       <section>
-        <h2>10. 문의</h2>
-        <p>개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
-        <p class="notice">이 문서는 SoulMile의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+        <h2 data-lang="ko">10. 문의</h2>
+        <h2 data-lang="en" hidden>10. Contact</h2>
+        <h2 data-lang="ja" hidden>10. お問い合わせ</h2>
+        <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
+        <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
+        <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
+        <p class="notice" data-lang="ko">이 문서는 SoulMile의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+        <p class="notice" data-lang="en" hidden>This document is written based on SoulMile's current code and configuration. The App Privacy answers on App Store Connect must be kept consistent with the same data-handling practices described here.</p>
+        <p class="notice" data-lang="ja" hidden>本文書はSoulMileの現在のコードおよび設定に基づいて作成されています。App Store ConnectのApp Privacyの回答も、本文書と同一のデータ取扱基準で維持される必要があります。</p>
       </section>
     </main>
 
@@ -284,5 +455,27 @@ footer {
       <p><a href="./index.html">Privacy Policies</a></p>
     </footer>
   </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'SoulMile 개인정보 처리방침',
+    en: 'SoulMile Privacy Policy',
+    ja: 'SoulMileプライバシーポリシー'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
 </body>
 </html>

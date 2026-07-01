@@ -40,6 +40,7 @@ body {
   color: var(--text);
   line-height: 1.72;
   word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -54,6 +55,7 @@ a {
 }
 
 .hero {
+  position: relative;
   padding-bottom: 28px;
   border-bottom: 1px solid var(--line);
 }
@@ -96,6 +98,32 @@ h1 {
   background: var(--surface);
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 main {
@@ -169,6 +197,14 @@ footer {
   font-size: 0.92rem;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"] {
+  word-break: normal;
+}
+
 @media (max-width: 720px) {
   .page {
     width: min(var(--max), calc(100% - 28px));
@@ -178,6 +214,13 @@ footer {
   .grid {
     grid-template-columns: 1fr;
   }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
 }
 
   </style>
@@ -185,103 +228,241 @@ footer {
 <body>
   <div class="page">
     <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
       <p class="eyebrow">Pin Reminder</p>
-      <h1>개인정보 처리방침</h1>
-      <p class="summary">Pin Reminder는 지도에서 위치를 선택해 iOS 기본 미리알림 앱에 위치 기반 알림을 만드는 iOS 앱입니다. 자체 계정이나 자체 서버를 운영하지 않으며, 미리알림과 앱 설정은 사용자의 기기 및 Apple 시스템을 통해 처리됩니다.</p>
+      <h1 data-lang="ko">개인정보 처리방침</h1>
+      <h1 data-lang="en" hidden>Privacy Policy</h1>
+      <h1 data-lang="ja" hidden>プライバシーポリシー</h1>
+      <p class="summary" data-lang="ko">Pin Reminder는 지도에서 위치를 선택해 iOS 기본 미리알림 앱에 위치 기반 알림을 만드는 iOS 앱입니다. 자체 계정이나 자체 서버를 운영하지 않으며, 미리알림과 앱 설정은 사용자의 기기 및 Apple 시스템을 통해 처리됩니다.</p>
+      <p class="summary" data-lang="en" hidden>Pin Reminder is an iOS app that lets you pick a location on the map to create location-based reminders in the built-in iOS Reminders app. It does not operate its own account system or server, and reminders and app settings are processed through your device and Apple's systems.</p>
+      <p class="summary" data-lang="ja" hidden>Pin Reminderは、地図上で位置を選択してiOS標準のリマインダーアプリに位置情報に基づくリマインダーを作成するiOSアプリです。独自のアカウントやサーバーは運用しておらず、リマインダーおよびアプリ設定はユーザーの端末およびAppleのシステムを通じて処理されます。</p>
       <div class="meta">
-        <span class="pill">시행일: 2026년 6월 30일</span>
-        <span class="pill">대상: iOS 앱 Pin Reminder</span>
+        <span class="pill" data-lang="ko">시행일: 2026년 6월 30일</span>
+        <span class="pill" data-lang="en" hidden>Effective Date: June 30, 2026</span>
+        <span class="pill" data-lang="ja" hidden>施行日: 2026年6月30日</span>
+        <span class="pill" data-lang="ko">대상: iOS 앱 Pin Reminder</span>
+        <span class="pill" data-lang="en" hidden>Applies to: Pin Reminder for iOS</span>
+        <span class="pill" data-lang="ja" hidden>対象: iOSアプリ Pin Reminder</span>
       </div>
     </header>
 
     <main>
       <section>
-        <h2>1. 처리하는 정보</h2>
-        <p>앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <h2 data-lang="ko">1. 처리하는 정보</h2>
+        <h2 data-lang="en" hidden>1. Information We Process</h2>
+        <h2 data-lang="ja" hidden>1. 取り扱う情報</h2>
+        <p data-lang="ko">앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <p data-lang="en" hidden>We may use the following information to provide the app's features.</p>
+        <p data-lang="ja" hidden>アプリの機能提供のため、以下の情報を利用する場合があります。</p>
         <div class="grid">
           <div class="item">
-            <strong>위치 정보</strong>
-            <span>현재 위치 버튼을 사용할 때 앱 사용 중 위치 권한으로 단발 위치를 확인합니다. 사용자가 지도에서 선택한 좌표와 반경도 미리알림 생성에 사용됩니다.</span>
+            <div data-lang="ko">
+              <strong>위치 정보</strong>
+              <span>현재 위치 버튼을 사용할 때 앱 사용 중 위치 권한으로 단발 위치를 확인합니다. 사용자가 지도에서 선택한 좌표와 반경도 미리알림 생성에 사용됩니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Location Information</strong>
+              <span>When you use the current-location button, we check a one-time location using while-using-app location permission. The coordinates and radius you select on the map are also used to create reminders.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>位置情報</strong>
+              <span>現在地ボタンを使用する際、アプリ使用中の位置情報権限で単発の位置情報を取得します。ユーザーが地図上で選択した座標と半径もリマインダー作成に使用されます。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>미리알림 정보</strong>
-            <span>제목, 메모, 기한, 반복, 우선순위, 캘린더, 위치 좌표, 반경, 도착/출발 조건을 iOS 미리알림에 저장합니다.</span>
+            <div data-lang="ko">
+              <strong>미리알림 정보</strong>
+              <span>제목, 메모, 기한, 반복, 우선순위, 캘린더, 위치 좌표, 반경, 도착/출발 조건을 iOS 미리알림에 저장합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Reminder Information</strong>
+              <span>We store the title, notes, due date, repeat, priority, list, location coordinates, radius, and arriving/leaving conditions in iOS Reminders.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>リマインダー情報</strong>
+              <span>タイトル、メモ、期限、繰り返し、優先度、リスト、位置座標、半径、到着・出発の条件をiOSのリマインダーに保存します。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>검색 및 장소 정보</strong>
-            <span>장소 검색어, 검색 결과, 역지오코딩으로 얻은 장소명과 주소 표시 정보가 위치 선택 과정에 사용됩니다.</span>
+            <div data-lang="ko">
+              <strong>검색 및 장소 정보</strong>
+              <span>장소 검색어, 검색 결과, 역지오코딩으로 얻은 장소명과 주소 표시 정보가 위치 선택 과정에 사용됩니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Search and Place Information</strong>
+              <span>Place search terms, search results, and place names/addresses obtained through reverse geocoding are used during location selection.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>検索および場所の情報</strong>
+              <span>場所の検索キーワード、検索結果、逆ジオコーディングで取得した場所名や住所表示情報が、位置選択の過程で使用されます。</span>
+            </div>
           </div>
           <div class="item">
-            <strong>앱 설정</strong>
-            <span>최근 검색어, 즐겨찾기 핀, 기본 반경과 같은 편의 설정을 기기 내 저장소에 보관합니다.</span>
+            <div data-lang="ko">
+              <strong>앱 설정</strong>
+              <span>최근 검색어, 즐겨찾기 핀, 기본 반경과 같은 편의 설정을 기기 내 저장소에 보관합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>App Settings</strong>
+              <span>Convenience settings such as recent searches, favorite pins, and default radius are stored in on-device storage.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>アプリ設定</strong>
+              <span>最近の検索語、お気に入りのピン、デフォルトの半径といった利便性のための設定を端末内のストレージに保管します。</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section>
-        <h2>2. 위치와 지도 서비스</h2>
-        <p>Pin Reminder는 사용자가 현재 위치 기능을 선택하거나 위치 권한을 허용한 경우에만 위치를 요청합니다. 위치는 지도에서 핀을 빠르게 배치하고 위치 기반 미리알림을 만들기 위해 사용됩니다.</p>
-        <ul>
+        <h2 data-lang="ko">2. 위치와 지도 서비스</h2>
+        <h2 data-lang="en" hidden>2. Location and Map Services</h2>
+        <h2 data-lang="ja" hidden>2. 位置情報と地図サービス</h2>
+        <p data-lang="ko">Pin Reminder는 사용자가 현재 위치 기능을 선택하거나 위치 권한을 허용한 경우에만 위치를 요청합니다. 위치는 지도에서 핀을 빠르게 배치하고 위치 기반 미리알림을 만들기 위해 사용됩니다.</p>
+        <p data-lang="en" hidden>Pin Reminder requests your location only when you choose the current-location feature or have granted location permission. Location is used to quickly place a pin on the map and to create location-based reminders.</p>
+        <p data-lang="ja" hidden>Pin Reminderは、ユーザーが現在地機能を選択した場合、または位置情報の権限を許可した場合にのみ位置情報を要求します。位置情報は、地図上に素早くピンを配置し、位置情報に基づくリマインダーを作成するために使用されます。</p>
+        <ul data-lang="ko">
           <li>앱은 백그라운드에서 지속적으로 위치를 추적하지 않습니다.</li>
           <li>선택한 좌표와 반경은 iOS 미리알림의 위치 알림 조건으로 저장됩니다.</li>
           <li>장소 검색과 역지오코딩에는 Apple MapKit 및 Core Location 서비스가 사용될 수 있으며, 이 과정에서 검색어, 지도 영역, 좌표가 Apple 서비스로 전송될 수 있습니다.</li>
         </ul>
+        <ul data-lang="en" hidden>
+          <li>The app does not continuously track your location in the background.</li>
+          <li>The selected coordinates and radius are stored as the location alert condition in iOS Reminders.</li>
+          <li>Place search and reverse geocoding may use Apple's MapKit and Core Location services, during which search terms, the map region, and coordinates may be transmitted to Apple's services.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>アプリはバックグラウンドで継続的に位置情報を追跡することはありません。</li>
+          <li>選択した座標と半径は、iOSリマインダーの位置通知条件として保存されます。</li>
+          <li>場所検索および逆ジオコーディングには、AppleのMapKitおよびCore Locationサービスが使用される場合があり、その過程で検索キーワード、地図の表示範囲、座標がAppleのサービスへ送信されることがあります。</li>
+        </ul>
       </section>
 
       <section>
-        <h2>3. 미리알림 접근</h2>
-        <p>앱은 사용자의 허용을 받은 뒤 EventKit을 통해 iOS 기본 미리알림 앱에 위치 기반 미리알림을 생성합니다. 생성된 미리알림은 사용자의 기기 및 Apple 계정 설정에 따라 iCloud와 동기화될 수 있습니다. 개발자는 사용자의 미리알림 내용을 자체 서버로 수집하지 않습니다.</p>
+        <h2 data-lang="ko">3. 미리알림 접근</h2>
+        <h2 data-lang="en" hidden>3. Reminders Access</h2>
+        <h2 data-lang="ja" hidden>3. リマインダーへのアクセス</h2>
+        <p data-lang="ko">앱은 사용자의 허용을 받은 뒤 EventKit을 통해 iOS 기본 미리알림 앱에 위치 기반 미리알림을 생성합니다. 생성된 미리알림은 사용자의 기기 및 Apple 계정 설정에 따라 iCloud와 동기화될 수 있습니다. 개발자는 사용자의 미리알림 내용을 자체 서버로 수집하지 않습니다.</p>
+        <p data-lang="en" hidden>After you grant permission, the app creates location-based reminders in the built-in iOS Reminders app via EventKit. Created reminders may sync with iCloud depending on your device and Apple account settings. The developer does not collect the content of your reminders on any server.</p>
+        <p data-lang="ja" hidden>アプリは、ユーザーの許可を得た上でEventKitを通じてiOS標準のリマインダーアプリに位置情報に基づくリマインダーを作成します。作成されたリマインダーは、ユーザーの端末およびAppleアカウントの設定に応じてiCloudと同期される場合があります。開発者はユーザーのリマインダーの内容を自社サーバーへ収集することはありません。</p>
       </section>
 
       <section>
-        <h2>4. 저장 위치와 보관</h2>
-        <p>최근 검색어, 즐겨찾기 핀, 기본 설정은 기기 내 UserDefaults에 저장됩니다. 앱을 삭제하면 앱이 기기에 저장한 데이터도 함께 삭제될 수 있습니다. iOS 미리알림 앱에 저장된 미리알림은 앱 삭제 후에도 Apple 미리알림 데이터로 남을 수 있으며, 사용자가 미리알림 앱에서 직접 관리할 수 있습니다.</p>
+        <h2 data-lang="ko">4. 저장 위치와 보관</h2>
+        <h2 data-lang="en" hidden>4. Storage Location and Retention</h2>
+        <h2 data-lang="ja" hidden>4. 保存場所と保管</h2>
+        <p data-lang="ko">최근 검색어, 즐겨찾기 핀, 기본 설정은 기기 내 UserDefaults에 저장됩니다. 앱을 삭제하면 앱이 기기에 저장한 데이터도 함께 삭제될 수 있습니다. iOS 미리알림 앱에 저장된 미리알림은 앱 삭제 후에도 Apple 미리알림 데이터로 남을 수 있으며, 사용자가 미리알림 앱에서 직접 관리할 수 있습니다.</p>
+        <p data-lang="en" hidden>Recent searches, favorite pins, and default settings are stored in on-device UserDefaults. Deleting the app may also delete the data the app stored on your device. Reminders stored in the iOS Reminders app may remain as Apple Reminders data even after the app is deleted, and you can manage them directly in the Reminders app.</p>
+        <p data-lang="ja" hidden>最近の検索語、お気に入りのピン、デフォルト設定は端末内のUserDefaultsに保存されます。アプリを削除すると、アプリが端末に保存したデータも一緒に削除される場合があります。iOSリマインダーアプリに保存されたリマインダーは、アプリ削除後もAppleのリマインダーデータとして残る場合があり、ユーザーがリマインダーアプリから直接管理できます。</p>
       </section>
 
       <section>
-        <h2>5. 광고, 동의 및 추적</h2>
-        <p>Pin Reminder는 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK와 Google User Messaging Platform(UMP)을 사용할 수 있습니다. 광고 SDK는 광고 제공, 맞춤형 광고, 광고 성과 측정, 부정 사용 방지, 동의 상태 관리를 위해 기기 식별자, 광고 식별자, 광고 데이터, 진단 정보 등을 처리할 수 있습니다.</p>
-        <ul>
+        <h2 data-lang="ko">5. 광고, 동의 및 추적</h2>
+        <h2 data-lang="en" hidden>5. Advertising, Consent, and Tracking</h2>
+        <h2 data-lang="ja" hidden>5. 広告、同意およびトラッキング</h2>
+        <p data-lang="ko">Pin Reminder는 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK와 Google User Messaging Platform(UMP)을 사용할 수 있습니다. 광고 SDK는 광고 제공, 맞춤형 광고, 광고 성과 측정, 부정 사용 방지, 동의 상태 관리를 위해 기기 식별자, 광고 식별자, 광고 데이터, 진단 정보 등을 처리할 수 있습니다.</p>
+        <p data-lang="en" hidden>Pin Reminder may use the Google Mobile Ads (AdMob) SDK and Google User Messaging Platform (UMP) to display in-app banner ads. The advertising SDK may process device identifiers, advertising identifiers, ad data, and diagnostic information to serve ads, provide personalized ads, measure ad performance, prevent fraudulent use, and manage consent status.</p>
+        <p data-lang="ja" hidden>Pin Reminderは、アプリ内バナー広告の表示のためにGoogle Mobile Ads（AdMob）SDKおよびGoogle User Messaging Platform（UMP）を使用する場合があります。広告SDKは、広告の配信、パーソナライズ広告、広告効果の測定、不正利用の防止、同意状態の管理のために、デバイス識別子、広告識別子、広告データ、診断情報などを処理する場合があります。</p>
+        <ul data-lang="ko">
           <li>앱은 필요한 지역에서 UMP 동의 흐름을 먼저 처리한 뒤 광고 요청을 시작합니다.</li>
           <li>iOS의 앱 추적 투명성(ATT) 권한이 필요한 경우 시스템 권한 요청을 표시합니다.</li>
           <li>사용자가 추적을 허용하지 않아도 위치 미리알림 생성 기능은 계속 사용할 수 있습니다.</li>
         </ul>
-      </section>
-
-      <section>
-        <h2>6. 외부 전송 및 공유</h2>
-        <p>Pin Reminder는 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. 개발자는 사용자의 위치, 미리알림 내용, 즐겨찾기 핀, 최근 검색어를 자체 서버로 수집하지 않습니다. 다만 아래 서비스 제공자는 기능 수행 과정에서 필요한 데이터를 처리할 수 있습니다.</p>
-        <ul>
-          <li>Apple: 지도 검색, 역지오코딩, 위치 권한, 미리알림 저장 및 iCloud 동기화</li>
-          <li>Google: 광고 제공, 동의 관리, 광고 측정 및 부정 사용 방지</li>
+        <ul data-lang="en" hidden>
+          <li>In regions where required, the app completes the UMP consent flow before requesting ads.</li>
+          <li>Where iOS App Tracking Transparency (ATT) permission is required, the system permission prompt is displayed.</li>
+          <li>The location reminder creation feature remains fully usable even if you do not allow tracking.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>必要な地域では、アプリはUMPの同意フローを先に処理してから広告リクエストを開始します。</li>
+          <li>iOSのApp Tracking Transparency（ATT）権限が必要な場合は、システムの権限リクエストを表示します。</li>
+          <li>ユーザーがトラッキングを許可しない場合でも、位置情報リマインダーの作成機能は引き続き利用できます。</li>
         </ul>
       </section>
 
       <section>
-        <h2>7. 사용자의 선택</h2>
-        <ul>
+        <h2 data-lang="ko">6. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>6. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>6. 外部への送信および共有</h2>
+        <p data-lang="ko">Pin Reminder는 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. 개발자는 사용자의 위치, 미리알림 내용, 즐겨찾기 핀, 최근 검색어를 자체 서버로 수집하지 않습니다. 다만 아래 서비스 제공자는 기능 수행 과정에서 필요한 데이터를 처리할 수 있습니다.</p>
+        <p data-lang="en" hidden>Pin Reminder does not use its own account system or backend server. The developer does not collect your location, reminder content, favorite pins, or recent searches on any server. However, the service providers listed below may process data necessary to perform their functions.</p>
+        <p data-lang="ja" hidden>Pin Reminderは自社のアカウントシステムやバックエンドサーバーを使用しません。開発者はユーザーの位置情報、リマインダーの内容、お気に入りのピン、最近の検索語を自社サーバーへ収集することはありません。ただし、以下のサービス提供者が、機能実行の過程で必要なデータを処理する場合があります。</p>
+        <ul data-lang="ko">
+          <li>Apple: 지도 검색, 역지오코딩, 위치 권한, 미리알림 저장 및 iCloud 동기화</li>
+          <li>Google: 광고 제공, 동의 관리, 광고 측정 및 부정 사용 방지</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Apple: map search, reverse geocoding, location permission, reminder storage, and iCloud sync</li>
+          <li>Google: ad serving, consent management, ad measurement, and fraud prevention</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>Apple: 地図検索、逆ジオコーディング、位置情報権限、リマインダーの保存およびiCloud同期</li>
+          <li>Google: 広告の配信、同意管理、広告測定および不正利用防止</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">7. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>7. Your Choices</h2>
+        <h2 data-lang="ja" hidden>7. ユーザーの選択</h2>
+        <ul data-lang="ko">
           <li>위치 권한은 iOS 설정에서 변경할 수 있습니다.</li>
           <li>미리알림 접근 권한은 iOS 설정에서 변경할 수 있습니다.</li>
           <li>앱 추적 권한은 iOS 설정의 개인정보 보호 및 보안 항목에서 변경할 수 있습니다.</li>
           <li>앱에 저장된 데이터는 앱 삭제를 통해 기기에서 제거할 수 있습니다.</li>
           <li>iOS 미리알림에 저장된 항목은 미리알림 앱에서 직접 삭제하거나 수정할 수 있습니다.</li>
         </ul>
+        <ul data-lang="en" hidden>
+          <li>Location permission can be changed in iOS Settings.</li>
+          <li>Reminders access permission can be changed in iOS Settings.</li>
+          <li>App tracking permission can be changed under Privacy &amp; Security in iOS Settings.</li>
+          <li>Data stored by the app can be removed from your device by deleting the app.</li>
+          <li>Items stored in iOS Reminders can be deleted or edited directly in the Reminders app.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>位置情報の権限はiOSの設定から変更できます。</li>
+          <li>リマインダーへのアクセス権限はiOSの設定から変更できます。</li>
+          <li>アプリのトラッキング権限は、iOSの設定の「プライバシーとセキュリティ」から変更できます。</li>
+          <li>アプリに保存されたデータは、アプリを削除することで端末から消去できます。</li>
+          <li>iOSリマインダーに保存された項目は、リマインダーアプリから直接削除または編集できます。</li>
+        </ul>
       </section>
 
       <section>
-        <h2>8. 아동의 개인정보</h2>
-        <p>Pin Reminder는 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+        <h2 data-lang="ko">8. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>8. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>8. 児童の個人情報</h2>
+        <p data-lang="ko">Pin Reminder는 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+        <p data-lang="en" hidden>Pin Reminder is not designed for children, and the developer does not knowingly collect personal information from children.</p>
+        <p data-lang="ja" hidden>Pin Reminderは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
       </section>
 
       <section>
-        <h2>9. 변경</h2>
-        <p>앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+        <h2 data-lang="ko">9. 변경</h2>
+        <h2 data-lang="en" hidden>9. Changes</h2>
+        <h2 data-lang="ja" hidden>9. 変更</h2>
+        <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+        <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
+        <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
       </section>
 
       <section>
-        <h2>10. 문의</h2>
-        <p>개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
-        <p class="notice">이 문서는 Pin Reminder의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+        <h2 data-lang="ko">10. 문의</h2>
+        <h2 data-lang="en" hidden>10. Contact</h2>
+        <h2 data-lang="ja" hidden>10. お問い合わせ</h2>
+        <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
+        <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
+        <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
+        <p class="notice" data-lang="ko">이 문서는 Pin Reminder의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+        <p class="notice" data-lang="en" hidden>This document is written based on Pin Reminder's current code and configuration. The App Privacy answers on App Store Connect must be kept consistent with the same data-handling practices described here.</p>
+        <p class="notice" data-lang="ja" hidden>本文書はPin Reminderの現在のコードおよび設定に基づいて作成されています。App Store ConnectのApp Privacyの回答も、本文書と同一のデータ取扱基準で維持される必要があります。</p>
       </section>
     </main>
 
@@ -289,5 +470,27 @@ footer {
       <p><a href="./index.html">Privacy Policies</a></p>
     </footer>
   </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'Pin Reminder 개인정보 처리방침',
+    en: 'Pin Reminder Privacy Policy',
+    ja: 'Pin Reminderプライバシーポリシー'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
 </body>
 </html>

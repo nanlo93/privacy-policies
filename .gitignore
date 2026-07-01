@@ -1,0 +1,9 @@
+# 이 저장소는 GitHub Pages로 공개 배포되는 개인정보 처리방침 전용 저장소입니다.
+# Pages 배포/저장소 설명에 필요한 파일만 추적하고 나머지는 전부 무시합니다.
+*
+
+!.gitignore
+!README.md
+!index.html
+!soulmile.html
+!pin-reminder.html
