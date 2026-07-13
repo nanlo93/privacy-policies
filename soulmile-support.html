@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoulMile 고객지원</title>
+  <meta name="description" content="SoulMile 앱 고객지원 및 자주 묻는 질문">
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #ff5533;
+  --accent-soft: #fff0eb;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent-soft: #40241d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul,
+ol {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"] {
+  word-break: normal;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+      <p class="eyebrow">SoulMile</p>
+      <h1 data-lang="ko">고객지원</h1>
+      <h1 data-lang="en" hidden>Support</h1>
+      <h1 data-lang="ja" hidden>サポート</h1>
+      <p class="summary" data-lang="ko">SoulMile 사용 중 문제가 발생했거나 개선 의견이 있다면 아래 연락처로 문의해 주세요.</p>
+      <p class="summary" data-lang="en" hidden>If you experience an issue with SoulMile or have feedback, please contact us using one of the options below.</p>
+      <p class="summary" data-lang="ja" hidden>SoulMileのご利用中に問題が発生した場合や、ご意見・ご要望がある場合は、以下の連絡先までお問い合わせください。</p>
+      <div class="meta">
+        <span class="pill" data-lang="ko">개발자: 신준호</span>
+        <span class="pill" data-lang="en" hidden>Developer: JunHo Shin</span>
+        <span class="pill" data-lang="ja" hidden>開発者: Shin JunHo</span>
+        <span class="pill" data-lang="ko">답변: 평일 기준 1~2일</span>
+        <span class="pill" data-lang="en" hidden>Response time: 1–2 business days</span>
+        <span class="pill" data-lang="ja" hidden>回答目安: 1〜2営業日</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div data-lang="ko">
+          <h2>문의하기</h2>
+          <p>이메일 또는 GitHub Issues를 통해 문의할 수 있습니다.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>이메일</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">공개 이슈 작성</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues는 공개됩니다. 건강 데이터, 운동 경로, 러닝화 사진, 이메일 주소 등 개인정보가 포함된 문의는 이메일을 이용해 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Contact Support</h2>
+          <p>You can contact us by email or through GitHub Issues.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>Email</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">Create a public issue</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues are public. Please use email if your inquiry contains personal information such as health data, workout routes, running shoe photos, or an email address.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>お問い合わせ</h2>
+          <p>メールまたはGitHub Issuesからお問い合わせいただけます。</p>
+          <div class="grid">
+            <div class="item">
+              <strong>メール</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">公開Issueを作成</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issuesは公開されます。健康データ、運動ルート、ランニングシューズの写真、メールアドレスなどの個人情報を含むお問い合わせは、メールをご利用ください。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>자주 묻는 질문</h2>
+          <h3>HealthKit 권한은 왜 필요한가요?</h3>
+          <p>달리기 워크아웃과 이동 거리를 읽어 러닝화별 주행 거리를 계산하고 새 러닝 세션을 감지하는 데 사용합니다. 운동 경로가 있는 경우 세션 상세 지도와 공유 이미지에도 표시할 수 있습니다. SoulMile은 건강 앱의 데이터를 새로 쓰거나 자체 서버로 전송하지 않습니다.</p>
+
+          <h3>새 러닝 기록이 감지되지 않아요.</h3>
+          <ol>
+            <li>iOS 설정 또는 건강 앱에서 SoulMile의 HealthKit 읽기 권한을 확인해 주세요.</li>
+            <li>SoulMile 설정에서 자동 감지가 켜져 있는지 확인해 주세요.</li>
+            <li>Apple 건강 앱에 해당 달리기 워크아웃이 저장되어 있는지 확인해 주세요.</li>
+            <li>새 기록 알림을 받으려면 iOS 설정에서 SoulMile의 알림 권한도 확인해 주세요.</li>
+          </ol>
+
+          <h3>러닝화 주행 거리는 어떻게 관리하나요?</h3>
+          <p>러닝화를 등록한 뒤 감지된 러닝 세션을 해당 러닝화에 연결하면 주행 거리가 적립됩니다. 잘못 연결한 기록은 SoulMile에서 러닝 세션과 러닝화 정보를 확인해 수정해 주세요.</p>
+
+          <h3>운동 경로나 공유 이미지가 보이지 않아요.</h3>
+          <p>경로는 GPS 데이터가 포함된 러닝에만 표시됩니다. 공유 이미지에 포함할 거리, 시간, 페이스, 경로 등의 항목은 앱 설정에서 선택할 수 있습니다. 사진 앱에 저장하려면 사진 추가 권한이 필요합니다.</p>
+
+          <h3>앱을 삭제하면 건강 데이터도 삭제되나요?</h3>
+          <p>앱에 저장된 러닝화, 사진, 세션, 설정 데이터는 앱 삭제 시 제거될 수 있지만 Apple 건강 앱의 원본 운동 기록은 삭제되지 않습니다.</p>
+
+          <h3>광고와 개인정보는 어떻게 처리되나요?</h3>
+          <p>앱은 배너 광고를 위해 Google Mobile Ads를 사용할 수 있습니다. 추적을 허용하지 않아도 SoulMile의 핵심 기능은 계속 사용할 수 있습니다. 자세한 내용은 <a href="./soulmile.html">개인정보 처리방침</a>을 확인해 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Frequently Asked Questions</h2>
+          <h3>Why does the app need HealthKit access?</h3>
+          <p>HealthKit access is used to read running workouts and distance, calculate mileage for each pair of running shoes, and detect new running sessions. If a workout includes a route, it can also appear on the session map and share image. SoulMile does not write data to Apple Health or transmit health data to its own server.</p>
+
+          <h3>My new running workout was not detected.</h3>
+          <ol>
+            <li>Check SoulMile's HealthKit read permission in iOS Settings or the Health app.</li>
+            <li>Make sure automatic detection is enabled in SoulMile Settings.</li>
+            <li>Verify that the running workout is stored in Apple Health.</li>
+            <li>To receive alerts for new workouts, also check SoulMile's notification permission in iOS Settings.</li>
+          </ol>
+
+          <h3>How do I manage mileage for my running shoes?</h3>
+          <p>Register your running shoes, then assign a detected running session to the shoes you used to credit the mileage. If a session was assigned incorrectly, review and update the running session and shoe information in SoulMile.</p>
+
+          <h3>Why is the workout route or share image missing?</h3>
+          <p>A route appears only for runs that include GPS data. You can choose which details—such as distance, time, pace, and route—appear in share images from the app's settings. Add-to-Photos permission is required to save an image to Photos.</p>
+
+          <h3>Does deleting the app delete my health data?</h3>
+          <p>Running shoes, photos, sessions, and settings stored by the app may be removed when you delete the app, but the original workout records in Apple Health are not deleted.</p>
+
+          <h3>How are ads and personal information handled?</h3>
+          <p>The app may use Google Mobile Ads to display banner ads. SoulMile's core features remain available even if you do not allow tracking. See the <a href="./soulmile.html">Privacy Policy</a> for details.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>よくある質問</h2>
+          <h3>HealthKitへのアクセスはなぜ必要ですか？</h3>
+          <p>ランニングワークアウトと移動距離を読み取り、シューズごとの走行距離を計算し、新しいランニングセッションを検知するために使用します。運動ルートがある場合は、セッション詳細の地図や共有画像にも表示できます。SoulMileがApple「ヘルスケア」にデータを書き込んだり、健康データを自社サーバーへ送信したりすることはありません。</p>
+
+          <h3>新しいランニング記録が検知されません。</h3>
+          <ol>
+            <li>iOSの設定または「ヘルスケア」アプリで、SoulMileのHealthKit読み取り権限を確認してください。</li>
+            <li>SoulMileの設定で自動検知がオンになっていることを確認してください。</li>
+            <li>Apple「ヘルスケア」に対象のランニングワークアウトが保存されていることを確認してください。</li>
+            <li>新しい記録の通知を受け取るには、iOSの設定でSoulMileの通知権限も確認してください。</li>
+          </ol>
+
+          <h3>ランニングシューズの走行距離はどのように管理しますか？</h3>
+          <p>ランニングシューズを登録し、検知されたランニングセッションを使用したシューズに割り当てると、走行距離が積算されます。誤って割り当てた場合は、SoulMileでランニングセッションとシューズ情報を確認して修正してください。</p>
+
+          <h3>運動ルートや共有画像が表示されません。</h3>
+          <p>ルートはGPSデータを含むランニングにのみ表示されます。共有画像に含める距離、時間、ペース、ルートなどの項目はアプリの設定から選択できます。写真アプリに保存するには、写真追加の権限が必要です。</p>
+
+          <h3>アプリを削除すると健康データも削除されますか？</h3>
+          <p>アプリに保存されたシューズ、写真、セッション、設定データはアプリの削除時に消去される場合がありますが、Apple「ヘルスケア」の元のワークアウト記録は削除されません。</p>
+
+          <h3>広告と個人情報はどのように取り扱われますか？</h3>
+          <p>アプリはバナー広告の表示にGoogle Mobile Adsを使用する場合があります。トラッキングを許可しなくても、SoulMileの主要機能は引き続き利用できます。詳しくは<a href="./soulmile.html">プライバシーポリシー</a>をご確認ください。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>문제 제보 시 필요한 정보</h2>
+          <p>아래 정보를 함께 보내주시면 문제 확인에 도움이 됩니다.</p>
+          <ul>
+            <li>SoulMile 앱 버전</li>
+            <li>기기 모델과 iOS 버전</li>
+            <li>영향을 받은 워크아웃의 날짜와 기록 출처</li>
+            <li>문제가 발생하기까지의 순서</li>
+            <li>기대한 결과와 실제 결과</li>
+            <li>필요한 경우 개인정보를 가린 화면 캡처</li>
+          </ul>
+          <p class="notice">운동 경로, 건강 데이터, 러닝화 사진 등 문제 확인에 불필요한 개인정보는 보내지 마세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Information to Include in a Bug Report</h2>
+          <p>Including the following information will help us investigate the issue.</p>
+          <ul>
+            <li>SoulMile app version</li>
+            <li>Device model and iOS version</li>
+            <li>Date and source of the affected workout</li>
+            <li>Steps leading up to the issue</li>
+            <li>Expected result and actual result</li>
+            <li>A screenshot with personal information hidden, if needed</li>
+          </ul>
+          <p class="notice">Do not send personal information that is not necessary to investigate the issue, such as workout routes, health data, or running shoe photos.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>不具合報告に必要な情報</h2>
+          <p>以下の情報を添えていただくと、問題の確認に役立ちます。</p>
+          <ul>
+            <li>SoulMileのアプリバージョン</li>
+            <li>端末のモデルとiOSのバージョン</li>
+            <li>影響を受けたワークアウトの日付と記録元</li>
+            <li>問題が発生するまでの手順</li>
+            <li>期待した結果と実際の結果</li>
+            <li>必要に応じて個人情報を隠した画面のスクリーンショット</li>
+          </ul>
+          <p class="notice">運動ルート、健康データ、ランニングシューズの写真など、問題の確認に不要な個人情報は送信しないでください。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p data-lang="ko"><a href="./soulmile.html">개인정보 처리방침</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="en" hidden><a href="./soulmile.html">Privacy Policy</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ja" hidden><a href="./soulmile.html">プライバシーポリシー</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ko">마지막 업데이트: 2026년 7월 13일</p>
+      <p data-lang="en" hidden>Last updated: July 13, 2026</p>
+      <p data-lang="ja" hidden>最終更新日: 2026年7月13日</p>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'SoulMile 고객지원',
+    en: 'SoulMile Support',
+    ja: 'SoulMileサポート'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
+</body>
+</html>

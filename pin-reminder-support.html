@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pin Reminder 고객지원</title>
+  <meta name="description" content="Pin Reminder 앱 고객지원 및 자주 묻는 질문">
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #ff5533;
+  --accent-soft: #fff0eb;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent-soft: #40241d;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul,
+ol {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"] {
+  word-break: normal;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+      <p class="eyebrow">Pin Reminder</p>
+      <h1 data-lang="ko">고객지원</h1>
+      <h1 data-lang="en" hidden>Support</h1>
+      <h1 data-lang="ja" hidden>サポート</h1>
+      <p class="summary" data-lang="ko">Pin Reminder 사용 중 문제가 발생했거나 개선 의견이 있다면 아래 연락처로 문의해 주세요.</p>
+      <p class="summary" data-lang="en" hidden>If you experience an issue with Pin Reminder or have feedback, please contact us using one of the options below.</p>
+      <p class="summary" data-lang="ja" hidden>Pin Reminderのご利用中に問題が発生した場合や、ご意見・ご要望がある場合は、以下の連絡先までお問い合わせください。</p>
+      <div class="meta">
+        <span class="pill" data-lang="ko">개발자: 신준호</span>
+        <span class="pill" data-lang="en" hidden>Developer: JunHo Shin</span>
+        <span class="pill" data-lang="ja" hidden>開発者: Shin JunHo</span>
+        <span class="pill" data-lang="ko">답변: 평일 기준 1~2일</span>
+        <span class="pill" data-lang="en" hidden>Response time: 1–2 business days</span>
+        <span class="pill" data-lang="ja" hidden>回答目安: 1〜2営業日</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div data-lang="ko">
+          <h2>문의하기</h2>
+          <p>이메일 또는 GitHub Issues를 통해 문의할 수 있습니다.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>이메일</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">공개 이슈 작성</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues는 공개됩니다. 정확한 위치, 미리알림 내용, 이메일 주소 등 개인정보가 포함된 문의는 이메일을 이용해 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Contact Support</h2>
+          <p>You can contact us by email or through GitHub Issues.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>Email</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">Create a public issue</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues are public. Please use email if your inquiry contains personal information such as a precise location, reminder content, or email address.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>お問い合わせ</h2>
+          <p>メールまたはGitHub Issuesからお問い合わせいただけます。</p>
+          <div class="grid">
+            <div class="item">
+              <strong>メール</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">公開Issueを作成</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issuesは公開されます。正確な位置情報、リマインダーの内容、メールアドレスなどの個人情報を含むお問い合わせは、メールをご利用ください。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>자주 묻는 질문</h2>
+          <h3>위치 권한은 왜 필요한가요?</h3>
+          <p>현재 위치에 핀을 빠르게 배치하고 위치 기반 미리알림을 만들 때 사용합니다. Pin Reminder는 백그라운드에서 사용자의 위치를 지속적으로 추적하지 않습니다.</p>
+
+          <h3>미리알림 권한은 어떻게 설정하나요?</h3>
+          <p>앱에서 권한 요청이 표시되면 미리알림 접근을 허용해 주세요. 이미 거부했다면 iOS 설정에서 Pin Reminder의 위치 및 미리알림 접근 권한을 변경할 수 있습니다.</p>
+
+          <h3>위치 알림이 작동하지 않아요.</h3>
+          <ol>
+            <li>iOS 설정에서 Pin Reminder의 위치 및 미리알림 접근 권한을 확인해 주세요.</li>
+            <li>미리알림 앱의 알림이 허용되어 있는지 확인해 주세요.</li>
+            <li>Apple 미리알림 앱에서 해당 항목의 위치와 도착·출발 조건이 저장되었는지 확인해 주세요.</li>
+          </ol>
+          <p>위치 알림의 감지와 전달은 Apple 미리알림 시스템에서 처리하므로 기기 설정과 주변 환경에 따라 알림 시점에 차이가 있을 수 있습니다.</p>
+
+          <h3>생성한 알림은 어디에서 관리하나요?</h3>
+          <p>Pin Reminder로 만든 항목은 Apple 미리알림 앱에 저장됩니다. 내용 수정, 완료 처리, 삭제는 미리알림 앱에서 직접 할 수 있습니다.</p>
+
+          <h3>광고와 개인정보는 어떻게 처리되나요?</h3>
+          <p>앱은 배너 광고를 위해 Google Mobile Ads와 동의 관리 도구를 사용할 수 있습니다. 추적을 허용하지 않아도 위치 미리알림 기능은 계속 사용할 수 있습니다. 자세한 내용은 <a href="./pin-reminder.html">개인정보 처리방침</a>을 확인해 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Frequently Asked Questions</h2>
+          <h3>Why does the app need location permission?</h3>
+          <p>Location permission is used to quickly place a pin at your current location and create location-based reminders. Pin Reminder does not continuously track your location in the background.</p>
+
+          <h3>How do I enable Reminders access?</h3>
+          <p>Allow Reminders access when the permission prompt appears in the app. If you previously denied access, you can change the location and Reminders permissions for Pin Reminder in iOS Settings.</p>
+
+          <h3>My location reminder did not trigger.</h3>
+          <ol>
+            <li>Check the location and Reminders permissions for Pin Reminder in iOS Settings.</li>
+            <li>Make sure notifications are enabled for the Reminders app.</li>
+            <li>Open Apple Reminders and verify that the location and arriving or leaving condition were saved on the reminder.</li>
+          </ol>
+          <p>Location detection and notification delivery are handled by Apple's Reminders system, so timing may vary depending on device settings and the surrounding environment.</p>
+
+          <h3>Where can I manage reminders created by the app?</h3>
+          <p>Items created with Pin Reminder are stored in Apple Reminders. You can edit, complete, or delete them directly in the Reminders app.</p>
+
+          <h3>How are ads and personal information handled?</h3>
+          <p>The app may use Google Mobile Ads and consent management tools to display banner ads. Location reminder features remain available even if you do not allow tracking. See the <a href="./pin-reminder.html">Privacy Policy</a> for details.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>よくある質問</h2>
+          <h3>位置情報の権限はなぜ必要ですか？</h3>
+          <p>現在地にすばやくピンを配置し、位置情報に基づくリマインダーを作成するために使用します。Pin Reminderがバックグラウンドで位置情報を継続的に追跡することはありません。</p>
+
+          <h3>リマインダーへのアクセスを設定するには？</h3>
+          <p>アプリに権限リクエストが表示されたら、リマインダーへのアクセスを許可してください。以前に拒否した場合は、iOSの設定からPin Reminderの位置情報およびリマインダーへのアクセス権限を変更できます。</p>
+
+          <h3>位置情報リマインダーが作動しません。</h3>
+          <ol>
+            <li>iOSの設定でPin Reminderの位置情報およびリマインダーへのアクセス権限を確認してください。</li>
+            <li>リマインダーアプリの通知が許可されていることを確認してください。</li>
+            <li>Appleのリマインダーアプリで、対象項目に位置情報と到着・出発の条件が保存されていることを確認してください。</li>
+          </ol>
+          <p>位置の検出と通知の配信はAppleのリマインダーシステムが処理するため、端末の設定や周辺環境によって通知のタイミングが異なる場合があります。</p>
+
+          <h3>作成したリマインダーはどこで管理できますか？</h3>
+          <p>Pin Reminderで作成した項目はAppleのリマインダーアプリに保存されます。内容の編集、完了、削除はリマインダーアプリから直接行えます。</p>
+
+          <h3>広告と個人情報はどのように取り扱われますか？</h3>
+          <p>アプリはバナー広告の表示にGoogle Mobile Adsおよび同意管理ツールを使用する場合があります。トラッキングを許可しなくても、位置情報リマインダー機能は引き続き利用できます。詳しくは<a href="./pin-reminder.html">プライバシーポリシー</a>をご確認ください。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>문제 제보 시 필요한 정보</h2>
+          <p>아래 정보를 함께 보내주시면 문제 확인에 도움이 됩니다.</p>
+          <ul>
+            <li>Pin Reminder 앱 버전</li>
+            <li>기기 모델과 iOS 또는 iPadOS 버전</li>
+            <li>문제가 발생하기까지의 순서</li>
+            <li>기대한 결과와 실제 결과</li>
+            <li>필요한 경우 개인정보를 가린 화면 캡처</li>
+          </ul>
+          <p class="notice">정확한 위치, 집 주소, 미리알림의 사적인 내용 등 문제 확인에 불필요한 개인정보는 보내지 마세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Information to Include in a Bug Report</h2>
+          <p>Including the following information will help us investigate the issue.</p>
+          <ul>
+            <li>Pin Reminder app version</li>
+            <li>Device model and iOS or iPadOS version</li>
+            <li>Steps leading up to the issue</li>
+            <li>Expected result and actual result</li>
+            <li>A screenshot with personal information hidden, if needed</li>
+          </ul>
+          <p class="notice">Do not send personal information that is not necessary to investigate the issue, such as a precise location, home address, or private reminder content.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>不具合報告に必要な情報</h2>
+          <p>以下の情報を添えていただくと、問題の確認に役立ちます。</p>
+          <ul>
+            <li>Pin Reminderのアプリバージョン</li>
+            <li>端末のモデルとiOSまたはiPadOSのバージョン</li>
+            <li>問題が発生するまでの手順</li>
+            <li>期待した結果と実際の結果</li>
+            <li>必要に応じて個人情報を隠した画面のスクリーンショット</li>
+          </ul>
+          <p class="notice">正確な位置情報、自宅住所、リマインダーの個人的な内容など、問題の確認に不要な個人情報は送信しないでください。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p data-lang="ko"><a href="./pin-reminder.html">개인정보 처리방침</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="en" hidden><a href="./pin-reminder.html">Privacy Policy</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ja" hidden><a href="./pin-reminder.html">プライバシーポリシー</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ko">마지막 업데이트: 2026년 7월 13일</p>
+      <p data-lang="en" hidden>Last updated: July 13, 2026</p>
+      <p data-lang="ja" hidden>最終更新日: 2026年7月13日</p>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'Pin Reminder 고객지원',
+    en: 'Pin Reminder Support',
+    ja: 'Pin Reminderサポート'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
+</body>
+</html>
