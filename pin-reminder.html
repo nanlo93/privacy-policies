@@ -318,6 +318,20 @@ footer {
               <span>最近の検索語、最近登録した位置（座標、場所名、リマインダーのタイトル、登録時刻）、お気に入りのピン（別名、座標、場所名）、ワンタップ通知テンプレート（タイトル、半径、到着・出発条件）、デフォルト設定を端末内のストレージに保管します。</span>
             </div>
           </div>
+          <div class="item">
+            <div data-lang="ko">
+              <strong>사용 통계</strong>
+              <span>온보딩 진행, 권한 요청 결과, 미리알림 생성 결과, 핀 선택 출처와 같이 앱이 미리 정의한 익명 범주값을 Firebase Analytics로 전송합니다. 자세한 내용은 '6. 사용 통계' 항목을 확인해 주세요.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Usage Analytics</strong>
+              <span>Predefined anonymous category values — onboarding progress, permission request outcomes, reminder creation outcomes, and pin selection entry points — are sent via Firebase Analytics. See Section 6 for details.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>利用統計</strong>
+              <span>オンボーディングの進行、権限リクエストの結果、リマインダー作成の結果、ピン選択の経路といった、アプリがあらかじめ定義した匿名の区分値をFirebase Analyticsで送信します。詳細は「6. 利用統計」をご確認ください。</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -388,34 +402,101 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">6. 외부 전송 및 공유</h2>
-        <h2 data-lang="en" hidden>6. External Transfer and Sharing</h2>
-        <h2 data-lang="ja" hidden>6. 外部への送信および共有</h2>
-        <p data-lang="ko">Pin Reminder는 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. 개발자는 사용자의 위치, 미리알림 내용, 즐겨찾기 핀, 최근 검색어를 자체 서버로 수집하지 않습니다. 다만 아래 서비스 제공자는 기능 수행 과정에서 필요한 데이터를 처리할 수 있습니다.</p>
-        <p data-lang="en" hidden>Pin Reminder does not use its own account system or backend server. The developer does not collect your location, reminder content, favorite pins, or recent searches on any server. However, the service providers listed below may process data necessary to perform their functions.</p>
-        <p data-lang="ja" hidden>Pin Reminderは自社のアカウントシステムやバックエンドサーバーを使用しません。開発者はユーザーの位置情報、リマインダーの内容、お気に入りのピン、最近の検索語を自社サーバーへ収集することはありません。ただし、以下のサービス提供者が、機能実行の過程で必要なデータを処理する場合があります。</p>
+        <h2 data-lang="ko">6. 사용 통계</h2>
+        <h2 data-lang="en" hidden>6. Usage Analytics</h2>
+        <h2 data-lang="ja" hidden>6. 利用統計</h2>
+        <p data-lang="ko">Pin Reminder는 앱 개선을 위해 Google Firebase Analytics로 익명 사용 통계를 수집합니다. 이 SDK는 광고 식별자(IDFA)를 수집하지 않는 구성으로 연동되어 있으며, 앱은 이용자를 식별하는 계정 정보나 사용자 ID를 설정하지 않습니다. 전송되는 값은 모두 앱이 미리 정의한 고정 범주값이고, 이용자가 입력한 문장은 포함되지 않습니다.</p>
+        <p data-lang="en" hidden>Pin Reminder collects anonymous usage statistics through Google Firebase Analytics to improve the app. The SDK is integrated in a configuration that does not collect the advertising identifier (IDFA), and the app does not set any account information or user ID that identifies you. Every value transmitted is a fixed category defined in advance by the app; text you enter is never included.</p>
+        <p data-lang="ja" hidden>Pin Reminderは、アプリ改善のためにGoogle Firebase Analyticsで匿名の利用統計を収集します。本SDKは広告識別子（IDFA）を収集しない構成で連携しており、アプリは利用者を識別するアカウント情報やユーザーIDを設定しません。送信される値はすべてアプリがあらかじめ定義した固定の区分値であり、利用者が入力した文章は含まれません。</p>
+        <p data-lang="ko">전송하는 항목은 다음과 같습니다.</p>
+        <p data-lang="en" hidden>The following items are transmitted.</p>
+        <p data-lang="ja" hidden>送信する項目は次のとおりです。</p>
         <ul data-lang="ko">
-          <li>Apple: 지도 검색, 역지오코딩, 위치 권한, 미리알림 저장 및 iCloud 동기화</li>
-          <li>Google: 광고 제공, 동의 관리, 광고 측정 및 부정 사용 방지</li>
+          <li>온보딩의 시작, 완료, 건너뛰기 여부</li>
+          <li>위치, 미리알림, 앱 추적 권한의 요청 결과 범주(허용, 거부). 권한으로 접근한 내용이 아니라 결과 구분값만 전송합니다.</li>
+          <li>위치 미리알림 생성의 시작, 성공, 실패 여부와 실패 시의 정규화된 오류 범주(권한 거부, 권한 제한, 사용 가능한 목록 없음, 저장 실패)</li>
+          <li>지도 핀을 선택한 경로의 출처 구분(검색, 현재 위치, 즐겨찾기, 최근 등록, 지도, 저장 완료 후 도착·출발을 뒤집어 이어 만들기)</li>
+          <li>Firebase SDK가 자동으로 수집하는 앱 실행, 세션, 기기 및 앱 버전 정보</li>
         </ul>
         <ul data-lang="en" hidden>
-          <li>Apple: map search, reverse geocoding, location permission, reminder storage, and iCloud sync</li>
-          <li>Google: ad serving, consent management, ad measurement, and fraud prevention</li>
+          <li>Whether onboarding was started, completed, or skipped</li>
+          <li>The outcome category of location, reminders, and app tracking permission requests (granted or denied). Only the outcome category is transmitted, never the content accessed through the permission.</li>
+          <li>Whether the creation of a location reminder was started, succeeded, or failed, and, when it fails, a normalized error category (permission denied, permission restricted, no available list, or save failure)</li>
+          <li>The entry point used to select a map pin (search, current location, favorites, recently registered, the map, or continuing after a save to create the reminder for the opposite arriving/leaving condition)</li>
+          <li>App launch, session, device, and app version information collected automatically by the Firebase SDK</li>
         </ul>
         <ul data-lang="ja" hidden>
-          <li>Apple: 地図検索、逆ジオコーディング、位置情報権限、リマインダーの保存およびiCloud同期</li>
-          <li>Google: 広告の配信、同意管理、広告測定および不正利用防止</li>
+          <li>オンボーディングの開始、完了、スキップの有無</li>
+          <li>位置情報、リマインダー、アプリのトラッキング権限のリクエスト結果の区分（許可、拒否）。権限を通じてアクセスした内容ではなく、結果の区分値のみを送信します。</li>
+          <li>位置情報リマインダー作成の開始、成功、失敗の有無と、失敗時の正規化されたエラー区分（権限の拒否、権限の制限、利用可能なリストなし、保存の失敗）</li>
+          <li>地図のピンを選択した経路の区分（検索、現在地、お気に入り、最近の登録、地図、保存完了後に到着・出発を反転して続けて作成）</li>
+          <li>Firebase SDKが自動的に収集するアプリの起動、セッション、端末およびアプリのバージョン情報</li>
+        </ul>
+        <p data-lang="ko">다음 항목은 전송하지 않습니다.</p>
+        <p data-lang="en" hidden>The following items are not transmitted.</p>
+        <p data-lang="ja" hidden>次の項目は送信しません。</p>
+        <ul data-lang="ko">
+          <li>좌표, 주소, 장소명</li>
+          <li>장소 검색어</li>
+          <li>미리알림의 제목과 메모, 미리알림 식별자</li>
+          <li>즐겨찾기 별칭</li>
+          <li>원본 오류 메시지</li>
+          <li>이용자를 식별하는 계정 정보나 사용자 ID</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Coordinates, addresses, and place names</li>
+          <li>Place search terms</li>
+          <li>Reminder titles and notes, and reminder identifiers</li>
+          <li>Favorite pin aliases</li>
+          <li>Raw error messages</li>
+          <li>Account information or a user ID that identifies you</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>座標、住所、場所名</li>
+          <li>場所の検索キーワード</li>
+          <li>リマインダーのタイトルとメモ、リマインダーの識別子</li>
+          <li>お気に入りの別名</li>
+          <li>エラーメッセージの原文</li>
+          <li>利用者を識別するアカウント情報やユーザーID</li>
+        </ul>
+        <p data-lang="ko">앱에는 사용 통계 수집만 따로 끄는 설정이 없습니다. 앱을 삭제하면 수집이 중단됩니다.</p>
+        <p data-lang="en" hidden>The app does not provide a separate setting to turn off usage analytics alone. Deleting the app stops the collection.</p>
+        <p data-lang="ja" hidden>アプリには、利用統計の収集だけを個別にオフにする設定はありません。アプリを削除すると収集は停止します。</p>
+        <p class="notice" data-lang="ko">이 사용 통계 수집은 iOS 앱 추적 투명성(ATT)에서 말하는 추적에 해당하지 않습니다. 광고 식별자(IDFA)를 사용하지 않고, 다른 회사의 앱이나 웹사이트에서 수집된 데이터와 결합하지 않기 때문입니다. '5. 광고, 동의 및 추적' 항목에서 안내한 광고 SDK의 추적과는 별개 항목입니다.</p>
+        <p class="notice" data-lang="en" hidden>This collection of usage statistics does not constitute tracking as defined by iOS App Tracking Transparency (ATT), because it does not use the advertising identifier (IDFA) and is not combined with data collected from other companies' apps or websites. It is separate from the advertising SDK tracking described in Section 5, Advertising, Consent, and Tracking.</p>
+        <p class="notice" data-lang="ja" hidden>この利用統計の収集は、iOSのApp Tracking Transparency（ATT）でいうトラッキングには該当しません。広告識別子（IDFA）を使用せず、他社のアプリやウェブサイトで収集されたデータと結合しないためです。「5. 広告、同意およびトラッキング」で案内した広告SDKのトラッキングとは別の項目です。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">7. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>7. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>7. 外部への送信および共有</h2>
+        <p data-lang="ko">Pin Reminder는 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. 개발자는 사용자의 위치, 미리알림 내용과 상태, 최근 등록 위치, 즐겨찾기 핀과 알림 템플릿, 최근 검색어를 자체 서버로 수집하지 않습니다. 다만 아래 서비스 제공자는 기능 수행 과정에서 필요한 데이터를 처리할 수 있습니다.</p>
+        <p data-lang="en" hidden>Pin Reminder does not use its own account system or backend server. The developer does not collect your location, reminder content or status, recently registered locations, favorite pins or reminder templates, or recent searches on any server. However, the service providers listed below may process data necessary to perform their functions.</p>
+        <p data-lang="ja" hidden>Pin Reminderは自社のアカウントシステムやバックエンドサーバーを使用しません。開発者はユーザーの位置情報、リマインダーの内容や状態、最近登録した位置、お気に入りのピンや通知テンプレート、最近の検索語を自社サーバーへ収集することはありません。ただし、以下のサービス提供者が、機能実行の過程で必要なデータを処理する場合があります。</p>
+        <ul data-lang="ko">
+          <li>Apple: 지도 검색, 역지오코딩, 위치 권한, 미리알림 저장·조회 및 iCloud 동기화</li>
+          <li>Google: 광고 제공, 동의 관리, 광고 측정, 부정 사용 방지 및 익명 사용 통계 처리(Firebase Analytics)</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Apple: map search, reverse geocoding, location permission, reminder storage and querying, and iCloud sync</li>
+          <li>Google: ad serving, consent management, ad measurement, fraud prevention, and processing of anonymous usage statistics (Firebase Analytics)</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>Apple: 地図検索、逆ジオコーディング、位置情報権限、リマインダーの保存・照会およびiCloud同期</li>
+          <li>Google: 広告の配信、同意管理、広告測定、不正利用防止および匿名の利用統計の処理（Firebase Analytics）</li>
         </ul>
       </section>
 
       <section>
-        <h2 data-lang="ko">7. 사용자의 선택</h2>
-        <h2 data-lang="en" hidden>7. Your Choices</h2>
-        <h2 data-lang="ja" hidden>7. ユーザーの選択</h2>
+        <h2 data-lang="ko">8. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>8. Your Choices</h2>
+        <h2 data-lang="ja" hidden>8. ユーザーの選択</h2>
         <ul data-lang="ko">
           <li>위치 권한은 iOS 설정에서 변경할 수 있습니다.</li>
           <li>미리알림 접근 권한은 iOS 설정에서 변경할 수 있습니다.</li>
           <li>앱 추적 권한은 iOS 설정의 개인정보 보호 및 보안 항목에서 변경할 수 있습니다.</li>
+          <li>사용 통계 수집만 따로 끄는 설정은 앱에 없으며, 앱을 삭제하면 수집이 중단됩니다.</li>
           <li>앱에 저장된 데이터는 앱 삭제를 통해 기기에서 제거할 수 있습니다.</li>
           <li>iOS 미리알림에 저장된 항목은 미리알림 앱에서 직접 삭제하거나 수정할 수 있습니다.</li>
         </ul>
@@ -423,6 +504,7 @@ footer {
           <li>Location permission can be changed in iOS Settings.</li>
           <li>Reminders access permission can be changed in iOS Settings.</li>
           <li>App tracking permission can be changed under Privacy &amp; Security in iOS Settings.</li>
+          <li>The app has no setting to turn off usage analytics alone; deleting the app stops the collection.</li>
           <li>Data stored by the app can be removed from your device by deleting the app.</li>
           <li>Items stored in iOS Reminders can be deleted or edited directly in the Reminders app.</li>
         </ul>
@@ -430,33 +512,34 @@ footer {
           <li>位置情報の権限はiOSの設定から変更できます。</li>
           <li>リマインダーへのアクセス権限はiOSの設定から変更できます。</li>
           <li>アプリのトラッキング権限は、iOSの設定の「プライバシーとセキュリティ」から変更できます。</li>
+          <li>利用統計の収集だけを個別にオフにする設定はアプリにはなく、アプリを削除すると収集は停止します。</li>
           <li>アプリに保存されたデータは、アプリを削除することで端末から消去できます。</li>
           <li>iOSリマインダーに保存された項目は、リマインダーアプリから直接削除または編集できます。</li>
         </ul>
       </section>
 
       <section>
-        <h2 data-lang="ko">8. 아동의 개인정보</h2>
-        <h2 data-lang="en" hidden>8. Children's Privacy</h2>
-        <h2 data-lang="ja" hidden>8. 児童の個人情報</h2>
+        <h2 data-lang="ko">9. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>9. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>9. 児童の個人情報</h2>
         <p data-lang="ko">Pin Reminder는 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
         <p data-lang="en" hidden>Pin Reminder is not designed for children, and the developer does not knowingly collect personal information from children.</p>
         <p data-lang="ja" hidden>Pin Reminderは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">9. 변경</h2>
-        <h2 data-lang="en" hidden>9. Changes</h2>
-        <h2 data-lang="ja" hidden>9. 変更</h2>
+        <h2 data-lang="ko">10. 변경</h2>
+        <h2 data-lang="en" hidden>10. Changes</h2>
+        <h2 data-lang="ja" hidden>10. 変更</h2>
         <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
         <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
         <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">10. 문의</h2>
-        <h2 data-lang="en" hidden>10. Contact</h2>
-        <h2 data-lang="ja" hidden>10. お問い合わせ</h2>
+        <h2 data-lang="ko">11. 문의</h2>
+        <h2 data-lang="en" hidden>11. Contact</h2>
+        <h2 data-lang="ja" hidden>11. お問い合わせ</h2>
         <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
         <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
         <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
