@@ -244,9 +244,9 @@ footer {
       <p class="summary" data-lang="en" hidden>SoulMile is an iOS app that detects running workouts and, when you enable the option, walking workouts, then credits the mileage to the running shoes you register. It does not offer account creation or its own server-based login, and your shoe and health data are processed on your device in principle.</p>
       <p class="summary" data-lang="ja" hidden>SoulMileは、ランニング記録と、ユーザーが設定を有効にした場合はウォーキング記録を検知し、登録したランニングシューズに走行距離を積算するiOSアプリです。アカウント作成や自社サーバーへのログインは提供せず、シューズや健康データは原則として端末内で処理されます。</p>
       <div class="meta">
-        <span class="pill" data-lang="ko">시행일: 2026년 7월 22일</span>
-        <span class="pill" data-lang="en" hidden>Effective Date: July 22, 2026</span>
-        <span class="pill" data-lang="ja" hidden>施行日: 2026年7月22日</span>
+        <span class="pill" data-lang="ko">시행일: 2026년 7월 27일</span>
+        <span class="pill" data-lang="en" hidden>Effective Date: July 27, 2026</span>
+        <span class="pill" data-lang="ja" hidden>施行日: 2026年7月27日</span>
         <span class="pill" data-lang="ko">대상: iOS 앱 SoulMile</span>
         <span class="pill" data-lang="en" hidden>Applies to: SoulMile for iOS</span>
         <span class="pill" data-lang="ja" hidden>対象: iOSアプリ SoulMile</span>
@@ -450,24 +450,96 @@ footer {
           <li>Firebase Analyticsは広告識別子（IDFA）を収集しない構成（FirebaseAnalyticsCore）で連携されており、上記第6項の広告SDKとは別に運用され、広告のパーソナライズやオーディエンスターゲティングには使用されません。</li>
           <li>ユーザーはiOSの設定のプライバシー項目でアプリのトラッキングを制限でき、これは第6項の広告SDKの動作に影響します。</li>
         </ul>
+        <p data-lang="ko">앱이 비정상 종료된 경우, Crashlytics가 비정상 종료 비율을 계산하기 위해 종료 사실과 발생 시각을 담은 이벤트를 자동으로 보냅니다. 이 항목은 앱이 미리 정의한 이벤트 목록이 아니라 SDK가 스스로 보내는 것입니다. 자세한 내용은 '8. 크래시 진단' 항목을 확인해 주세요.</p>
+        <p data-lang="en" hidden>When the app terminates abnormally, Crashlytics automatically sends an event containing the fact of the termination and its timestamp in order to calculate the crash-free rate. This item is sent by the SDK itself rather than from the app's predefined event list. See Section 8, Crash Diagnostics, for details.</p>
+        <p data-lang="ja" hidden>アプリが異常終了した場合、Crashlyticsは異常終了率を算出するため、終了の事実と発生時刻を含むイベントを自動的に送信します。この項目はアプリがあらかじめ定義したイベント一覧ではなく、SDK自身が送るものです。詳細は「8. クラッシュ診断」をご確認ください。</p>
         <p data-lang="ko">앱에는 사용 통계 수집만 따로 끄는 설정이 없습니다. 앱을 삭제하면 수집이 중단됩니다.</p>
         <p data-lang="en" hidden>The app does not provide a separate setting to turn off usage analytics alone. Deleting the app stops the collection.</p>
         <p data-lang="ja" hidden>アプリには、利用統計の収集だけを個別にオフにする設定はありません。アプリを削除すると収集は停止します。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">8. 외부 전송 및 공유</h2>
-        <h2 data-lang="en" hidden>8. External Transfer and Sharing</h2>
-        <h2 data-lang="ja" hidden>8. 外部への送信および共有</h2>
-        <p data-lang="ko">SoulMile은 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. HealthKit 달리기·걷기 데이터, 운동 경로, 러닝화 정보, 러닝화 사진은 앱 기능 제공을 위해 기기 안에서 처리되며 개발자에게 전송되지 않습니다. 세션 공유 이미지는 위 5항과 같이 사용자가 직접 공유하거나 저장할 때에만 사용자가 지정한 대상으로 전달됩니다. 다만 광고 SDK가 광고 제공을 위해 필요한 데이터를 Google 및 관련 광고 파트너에게 전송할 수 있고, Firebase Analytics SDK는 위 7항에 명시된 비식별 사용 통계를 Google에 전송합니다.</p>
-        <p data-lang="en" hidden>SoulMile does not use its own account system or backend server. HealthKit running and walking data, workout routes, running shoe information, and running shoe photos are processed on your device to provide the app's features and are not transmitted to the developer. As described in Section 5, session share images are delivered only to a destination you choose, and only when you share or save them yourself. However, the advertising SDK may transmit data necessary for serving ads to Google and its advertising partners, and the Firebase Analytics SDK transmits the non-identifying usage statistics described in Section 7 to Google.</p>
-        <p data-lang="ja" hidden>SoulMileは自社のアカウントシステムやバックエンドサーバーを使用しません。HealthKitのランニング・ウォーキングデータ、運動ルート、シューズ情報、シューズの写真は、アプリの機能提供のため端末内で処理され、開発者へ送信されることはありません。セッションの共有画像は、上記第5項のとおり、ユーザーが自ら共有または保存したときにのみ、ユーザーが指定した宛先へ送られます。ただし、広告SDKが広告配信のために必要なデータをGoogleおよび関連する広告パートナーへ送信する場合があり、Firebase Analytics SDKは上記第7項に記載の非識別の利用統計をGoogleへ送信します。</p>
+        <h2 data-lang="ko">8. 크래시 진단</h2>
+        <h2 data-lang="en" hidden>8. Crash Diagnostics</h2>
+        <h2 data-lang="ja" hidden>8. クラッシュ診断</h2>
+        <p data-lang="ko">SoulMile은 앱이 예기치 않게 종료되거나 감지 기능이 조용히 실패했을 때 원인을 찾기 위해 Google Firebase Crashlytics로 진단 정보를 수집합니다. 이 앱의 핵심 기능은 앱이 닫힌 상태에서 운동을 감지하는 것이라, 화면에 보이지 않는 곳에서 일어난 실패는 이 수집 없이는 확인할 방법이 없습니다. 이 수집은 오류 수정과 안정성 개선만을 목적으로 하며, 이용자를 식별하는 계정 정보나 사용자 ID를 설정하지 않습니다.</p>
+        <p data-lang="en" hidden>SoulMile collects diagnostic information through Google Firebase Crashlytics to determine the cause when the app terminates unexpectedly or its detection feature fails silently. Because this app's core feature is detecting workouts while the app is closed, failures that occur out of sight cannot be identified without this collection. It is solely for fixing errors and improving stability, and the app does not set any account information or user ID that identifies you.</p>
+        <p data-lang="ja" hidden>SoulMileは、アプリが予期せず終了した場合や検知機能が静かに失敗した場合に原因を特定するため、Google Firebase Crashlyticsで診断情報を収集します。本アプリの中核機能はアプリが閉じた状態で運動を検知することであるため、画面に見えないところで起きた失敗はこの収集なしには確認できません。この収集はエラーの修正と安定性の改善のみを目的としており、利用者を識別するアカウント情報やユーザーIDは設定しません。</p>
+        <p data-lang="ko">전송하는 항목은 다음과 같습니다.</p>
+        <p data-lang="en" hidden>The following items are transmitted.</p>
+        <p data-lang="ja" hidden>送信する項目は次のとおりです。</p>
+        <ul data-lang="ko">
+          <li>앱이 비정상 종료된 시점의 호출 스택과, 기기 모델, 기기 아키텍처, 운영체제 버전, 앱 버전, 기기의 언어·지역 설정, 실행 경과 시간처럼 Firebase SDK가 자동으로 수집하는 진단 정보</li>
+          <li>앱 설치마다 새로 만들어지는 익명 설치 식별자와 실행 세션 식별자. 여러 리포트를 같은 설치·실행으로 묶기 위한 값이며, 앱을 삭제한 뒤 다시 설치하면 새로 만들어집니다.</li>
+          <li>Firebase Analytics로 기록되는 이벤트의 이름과 파라미터. 크래시 직전에 무슨 일이 있었는지를 보여 주는 기록으로 리포트에 함께 실립니다.</li>
+          <li>사용자에게 오류로 보이지 않은 채 실패한 동작의 정규화된 범주. 건강 데이터 접근 권한 요청, 건강 데이터 조회, 운동 변경 통보 수신, 백그라운드 전달 활성화, 앱 내부 저장이 실패한 경우가 이에 해당하며, 어느 단계에서 실패했는지를 나타내는 구분값만 전송합니다.</li>
+          <li>감지 기능이 어느 단계까지 진행됐는지를 나타내는 고정 이정표. 앱 시작 준비 완료, 운동 변경 통보 수신, 조회 완료, 놓친 운동 따라잡기 스캔 시작의 네 가지입니다.</li>
+          <li>그 실행이 화면에 떠 있는 상태에서 시작됐는지, 백그라운드에서 깨어난 실행인지를 구분하는 값</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>The call stack at the moment the app terminated abnormally, along with diagnostic information the Firebase SDK collects automatically, such as the device model, device architecture, operating system version, app version, the device's language and region settings, and elapsed run time</li>
+          <li>An anonymous installation identifier generated for each installation of the app, and a run session identifier. These group multiple reports under the same installation or run, and new values are generated if you delete and reinstall the app.</li>
+          <li>The names and parameters of events recorded through Firebase Analytics. They are included in the report as a record of what happened immediately before the crash.</li>
+          <li>A normalized category for an operation that failed without surfacing an error to you. This covers failures in requesting health data access, querying health data, receiving a workout change notification, enabling background delivery, and saving the app's internal data; only a category value indicating which step failed is transmitted.</li>
+          <li>Fixed milestones indicating how far the detection feature progressed: bootstrap completion, receipt of a workout change notification, query completion, and the start of a catch-up scan for missed workouts.</li>
+          <li>A value distinguishing whether that run started while the app was on screen or was woken in the background</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>アプリが異常終了した時点のコールスタックと、端末のモデル、端末のアーキテクチャ、OSバージョン、アプリのバージョン、端末の言語・地域設定、起動からの経過時間など、Firebase SDKが自動的に収集する診断情報</li>
+          <li>アプリのインストールごとに新たに生成される匿名のインストール識別子と、実行セッション識別子。複数のレポートを同一のインストール・実行としてまとめるための値であり、アプリを削除して再インストールすると新しい値が生成されます。</li>
+          <li>Firebase Analyticsで記録されるイベントの名称とパラメータ。クラッシュの直前に何が起きたかを示す記録としてレポートに併せて含まれます。</li>
+          <li>利用者にエラーとして表示されないまま失敗した処理の正規化された区分。ヘルスデータへのアクセス権限のリクエスト、ヘルスデータの照会、運動の変更通知の受信、バックグラウンド配信の有効化、アプリ内部の保存が失敗した場合が該当し、どの段階で失敗したかを示す区分値のみを送信します。</li>
+          <li>検知機能がどの段階まで進んだかを示す固定のマイルストーン。起動準備の完了、運動の変更通知の受信、照会の完了、取りこぼした運動の追いつきスキャンの開始の4種類です。</li>
+          <li>その実行が画面に表示された状態で開始されたのか、バックグラウンドで起動されたのかを区別する値</li>
+        </ul>
+        <p data-lang="ko">다음 항목은 전송하지 않습니다.</p>
+        <p data-lang="en" hidden>The following items are not transmitted.</p>
+        <p data-lang="ja" hidden>次の項目は送信しません。</p>
+        <ul data-lang="ko">
+          <li>운동의 거리, 시간, 페이스, 날짜, 경로, 식별자</li>
+          <li>러닝화의 브랜드, 모델명, 사진, 마일리지</li>
+          <li>세션의 상세 내용과 사용자가 직접 입력한 값</li>
+          <li>시스템이 만든 원본 오류 메시지. 이 문장은 처리에 실패한 데이터의 내용을 그대로 인용할 수 있어 전송하지 않고 기기 안의 기록에만 남깁니다.</li>
+          <li>이용자를 식별하는 계정 정보나 사용자 ID</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>A workout's distance, time, pace, date, route, or identifiers</li>
+          <li>A running shoe's brand, model name, photo, or mileage</li>
+          <li>Session details and values you entered yourself</li>
+          <li>Raw error messages produced by the system. Such messages can quote the contents of the data that failed to process, so they are never transmitted and remain only in the log on your device.</li>
+          <li>Account information or a user ID that identifies you</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>運動の距離、時間、ペース、日付、ルート、識別子</li>
+          <li>シューズのブランド、モデル名、写真、走行距離</li>
+          <li>セッションの詳細内容および利用者が自ら入力した値</li>
+          <li>システムが生成したエラーメッセージの原文。この文章は処理に失敗したデータの内容をそのまま引用する場合があるため、送信せず端末内の記録にのみ残します。</li>
+          <li>利用者を識別するアカウント情報やユーザーID</li>
+        </ul>
+        <p class="notice" data-lang="ko">위 이정표와 실행 경로 구분값에는 운동 데이터 자체가 들어 있지 않습니다. 다만 이 앱은 운동 기록 변경을 계기로 백그라운드에서 깨어나므로, 백그라운드 실행으로 기록된 리포트는 그 무렵 건강 데이터에 변화가 있었을 가능성을 시사할 수 있습니다. 리포트가 만들어지는 시점은 앱이 비정상 종료되거나 위에 적은 실패가 일어났을 때로 한정됩니다.</p>
+        <p class="notice" data-lang="en" hidden>The milestones and run-path value above contain no workout data themselves. However, because this app wakes in the background in response to changes in workout records, a report marked as a background run may suggest that health data changed around that time. Reports are created only when the app terminates abnormally or one of the failures listed above occurs.</p>
+        <p class="notice" data-lang="ja" hidden>上記のマイルストーンおよび実行経路の区分値そのものに運動データは含まれません。ただし本アプリは運動記録の変更を契機にバックグラウンドで起動するため、バックグラウンド実行として記録されたレポートは、その頃にヘルスデータの変化があった可能性を示唆する場合があります。レポートが作成されるのは、アプリが異常終了した場合、または上記の失敗が発生した場合に限られます。</p>
+        <p data-lang="ko">크래시가 발생하면 리포트는 그 자리에서 전송되지 않고 앱이 다시 실행될 때 전송됩니다. Google은 크래시 스택 트레이스와 그에 연결된 식별자(위 설치 식별자 포함)를 90일간 보관한 뒤 삭제 절차를 시작합니다. 앱에는 크래시 진단 수집만 따로 끄는 설정이 없으며, 앱을 삭제하면 수집이 중단됩니다.</p>
+        <p data-lang="en" hidden>When a crash occurs, the report is not sent at that moment but on the app's next launch. Google retains crash stack traces and their associated identifiers (including the installation identifier described above) for 90 days before beginning the removal process. The app does not provide a separate setting to turn off crash diagnostics alone, and deleting the app stops the collection.</p>
+        <p data-lang="ja" hidden>クラッシュが発生した場合、レポートはその場では送信されず、次にアプリを起動した際に送信されます。Googleは、クラッシュのスタックトレースおよびそれに紐づく識別子（上記のインストール識別子を含む）を90日間保管した後、削除の手続きを開始します。アプリには、クラッシュ診断の収集だけを個別にオフにする設定はなく、アプリを削除すると収集は停止します。</p>
+        <p class="notice" data-lang="ko">앱은 크래시 진단을 광고 목적으로 사용하지 않으며, 이 수집을 위해 광고 식별자(IDFA)를 사용하지 않습니다. 전송된 진단 정보를 Google이 어떻게 처리하는지는 Google의 개인정보처리방침을 따릅니다.</p>
+        <p class="notice" data-lang="en" hidden>The app does not use crash diagnostics for advertising purposes and does not use the advertising identifier (IDFA) for this collection. How Google processes the diagnostic information once transmitted is governed by Google's privacy policy.</p>
+        <p class="notice" data-lang="ja" hidden>アプリはクラッシュ診断を広告目的で使用せず、この収集のために広告識別子（IDFA）を使用しません。送信された診断情報をGoogleがどのように取り扱うかは、Googleのプライバシーポリシーに従います。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">9. 사용자의 선택</h2>
-        <h2 data-lang="en" hidden>9. Your Choices</h2>
-        <h2 data-lang="ja" hidden>9. ユーザーの選択</h2>
+        <h2 data-lang="ko">9. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>9. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>9. 外部への送信および共有</h2>
+        <p data-lang="ko">SoulMile은 자체 계정 시스템이나 자체 백엔드 서버를 사용하지 않습니다. HealthKit 달리기·걷기 데이터, 운동 경로, 러닝화 정보, 러닝화 사진은 앱 기능 제공을 위해 기기 안에서 처리되며 개발자에게 전송되지 않습니다. 세션 공유 이미지는 위 5항과 같이 사용자가 직접 공유하거나 저장할 때에만 사용자가 지정한 대상으로 전달됩니다. 다만 광고 SDK가 광고 제공을 위해 필요한 데이터를 Google 및 관련 광고 파트너에게 전송할 수 있고, Firebase Analytics SDK는 위 7항에 명시된 비식별 사용 통계를, Firebase Crashlytics SDK는 위 8항에 명시된 크래시 진단 정보를 Google에 전송합니다.</p>
+        <p data-lang="en" hidden>SoulMile does not use its own account system or backend server. HealthKit running and walking data, workout routes, running shoe information, and running shoe photos are processed on your device to provide the app's features and are not transmitted to the developer. As described in Section 5, session share images are delivered only to a destination you choose, and only when you share or save them yourself. However, the advertising SDK may transmit data necessary for serving ads to Google and its advertising partners, and the Firebase Analytics SDK transmits the non-identifying usage statistics described in Section 7 to Google, and the Firebase Crashlytics SDK transmits the crash diagnostics described in Section 8 to Google.</p>
+        <p data-lang="ja" hidden>SoulMileは自社のアカウントシステムやバックエンドサーバーを使用しません。HealthKitのランニング・ウォーキングデータ、運動ルート、シューズ情報、シューズの写真は、アプリの機能提供のため端末内で処理され、開発者へ送信されることはありません。セッションの共有画像は、上記第5項のとおり、ユーザーが自ら共有または保存したときにのみ、ユーザーが指定した宛先へ送られます。ただし、広告SDKが広告配信のために必要なデータをGoogleおよび関連する広告パートナーへ送信する場合があり、Firebase Analytics SDKは上記第7項に記載の非識別の利用統計を、Firebase Crashlytics SDKは上記第8項に記載のクラッシュ診断情報をGoogleへ送信します。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">10. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>10. Your Choices</h2>
+        <h2 data-lang="ja" hidden>10. ユーザーの選択</h2>
         <ul data-lang="ko">
           <li>HealthKit 권한은 iOS 설정 또는 건강 앱에서 변경할 수 있습니다.</li>
           <li>알림 권한은 iOS 설정에서 변경할 수 있습니다.</li>
@@ -498,27 +570,27 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">10. 아동의 개인정보</h2>
-        <h2 data-lang="en" hidden>10. Children's Privacy</h2>
-        <h2 data-lang="ja" hidden>10. 児童の個人情報</h2>
+        <h2 data-lang="ko">11. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>11. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>11. 児童の個人情報</h2>
         <p data-lang="ko">SoulMile은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
         <p data-lang="en" hidden>SoulMile is not designed for children, and the developer does not knowingly collect personal information from children.</p>
         <p data-lang="ja" hidden>SoulMileは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">11. 변경</h2>
-        <h2 data-lang="en" hidden>11. Changes</h2>
-        <h2 data-lang="ja" hidden>11. 変更</h2>
+        <h2 data-lang="ko">12. 변경</h2>
+        <h2 data-lang="en" hidden>12. Changes</h2>
+        <h2 data-lang="ja" hidden>12. 変更</h2>
         <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
         <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
         <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
       </section>
 
       <section>
-        <h2 data-lang="ko">12. 문의</h2>
-        <h2 data-lang="en" hidden>12. Contact</h2>
-        <h2 data-lang="ja" hidden>12. お問い合わせ</h2>
+        <h2 data-lang="ko">13. 문의</h2>
+        <h2 data-lang="en" hidden>13. Contact</h2>
+        <h2 data-lang="ja" hidden>13. お問い合わせ</h2>
         <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
         <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
         <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
