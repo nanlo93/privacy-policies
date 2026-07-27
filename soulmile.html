@@ -485,7 +485,7 @@ footer {
         <ul data-lang="ko">
           <li>앱이 비정상 종료된 시점의 호출 스택과, 기기 모델, 기기 아키텍처, 운영체제 버전, 앱 버전, 기기의 언어·지역 설정, 실행 경과 시간처럼 Firebase SDK가 자동으로 수집하는 진단 정보</li>
           <li>앱 설치마다 새로 만들어지는 익명 설치 식별자와 실행 세션 식별자. 여러 리포트를 같은 설치·실행으로 묶기 위한 값이며, 앱을 삭제한 뒤 다시 설치하면 새로 만들어집니다.</li>
-          <li>앱이 실행되어 Firebase가 준비되는 시점과 이후 앱이 화면에 다시 나타날 때마다 전송되는 실행 세션 정보. 세션 식별자, 그 설치에서 몇 번째 실행인지를 나타내는 번호, 발생 시각, 앱과 SDK의 버전, 운영체제 이름과 버전, 기기 모델이 포함됩니다. 이 정보는 크래시가 일어나지 않아도 전송되며, 백그라운드에서 깨어난 실행에서도 전송됩니다.</li>
+          <li>앱이 실행되어 Firebase가 준비되는 시점과, 앱을 백그라운드에 일정 시간(기본 30분) 이상 두었다가 다시 화면에 띄우는 시점에 전송되는 실행 세션 정보. 세션 식별자, 그 설치에서 몇 번째 실행인지를 나타내는 번호, 발생 시각, 앱과 SDK의 버전, 운영체제 이름과 버전, 기기 모델이 포함됩니다. 이 정보는 크래시가 일어나지 않아도 전송되며, 운동 감지를 위해 백그라운드에서 깨어난 실행에서도 전송됩니다.</li>
           <li>Firebase Analytics로 기록되는 이벤트의 이름과 파라미터. 크래시 직전에 무슨 일이 있었는지를 보여 주는 기록으로 리포트에 함께 실립니다.</li>
           <li>사용자에게 오류로 보이지 않은 채 실패한 동작의 정규화된 범주. 건강 데이터 접근 권한 요청, 건강 데이터 조회, 운동 변경 통보 수신, 백그라운드 전달 활성화, 앱 내부 저장이 실패한 경우가 이에 해당하며, 어느 단계에서 실패했는지를 나타내는 구분값만 전송합니다.</li>
           <li>감지 기능이 어느 단계까지 진행됐는지를 나타내는 고정 이정표. 앱 시작 준비 완료, 운동 변경 통보 수신, 조회 완료, 놓친 운동 따라잡기 스캔 시작의 네 가지입니다.</li>
@@ -494,7 +494,7 @@ footer {
         <ul data-lang="en" hidden>
           <li>The call stack at the moment the app terminated abnormally, along with diagnostic information the Firebase SDK collects automatically, such as the device model, device architecture, operating system version, app version, the device's language and region settings, and elapsed run time</li>
           <li>An anonymous installation identifier generated for each installation of the app, and a run session identifier. These group multiple reports under the same installation or run, and new values are generated if you delete and reinstall the app.</li>
-          <li>Run session information transmitted when the app launches and Firebase becomes ready, and each time the app subsequently returns to the screen. It includes the session identifier, a number indicating which run it is for that installation, the timestamp, the app and SDK versions, the operating system name and version, and the device model. This information is transmitted even when no crash occurs, including on runs woken in the background.</li>
+          <li>Run session information transmitted when the app launches and Firebase becomes ready, and when you bring the app back to the screen after it has stayed in the background for a certain period (30 minutes by default). It includes the session identifier, a number indicating which run it is for that installation, the timestamp, the app and SDK versions, the operating system name and version, and the device model. This information is transmitted even when no crash occurs, including on runs woken in the background for workout detection.</li>
           <li>The names and parameters of events recorded through Firebase Analytics. They are included in the report as a record of what happened immediately before the crash.</li>
           <li>A normalized category for an operation that failed without surfacing an error to you. This covers failures in requesting health data access, querying health data, receiving a workout change notification, enabling background delivery, and saving the app's internal data; only a category value indicating which step failed is transmitted.</li>
           <li>Fixed milestones indicating how far the detection feature progressed: bootstrap completion, receipt of a workout change notification, query completion, and the start of a catch-up scan for missed workouts.</li>
@@ -503,7 +503,7 @@ footer {
         <ul data-lang="ja" hidden>
           <li>アプリが異常終了した時点のコールスタックと、端末のモデル、端末のアーキテクチャ、OSバージョン、アプリのバージョン、端末の言語・地域設定、起動からの経過時間など、Firebase SDKが自動的に収集する診断情報</li>
           <li>アプリのインストールごとに新たに生成される匿名のインストール識別子と、実行セッション識別子。複数のレポートを同一のインストール・実行としてまとめるための値であり、アプリを削除して再インストールすると新しい値が生成されます。</li>
-          <li>アプリが起動してFirebaseの準備が整った時点、およびその後アプリが再び画面に表示されるたびに送信される実行セッション情報。セッション識別子、そのインストールで何回目の実行かを示す番号、発生時刻、アプリおよびSDKのバージョン、OSの名称とバージョン、端末のモデルが含まれます。この情報はクラッシュが発生しなくても送信され、バックグラウンドで起動された実行でも送信されます。</li>
+          <li>アプリが起動してFirebaseの準備が整った時点、およびアプリを一定時間（既定では30分）以上バックグラウンドに置いた後に再び画面に表示した時点で送信される実行セッション情報。セッション識別子、そのインストールで何回目の実行かを示す番号、発生時刻、アプリおよびSDKのバージョン、OSの名称とバージョン、端末のモデルが含まれます。この情報はクラッシュが発生しなくても送信され、運動の検知のためにバックグラウンドで起動された実行でも送信されます。</li>
           <li>Firebase Analyticsで記録されるイベントの名称とパラメータ。クラッシュの直前に何が起きたかを示す記録としてレポートに併せて含まれます。</li>
           <li>利用者にエラーとして表示されないまま失敗した処理の正規化された区分。ヘルスデータへのアクセス権限のリクエスト、ヘルスデータの照会、運動の変更通知の受信、バックグラウンド配信の有効化、アプリ内部の保存が失敗した場合が該当し、どの段階で失敗したかを示す区分値のみを送信します。</li>
           <li>検知機能がどの段階まで進んだかを示す固定のマイルストーン。起動準備の完了、運動の変更通知の受信、照会の完了、取りこぼした運動の追いつきスキャンの開始の4種類です。</li>
