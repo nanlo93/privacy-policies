@@ -335,15 +335,15 @@ footer {
           <div class="item">
             <div data-lang="ko">
               <strong>크래시 진단 (Firebase Crashlytics)</strong>
-              <span>앱이 비정상 종료되거나 감지 기능이 조용히 실패했을 때, 호출 스택과 앱이 미리 정의한 실패 범주·실행 이정표를 전송합니다. 운동의 거리·시간·페이스·날짜·경로·식별자, 러닝화 정보와 사진, 개인 입력값은 포함되지 않습니다. 자세한 내용은 '8. 크래시 진단' 항목을 확인해 주세요.</span>
+              <span>앱이 비정상 종료되거나 감지 기능이 조용히 실패했을 때 호출 스택과 앱이 미리 정의한 실패 범주·실행 이정표를, 그리고 앱을 실행할 때마다 실행 세션 정보를 전송합니다. 운동의 거리·시간·페이스·날짜·경로·식별자, 러닝화 정보와 사진, 개인 입력값은 포함되지 않습니다. 자세한 내용은 '8. 크래시 진단' 항목을 확인해 주세요.</span>
             </div>
             <div data-lang="en" hidden>
               <strong>Crash Diagnostics (Firebase Crashlytics)</strong>
-              <span>When the app terminates abnormally or its detection feature fails silently, the call stack along with failure categories and execution milestones defined in advance by the app are transmitted. A workout's distance, time, pace, date, route, or identifiers, running shoe information and photos, and personal input values are not included. See Section 8 for details.</span>
+              <span>When the app terminates abnormally or its detection feature fails silently, the call stack along with failure categories and execution milestones defined in advance by the app are transmitted; run session information is also sent each time the app runs. A workout's distance, time, pace, date, route, or identifiers, running shoe information and photos, and personal input values are not included. See Section 8 for details.</span>
             </div>
             <div data-lang="ja" hidden>
               <strong>クラッシュ診断（Firebase Crashlytics）</strong>
-              <span>アプリが異常終了した場合や検知機能が静かに失敗した場合に、コールスタックとアプリがあらかじめ定義した失敗の区分・実行のマイルストーンを送信します。運動の距離・時間・ペース・日付・ルート・識別子、シューズの情報や写真、個人の入力値は含まれません。詳細は「8. クラッシュ診断」をご確認ください。</span>
+              <span>アプリが異常終了した場合や検知機能が静かに失敗した場合にコールスタックとアプリがあらかじめ定義した失敗の区分・実行のマイルストーンを、またアプリを実行するたびに実行セッション情報を送信します。運動の距離・時間・ペース・日付・ルート・識別子、シューズの情報や写真、個人の入力値は含まれません。詳細は「8. クラッシュ診断」をご確認ください。</span>
             </div>
           </div>
         </div>
@@ -485,6 +485,7 @@ footer {
         <ul data-lang="ko">
           <li>앱이 비정상 종료된 시점의 호출 스택과, 기기 모델, 기기 아키텍처, 운영체제 버전, 앱 버전, 기기의 언어·지역 설정, 실행 경과 시간처럼 Firebase SDK가 자동으로 수집하는 진단 정보</li>
           <li>앱 설치마다 새로 만들어지는 익명 설치 식별자와 실행 세션 식별자. 여러 리포트를 같은 설치·실행으로 묶기 위한 값이며, 앱을 삭제한 뒤 다시 설치하면 새로 만들어집니다.</li>
+          <li>앱이 실행되어 Firebase가 준비되는 시점과 이후 앱이 화면에 다시 나타날 때마다 전송되는 실행 세션 정보. 세션 식별자, 그 설치에서 몇 번째 실행인지를 나타내는 번호, 발생 시각, 앱과 SDK의 버전, 운영체제 이름과 버전, 기기 모델이 포함됩니다. 이 정보는 크래시가 일어나지 않아도 전송되며, 백그라운드에서 깨어난 실행에서도 전송됩니다.</li>
           <li>Firebase Analytics로 기록되는 이벤트의 이름과 파라미터. 크래시 직전에 무슨 일이 있었는지를 보여 주는 기록으로 리포트에 함께 실립니다.</li>
           <li>사용자에게 오류로 보이지 않은 채 실패한 동작의 정규화된 범주. 건강 데이터 접근 권한 요청, 건강 데이터 조회, 운동 변경 통보 수신, 백그라운드 전달 활성화, 앱 내부 저장이 실패한 경우가 이에 해당하며, 어느 단계에서 실패했는지를 나타내는 구분값만 전송합니다.</li>
           <li>감지 기능이 어느 단계까지 진행됐는지를 나타내는 고정 이정표. 앱 시작 준비 완료, 운동 변경 통보 수신, 조회 완료, 놓친 운동 따라잡기 스캔 시작의 네 가지입니다.</li>
@@ -493,6 +494,7 @@ footer {
         <ul data-lang="en" hidden>
           <li>The call stack at the moment the app terminated abnormally, along with diagnostic information the Firebase SDK collects automatically, such as the device model, device architecture, operating system version, app version, the device's language and region settings, and elapsed run time</li>
           <li>An anonymous installation identifier generated for each installation of the app, and a run session identifier. These group multiple reports under the same installation or run, and new values are generated if you delete and reinstall the app.</li>
+          <li>Run session information transmitted when the app launches and Firebase becomes ready, and each time the app subsequently returns to the screen. It includes the session identifier, a number indicating which run it is for that installation, the timestamp, the app and SDK versions, the operating system name and version, and the device model. This information is transmitted even when no crash occurs, including on runs woken in the background.</li>
           <li>The names and parameters of events recorded through Firebase Analytics. They are included in the report as a record of what happened immediately before the crash.</li>
           <li>A normalized category for an operation that failed without surfacing an error to you. This covers failures in requesting health data access, querying health data, receiving a workout change notification, enabling background delivery, and saving the app's internal data; only a category value indicating which step failed is transmitted.</li>
           <li>Fixed milestones indicating how far the detection feature progressed: bootstrap completion, receipt of a workout change notification, query completion, and the start of a catch-up scan for missed workouts.</li>
@@ -501,6 +503,7 @@ footer {
         <ul data-lang="ja" hidden>
           <li>アプリが異常終了した時点のコールスタックと、端末のモデル、端末のアーキテクチャ、OSバージョン、アプリのバージョン、端末の言語・地域設定、起動からの経過時間など、Firebase SDKが自動的に収集する診断情報</li>
           <li>アプリのインストールごとに新たに生成される匿名のインストール識別子と、実行セッション識別子。複数のレポートを同一のインストール・実行としてまとめるための値であり、アプリを削除して再インストールすると新しい値が生成されます。</li>
+          <li>アプリが起動してFirebaseの準備が整った時点、およびその後アプリが再び画面に表示されるたびに送信される実行セッション情報。セッション識別子、そのインストールで何回目の実行かを示す番号、発生時刻、アプリおよびSDKのバージョン、OSの名称とバージョン、端末のモデルが含まれます。この情報はクラッシュが発生しなくても送信され、バックグラウンドで起動された実行でも送信されます。</li>
           <li>Firebase Analyticsで記録されるイベントの名称とパラメータ。クラッシュの直前に何が起きたかを示す記録としてレポートに併せて含まれます。</li>
           <li>利用者にエラーとして表示されないまま失敗した処理の正規化された区分。ヘルスデータへのアクセス権限のリクエスト、ヘルスデータの照会、運動の変更通知の受信、バックグラウンド配信の有効化、アプリ内部の保存が失敗した場合が該当し、どの段階で失敗したかを示す区分値のみを送信します。</li>
           <li>検知機能がどの段階まで進んだかを示す固定のマイルストーン。起動準備の完了、運動の変更通知の受信、照会の完了、取りこぼした運動の追いつきスキャンの開始の4種類です。</li>
@@ -530,9 +533,9 @@ footer {
           <li>システムが生成したエラーメッセージの原文。この文章は処理に失敗したデータの内容をそのまま引用する場合があるため、送信せず端末内の記録にのみ残します。</li>
           <li>利用者を識別するアカウント情報やユーザーID</li>
         </ul>
-        <p class="notice" data-lang="ko">위 이정표와 실행 경로 구분값에는 운동 데이터 자체가 들어 있지 않습니다. 다만 이 앱은 운동 기록 변경을 계기로 백그라운드에서 깨어나므로, 백그라운드 실행으로 기록된 리포트는 그 무렵 건강 데이터에 변화가 있었을 가능성을 시사할 수 있습니다. 리포트가 만들어지는 시점은 앱이 비정상 종료되거나 위에 적은 실패가 일어났을 때로 한정됩니다.</p>
-        <p class="notice" data-lang="en" hidden>The milestones and run-path value above contain no workout data themselves. However, because this app wakes in the background in response to changes in workout records, a report marked as a background run may suggest that health data changed around that time. Reports are created only when the app terminates abnormally or one of the failures listed above occurs.</p>
-        <p class="notice" data-lang="ja" hidden>上記のマイルストーンおよび実行経路の区分値そのものに運動データは含まれません。ただし本アプリは運動記録の変更を契機にバックグラウンドで起動するため、バックグラウンド実行として記録されたレポートは、その頃にヘルスデータの変化があった可能性を示唆する場合があります。レポートが作成されるのは、アプリが異常終了した場合、または上記の失敗が発生した場合に限られます。</p>
+        <p class="notice" data-lang="ko">위 이정표와 실행 경로 구분값에는 운동 데이터 자체가 들어 있지 않습니다. 다만 이 앱은 운동 기록 변경을 계기로 백그라운드에서 깨어나므로, 백그라운드 실행으로 기록된 리포트는 그 무렵 건강 데이터에 변화가 있었을 가능성을 시사할 수 있습니다. 크래시 리포트가 만들어지는 시점은 앱이 비정상 종료되거나 위에 적은 실패가 일어났을 때로 한정됩니다. 다만 위의 실행 세션 정보는 이와 별개로 앱이 실행될 때마다 전송되며, 여기에는 백그라운드에서 깨어난 실행도 포함됩니다.</p>
+        <p class="notice" data-lang="en" hidden>The milestones and run-path value above contain no workout data themselves. However, because this app wakes in the background in response to changes in workout records, a report marked as a background run may suggest that health data changed around that time. Crash reports are created only when the app terminates abnormally or one of the failures listed above occurs. The run session information described above is, however, transmitted separately every time the app runs, including runs woken in the background.</p>
+        <p class="notice" data-lang="ja" hidden>上記のマイルストーンおよび実行経路の区分値そのものに運動データは含まれません。ただし本アプリは運動記録の変更を契機にバックグラウンドで起動するため、バックグラウンド実行として記録されたレポートは、その頃にヘルスデータの変化があった可能性を示唆する場合があります。クラッシュレポートが作成されるのは、アプリが異常終了した場合、または上記の失敗が発生した場合に限られます。ただし上記の実行セッション情報はこれとは別に、アプリが実行されるたびに送信され、これにはバックグラウンドで起動された実行も含まれます。</p>
         <p data-lang="ko">크래시가 발생하면 리포트는 그 자리에서 전송되지 않고 앱이 다시 실행될 때 전송됩니다. Google은 크래시 스택 트레이스와 그에 연결된 식별자(위 설치 식별자 포함)를 90일간 보관한 뒤 삭제 절차를 시작합니다. 앱에는 크래시 진단 수집만 따로 끄는 설정이 없으며, 앱을 삭제하면 수집이 중단됩니다.</p>
         <p data-lang="en" hidden>When a crash occurs, the report is not sent at that moment but on the app's next launch. Google retains crash stack traces and their associated identifiers (including the installation identifier described above) for 90 days before beginning the removal process. The app does not provide a separate setting to turn off crash diagnostics alone, and deleting the app stops the collection.</p>
         <p data-lang="ja" hidden>クラッシュが発生した場合、レポートはその場では送信されず、次にアプリを起動した際に送信されます。Googleは、クラッシュのスタックトレースおよびそれに紐づく識別子（上記のインストール識別子を含む）を90日間保管した後、削除の手続きを開始します。アプリには、クラッシュ診断の収集だけを個別にオフにする設定はなく、アプリを削除すると収集は停止します。</p>
