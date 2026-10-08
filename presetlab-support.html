@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PresetLab 고객지원</title>
+  <meta name="description" content="PresetLab 앱 고객지원 및 자주 묻는 질문">
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #c2410c;
+  --accent-soft: #fcefe6;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent: #ff9a4d;
+    --accent-soft: #3d2718;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul,
+ol {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"],
+[data-lang="zh-Hans"] {
+  word-break: normal;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="zh-Hans">简体中文</option>
+        </select>
+      </div>
+      <p class="eyebrow">PresetLab</p>
+      <h1 data-lang="ko">고객지원</h1>
+      <h1 data-lang="en" hidden>Support</h1>
+      <h1 data-lang="ja" hidden>サポート</h1>
+      <h1 data-lang="zh-Hans" hidden>支持</h1>
+      <p class="summary" data-lang="ko">PresetLab 사용 중 문제가 발생했거나 개선 의견이 있다면 아래 연락처로 문의해 주세요.</p>
+      <p class="summary" data-lang="en" hidden>If you experience an issue with PresetLab or have feedback, please contact us using one of the options below.</p>
+      <p class="summary" data-lang="ja" hidden>PresetLabのご利用中に問題が発生した場合や、ご意見・ご要望がある場合は、以下の連絡先までお問い合わせください。</p>
+      <p class="summary" data-lang="zh-Hans" hidden>如果你在使用 PresetLab 时遇到问题或有改进建议，请通过以下方式联系我们。</p>
+      <div class="meta">
+        <span class="pill" data-lang="ko">개발자: 신준호</span>
+        <span class="pill" data-lang="en" hidden>Developer: JunHo Shin</span>
+        <span class="pill" data-lang="ja" hidden>開発者: Shin JunHo</span>
+        <span class="pill" data-lang="zh-Hans" hidden>开发者：JunHo Shin</span>
+        <span class="pill" data-lang="ko">답변: 평일 기준 1~2일</span>
+        <span class="pill" data-lang="en" hidden>Response time: 1–2 business days</span>
+        <span class="pill" data-lang="ja" hidden>回答目安: 1〜2営業日</span>
+        <span class="pill" data-lang="zh-Hans" hidden>回复时间：1–2 个工作日</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div data-lang="ko">
+          <h2>문의하기</h2>
+          <p>이메일 또는 GitHub Issues를 통해 문의할 수 있습니다.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>이메일</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">공개 이슈 작성</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues는 공개됩니다. 사진, 프리셋 파일, 이메일 주소 등 개인정보가 포함된 문의는 이메일을 이용해 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Contact Support</h2>
+          <p>You can contact us by email or through GitHub Issues.</p>
+          <div class="grid">
+            <div class="item">
+              <strong>Email</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">Create a public issue</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues are public. Please use email if your inquiry contains personal information such as photos, preset files, or an email address.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>お問い合わせ</h2>
+          <p>メールまたはGitHub Issuesからお問い合わせいただけます。</p>
+          <div class="grid">
+            <div class="item">
+              <strong>メール</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">公開Issueを作成</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issuesは公開されます。写真、プリセットファイル、メールアドレスなどの個人情報を含むお問い合わせは、メールをご利用ください。</p>
+        </div>
+        <div data-lang="zh-Hans" hidden>
+          <h2>联系支持</h2>
+          <p>你可以通过电子邮件或 GitHub Issues 与我们联系。</p>
+          <div class="grid">
+            <div class="item">
+              <strong>电子邮件</strong>
+              <span><a href="mailto:ios.jhshin0907@gmail.com">ios.jhshin0907@gmail.com</a></span>
+            </div>
+            <div class="item">
+              <strong>GitHub Issues</strong>
+              <span><a href="https://github.com/nanlo93/privacy-policies/issues">创建公开 Issue</a></span>
+            </div>
+          </div>
+          <p class="notice">GitHub Issues 是公开的。如果你的问题包含照片、预设文件、电子邮件地址等个人信息，请使用电子邮件联系。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>자주 묻는 질문</h2>
+          <h3>어떻게 사용하나요?</h3>
+          <ol>
+            <li>사진 앱에서 편집한 사진을 열고 ⋯ → 편집 내용 복사를 누릅니다.</li>
+            <li>PresetLab으로 돌아와 붙여넣기 버튼을 누르면 프리셋으로 저장됩니다.</li>
+            <li>프리셋을 탭해 복사한 뒤, 사진 앱에서 사진을 한 장 또는 여러 장 고르고 ⋯ → 편집 내용 붙여넣기를 누릅니다.</li>
+          </ol>
+          <p>복사 단계 없이 저장하려면 PresetLab의 '편집된 사진에서 가져오기'로 보관함의 편집된 사진을 고르세요. 여러 장에 한 번에 붙여넣는 것은 사진 앱의 기능이며, 결과 화질과 원본으로 복귀도 사진 앱에서 편집할 때와 같습니다.</p>
+
+          <h3>붙여넣을 때 확인창이 떠요.</h3>
+          <p>PresetLab 하단의 붙여넣기 버튼(시스템 버튼)으로 저장하면 확인창이 뜨지 않습니다. '클립보드 직접 읽기'처럼 다른 경로로 읽을 때 확인창을 줄이려면 iOS 설정 → PresetLab → 다른 앱에서 붙여넣기 → 허용을 선택하세요. PresetLab 설정의 '붙여넣기 확인창 줄이기'에서 이 화면으로 바로 이동할 수 있습니다.</p>
+          <p>사진 앱에서 편집 내용 붙여넣기를 할 때 iOS가 붙여넣기 허용 여부를 물으면 붙여넣기 허용을 누르세요.</p>
+
+          <h3>사진 앱에 '편집 내용 붙여넣기'가 보이지 않아요.</h3>
+          <ol>
+            <li>사진을 연 상태나 고른 상태에서 ⋯ 버튼을 눌렀는지 확인해 주세요.</li>
+            <li>iOS 27에서는 이미 편집된 사진의 경우 ⋯ → 편집 하위 메뉴 안에 있습니다.</li>
+            <li>그사이 다른 내용을 복사했다면 클립보드가 바뀌었을 수 있습니다. PresetLab에서 프리셋을 다시 탭해 복사한 뒤 시도해 주세요.</li>
+          </ol>
+
+          <h3>'적용되지 않을 수 있음'은 무슨 뜻인가요?</h3>
+          <p>사진 앱은 버전에 따라 받아들이는 조정이 다릅니다. 프리셋에 붙여넣을 사진 앱이 지원하지 않는 조정이 하나라도 있으면 프리셋 전체가 적용되지 않을 수 있고, 일부 세부 설정만 빠진 채 적용될 수도 있습니다. PresetLab은 프리셋을 저장할 때 이런 조정이 있으면 호환성 안내로 알려 줍니다. 프리셋은 받은 그대로 보관되므로 해당 조정을 지원하는 사진 앱에서는 정상적으로 적용됩니다.</p>
+
+          <h3>프리셋을 다른 사람과 공유하려면 어떻게 하나요?</h3>
+          <p>프리셋을 길게 누르거나 상세 화면에서 공유를 선택하면 .presetlab 파일로 AirDrop, 메시지, 파일 앱 등을 통해 보낼 수 있습니다. 받는 사람이 기기에서 파일을 열면 PresetLab에 프리셋으로 저장됩니다. 보내는 사람과 받는 사람의 iOS 버전이 다르면 위의 호환성 안내를 참고해 주세요.</p>
+
+          <h3>광고 개인정보 옵션은 어디서 바꾸나요?</h3>
+          <p>유럽 경제 지역(EEA), 영국 등 광고 동의가 필요한 지역에서는 PresetLab 설정의 '광고 개인정보 옵션'에서 맞춤형 광고 동의를 바꿀 수 있습니다. 앱 추적 허용은 iOS 설정 → 개인정보 보호 및 보안 → 추적에서 바꿀 수 있습니다. 허용하지 않아도 모든 기능을 사용할 수 있습니다. 자세한 내용은 <a href="./presetlab.html">개인정보 처리방침</a>을 확인해 주세요.</p>
+
+          <h3>앱을 삭제하면 사진도 지워지나요?</h3>
+          <p>앱에 저장된 프리셋, 커버, 설정은 삭제되지만 사진 앱의 사진과 이미 적용한 편집은 그대로 남습니다.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Frequently Asked Questions</h2>
+          <h3>How do I use PresetLab?</h3>
+          <ol>
+            <li>In Photos, open an edited photo, tap ⋯, then tap Copy Edits.</li>
+            <li>Return to PresetLab and tap the Paste button to save it as a preset.</li>
+            <li>Tap a preset to copy it. In Photos, select one or more photos, tap ⋯, then tap Paste Edits.</li>
+          </ol>
+          <p>To save a preset without copying first, use Import from Edited Photo in PresetLab and pick an edited photo from your library. Pasting onto several photos at once is a feature of the Photos app, and image quality and Revert to Original work just as they do when you edit in Photos.</p>
+
+          <h3>A confirmation prompt appears when pasting.</h3>
+          <p>Saving with the Paste button (a system button) at the bottom of PresetLab does not show a prompt. To reduce prompts when the app reads the clipboard another way, such as Read Clipboard Directly, go to iOS Settings → PresetLab → Paste from Other Apps → Allow. You can jump to that screen from PresetLab's settings.</p>
+          <p>If iOS asks whether to allow pasting when you use Paste Edits in Photos, tap Allow Paste.</p>
+
+          <h3>I can't find Paste Edits in Photos.</h3>
+          <ol>
+            <li>Make sure you tapped the ⋯ button while a photo is open or selected.</li>
+            <li>On iOS 27, for a photo that is already edited, Paste Edits is inside the Edits submenu under ⋯.</li>
+            <li>If you copied something else in the meantime, the clipboard may have changed. Tap the preset in PresetLab again to copy it, then try again.</li>
+          </ol>
+
+          <h3>What does "May not apply" mean?</h3>
+          <p>Different versions of the Photos app accept different adjustments. If a preset contains even one adjustment that the Photos app you paste into doesn't support, the whole preset may not be applied, or it may be applied with some detailed settings left out. PresetLab shows a compatibility note when you save a preset that contains such adjustments. Presets are kept exactly as received, so they apply normally in versions of Photos that support those adjustments.</p>
+
+          <h3>How do I share a preset with someone?</h3>
+          <p>Touch and hold a preset, or choose Share on its detail screen, to send it as a .presetlab file with AirDrop, Messages, the Files app, and more. When the recipient opens the file on their device, it is saved as a preset in PresetLab. If the sender and recipient use different versions of iOS, see the compatibility answer above.</p>
+
+          <h3>Where can I change ad privacy options?</h3>
+          <p>In regions where ad consent is required, such as the European Economic Area (EEA) and the UK, you can change your consent to personalized ads from the ad privacy options in PresetLab's settings. To change whether the app may track you, go to iOS Settings → Privacy &amp; Security → Tracking. Every feature works even if you don't allow it. See the <a href="./presetlab.html">Privacy Policy</a> for details.</p>
+
+          <h3>Does deleting the app delete my photos?</h3>
+          <p>Presets, covers, and settings stored by the app are deleted, but your photos in the Photos app and any edits you have already applied remain.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>よくある質問</h2>
+          <h3>どのように使いますか？</h3>
+          <ol>
+            <li>「写真」Appで編集した写真を開き、⋯ →「編集内容をコピー」をタップします。</li>
+            <li>PresetLabに戻って「ペースト」ボタンをタップすると、プリセットとして保存されます。</li>
+            <li>プリセットをタップしてコピーし、「写真」Appで写真を1枚または複数枚選んで、⋯ →「編集内容をペースト」をタップします。</li>
+          </ol>
+          <p>コピーの手順なしで保存するには、PresetLabの「編集済みの写真から読み込む」でライブラリの編集済みの写真を選んでください。複数の写真にまとめてペーストするのは「写真」Appの機能で、仕上がりの画質や「オリジナルに戻す」も「写真」Appで編集したときと同じです。</p>
+
+          <h3>ペーストするときに確認ダイアログが表示されます。</h3>
+          <p>PresetLab下部の「ペースト」ボタン（システムのボタン）で保存すると、確認ダイアログは表示されません。「クリップボードを直接読み込む」などほかの方法で読み取るときの確認を減らすには、iOSの「設定」→「PresetLab」→「ほかのAppからペースト」→「許可」を選んでください。PresetLabの設定からこの画面に直接移動できます。</p>
+          <p>「写真」Appで「編集内容をペースト」を行うときにiOSがペーストを許可するかどうかを確認した場合は、「ペーストを許可」をタップしてください。</p>
+
+          <h3>「写真」Appに「編集内容をペースト」が見つかりません。</h3>
+          <ol>
+            <li>写真を開いた状態または選択した状態で⋯ボタンをタップしたかご確認ください。</li>
+            <li>iOS 27では、すでに編集済みの写真の場合、⋯ →「編集」のサブメニュー内にあります。</li>
+            <li>その間にほかの内容をコピーした場合、クリップボードが変わっている可能性があります。PresetLabでプリセットをもう一度タップしてコピーしてから、お試しください。</li>
+          </ol>
+
+          <h3>「適用されない場合があります」とはどういう意味ですか？</h3>
+          <p>「写真」Appは、バージョンによって受け付ける調整が異なります。ペースト先の「写真」Appが対応していない調整がプリセットに1つでも含まれていると、プリセット全体が適用されない場合や、一部の詳細設定だけが抜けた状態で適用される場合があります。PresetLabは、プリセットを保存するときにこのような調整があれば互換性の案内でお知らせします。プリセットは受け取ったまま保管されるため、その調整に対応した「写真」Appでは正常に適用されます。</p>
+
+          <h3>プリセットをほかの人と共有するには？</h3>
+          <p>プリセットを長押しするか、詳細画面で共有を選ぶと、.presetlabファイルとしてAirDrop、メッセージ、「ファイル」Appなどで送信できます。受け取った人がデバイスでファイルを開くと、PresetLabにプリセットとして保存されます。送信者と受信者のiOSのバージョンが異なる場合は、上記の互換性についての回答をご覧ください。</p>
+
+          <h3>広告のプライバシーオプションはどこで変更できますか？</h3>
+          <p>欧州経済領域（EEA）や英国など広告への同意が必要な地域では、PresetLabの設定にある広告プライバシーオプションから、パーソナライズ広告への同意を変更できます。トラッキングの許可は、iOSの「設定」→「プライバシーとセキュリティ」→「トラッキング」から変更できます。許可しなくても、すべての機能をご利用いただけます。詳しくは<a href="./presetlab.html">プライバシーポリシー</a>をご確認ください。</p>
+
+          <h3>アプリを削除すると写真も削除されますか？</h3>
+          <p>アプリに保存されたプリセット、カバー、設定は削除されますが、「写真」Appの写真とすでに適用した編集はそのまま残ります。</p>
+        </div>
+        <div data-lang="zh-Hans" hidden>
+          <h2>常见问题</h2>
+          <h3>如何使用 PresetLab？</h3>
+          <ol>
+            <li>在“照片”App 中打开已编辑的照片，轻点 ⋯ >“拷贝编辑”。</li>
+            <li>返回 PresetLab，轻点“粘贴”按钮，即可存为预设。</li>
+            <li>轻点预设进行拷贝，然后在“照片”App 中选择一张或多张照片，轻点 ⋯ >“粘贴编辑”。</li>
+          </ol>
+          <p>如果想省去拷贝步骤，请在 PresetLab 中使用“从已编辑的照片导入”，从图库中选择已编辑的照片。一次粘贴到多张照片是“照片”App 的功能，画质和“复原”也与在“照片”App 中编辑时相同。</p>
+
+          <h3>粘贴时出现确认提示。</h3>
+          <p>使用 PresetLab 底部的“粘贴”按钮（系统按钮）储存时不会出现确认提示。若要在通过“直接读取剪贴板”等其他方式读取时减少提示，请前往 iOS“设置”>“PresetLab”>“从其他 App 粘贴”>“允许”。你也可以从 PresetLab 的设置直接前往该页面。</p>
+          <p>如果在“照片”App 中使用“粘贴编辑”时 iOS 询问是否允许粘贴，请轻点“允许粘贴”。</p>
+
+          <h3>在“照片”App 中找不到“粘贴编辑”。</h3>
+          <ol>
+            <li>请确认你是在打开或选中照片的状态下轻点了 ⋯ 按钮。</li>
+            <li>在 iOS 27 中，对于已编辑过的照片，该选项位于 ⋯ >“编辑”子菜单中。</li>
+            <li>如果你在此期间拷贝了其他内容，剪贴板可能已经改变。请在 PresetLab 中再次轻点预设进行拷贝，然后重试。</li>
+          </ol>
+
+          <h3>“可能无法应用”是什么意思？</h3>
+          <p>不同版本的“照片”App 所接受的调整有所不同。如果预设中包含目标“照片”App 不支持的任何一项调整，整个预设可能都无法应用，也可能在缺少部分详细设置的情况下应用。PresetLab 在储存包含此类调整的预设时，会通过兼容性提示告知你。预设会按收到时的原样保存，因此在支持这些调整的“照片”App 中可以正常应用。</p>
+
+          <h3>如何与他人共享预设？</h3>
+          <p>按住预设，或在详细信息页面中选择共享，即可通过隔空投送、“信息”、“文件”App 等以 .presetlab 文件发送。接收者在设备上打开该文件后，它会作为预设储存到 PresetLab 中。如果发送者和接收者使用的 iOS 版本不同，请参阅上方关于兼容性的回答。</p>
+
+          <h3>在哪里更改广告隐私选项？</h3>
+          <p>在欧洲经济区（EEA）、英国等需要广告同意的地区，你可以在 PresetLab 设置的广告隐私选项中更改个性化广告同意。是否允许 App 跟踪，可在 iOS“设置”>“隐私与安全性”>“跟踪”中更改。即使不允许，也可以使用全部功能。详情请参阅<a href="./presetlab.html">隐私政策</a>。</p>
+
+          <h3>删除 App 会删除我的照片吗？</h3>
+          <p>App 储存的预设、封面和设置会被删除，但“照片”App 中的照片以及已应用的编辑会保留。</p>
+        </div>
+      </section>
+
+      <section>
+        <div data-lang="ko">
+          <h2>문제 제보 시 필요한 정보</h2>
+          <p>아래 정보를 함께 보내주시면 문제 확인에 도움이 됩니다.</p>
+          <ul>
+            <li>PresetLab 앱 버전</li>
+            <li>기기 모델과 iOS 또는 iPadOS 버전</li>
+            <li>프리셋을 만든 기기의 iOS 버전과 붙여넣은 기기의 iOS 버전(다른 경우)</li>
+            <li>문제가 발생하기까지의 순서</li>
+            <li>기대한 결과와 실제 결과</li>
+            <li>필요한 경우 개인정보를 가린 화면 캡처</li>
+          </ul>
+          <p class="notice">원본 사진은 보내지 마세요. 프리셋 파일(.presetlab)은 문제 확인에 도움이 되지만 원본 사진 식별자가 들어 있을 수 있으므로 GitHub Issues가 아닌 이메일로 보내 주세요.</p>
+        </div>
+        <div data-lang="en" hidden>
+          <h2>Information to Include in a Bug Report</h2>
+          <p>Including the following information will help us investigate the issue.</p>
+          <ul>
+            <li>PresetLab app version</li>
+            <li>Device model and iOS or iPadOS version</li>
+            <li>The iOS version of the device where the preset was made and of the device where it was pasted (if different)</li>
+            <li>Steps leading up to the issue</li>
+            <li>Expected result and actual result</li>
+            <li>A screenshot with personal information hidden, if needed</li>
+          </ul>
+          <p class="notice">Please do not send original photos. A preset file (.presetlab) helps us investigate, but it may contain an identifier of the original photo, so please send it by email rather than through GitHub Issues.</p>
+        </div>
+        <div data-lang="ja" hidden>
+          <h2>不具合報告に必要な情報</h2>
+          <p>以下の情報を添えていただくと、問題の確認に役立ちます。</p>
+          <ul>
+            <li>PresetLabのアプリバージョン</li>
+            <li>端末のモデルとiOSまたはiPadOSのバージョン</li>
+            <li>プリセットを作成した端末とペーストした端末のiOSのバージョン（異なる場合）</li>
+            <li>問題が発生するまでの手順</li>
+            <li>期待した結果と実際の結果</li>
+            <li>必要に応じて個人情報を隠した画面のスクリーンショット</li>
+          </ul>
+          <p class="notice">元の写真は送信しないでください。プリセットファイル（.presetlab）は問題の確認に役立ちますが、元の写真の識別子が含まれる場合があるため、GitHub Issuesではなくメールでお送りください。</p>
+        </div>
+        <div data-lang="zh-Hans" hidden>
+          <h2>报告问题时需要的信息</h2>
+          <p>附上以下信息有助于我们排查问题。</p>
+          <ul>
+            <li>PresetLab App 版本</li>
+            <li>设备型号以及 iOS 或 iPadOS 版本</li>
+            <li>创建预设的设备和粘贴预设的设备的 iOS 版本（如不同）</li>
+            <li>问题发生前的操作步骤</li>
+            <li>预期结果与实际结果</li>
+            <li>如有需要，请附上已隐藏个人信息的屏幕截图</li>
+          </ul>
+          <p class="notice">请不要发送原始照片。预设文件（.presetlab）有助于排查问题，但其中可能包含原始照片的标识符，因此请通过电子邮件而不是 GitHub Issues 发送。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p data-lang="ko"><a href="./presetlab.html">개인정보 처리방침</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="en" hidden><a href="./presetlab.html">Privacy Policy</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ja" hidden><a href="./presetlab.html">プライバシーポリシー</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="zh-Hans" hidden><a href="./presetlab.html">隐私政策</a> · <a href="./index.html">Privacy Policies</a></p>
+      <p data-lang="ko">마지막 업데이트: 2026년 10월 8일</p>
+      <p data-lang="en" hidden>Last updated: October 8, 2026</p>
+      <p data-lang="ja" hidden>最終更新日: 2026年10月8日</p>
+      <p data-lang="zh-Hans" hidden>最后更新：2026年10月8日</p>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'PresetLab 고객지원',
+    en: 'PresetLab Support',
+    ja: 'PresetLabサポート',
+    'zh-Hans': 'PresetLab 支持'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
+</body>
+</html>

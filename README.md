@@ -6,5 +6,7 @@ Public privacy policy pages for personal side projects.
 - SoulMile Support: `/soulmile-support.html`
 - Pin Reminder: `/pin-reminder.html`
 - Pin Reminder Support: `/pin-reminder-support.html`
+- PresetLab: `/presetlab.html`
+- PresetLab Support: `/presetlab-support.html`
 
 These pages are published through GitHub Pages from the `main` branch.

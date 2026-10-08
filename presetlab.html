@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PresetLab 개인정보 처리방침</title>
+  <meta name="description" content="PresetLab 앱의 개인정보 처리방침">
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg: #f7f5f2;
+  --surface: #fffdf9;
+  --text: #1f2528;
+  --muted: #636b70;
+  --line: #ded8cf;
+  --accent: #c2410c;
+  --accent-soft: #fcefe6;
+  --max: 880px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17191b;
+    --surface: #202326;
+    --text: #f4f1ec;
+    --muted: #b3b0aa;
+    --line: #383b3f;
+    --accent: #ff9a4d;
+    --accent-soft: #3d2718;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+.page {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.summary {
+  max-width: 720px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lang-switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-switch-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-switch select {
+  min-height: 34px;
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+main {
+  padding-top: 22px;
+}
+
+section {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin: 20px 0 8px;
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+ul {
+  margin: 10px 0 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 7px;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line));
+  border-radius: 8px;
+  background: var(--accent-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.item {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.item strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item span {
+  color: var(--muted);
+}
+
+footer {
+  padding-top: 28px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[data-lang="ja"],
+[data-lang="zh-Hans"] {
+  word-break: normal;
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max), calc(100% - 28px));
+    padding-top: 36px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="lang-switch">
+        <span class="lang-switch-icon" aria-hidden="true">🌐</span>
+        <select id="lang-select" aria-label="Language">
+          <option value="ko" selected>한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="zh-Hans">简体中文</option>
+        </select>
+      </div>
+      <p class="eyebrow">PresetLab</p>
+      <h1 data-lang="ko">개인정보 처리방침</h1>
+      <h1 data-lang="en" hidden>Privacy Policy</h1>
+      <h1 data-lang="ja" hidden>プライバシーポリシー</h1>
+      <h1 data-lang="zh-Hans" hidden>隐私政策</h1>
+      <p class="summary" data-lang="ko">PresetLab은 사진 앱의 '편집 내용 복사'로 클립보드에 올라온 편집을 프리셋으로 저장했다가 다시 클립보드에 올려, 사진 앱의 '편집 내용 붙여넣기'로 재사용할 수 있게 해 주는 iOS 앱입니다. 계정이나 자체 서버를 운영하지 않으며, 프리셋과 앱 설정은 사용자의 기기 안에만 저장됩니다.</p>
+      <p class="summary" data-lang="en" hidden>PresetLab is an iOS app that saves the edits placed on the clipboard by Copy Edits in the Photos app as presets, then puts them back on the clipboard so you can reuse them with Paste Edits in Photos. It does not operate an account system or its own server, and your presets and app settings are stored only on your device.</p>
+      <p class="summary" data-lang="ja" hidden>PresetLabは、「写真」Appの「編集内容をコピー」でクリップボードに置かれた編集をプリセットとして保存し、再びクリップボードに置くことで、「写真」Appの「編集内容をペースト」で再利用できるようにするiOSアプリです。アカウントや自社サーバーは運用しておらず、プリセットとアプリ設定はユーザーのデバイス内にのみ保存されます。</p>
+      <p class="summary" data-lang="zh-Hans" hidden>PresetLab 是一款 iOS App，可将“照片”App 的“拷贝编辑”放到剪贴板上的编辑存为预设，之后再放回剪贴板，以便你通过“照片”App 的“粘贴编辑”再次使用。PresetLab 不运营账户系统或自有服务器，预设和 App 设置仅储存在你的设备上。</p>
+      <div class="meta">
+        <span class="pill" data-lang="ko">시행일: 2026년 10월 8일</span>
+        <span class="pill" data-lang="en" hidden>Effective Date: October 8, 2026</span>
+        <span class="pill" data-lang="ja" hidden>施行日: 2026年10月8日</span>
+        <span class="pill" data-lang="zh-Hans" hidden>生效日期：2026年10月8日</span>
+        <span class="pill" data-lang="ko">대상: iOS 앱 PresetLab</span>
+        <span class="pill" data-lang="en" hidden>Applies to: PresetLab for iOS</span>
+        <span class="pill" data-lang="ja" hidden>対象: iOSアプリ PresetLab</span>
+        <span class="pill" data-lang="zh-Hans" hidden>适用于：iOS App PresetLab</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2 data-lang="ko">1. 처리하는 정보</h2>
+        <h2 data-lang="en" hidden>1. Information We Process</h2>
+        <h2 data-lang="ja" hidden>1. 取り扱う情報</h2>
+        <h2 data-lang="zh-Hans" hidden>1. 我们处理的信息</h2>
+        <p data-lang="ko">앱 기능 제공을 위해 아래 정보를 사용할 수 있습니다.</p>
+        <p data-lang="en" hidden>We may use the following information to provide the app's features.</p>
+        <p data-lang="ja" hidden>アプリの機能提供のため、以下の情報を利用する場合があります。</p>
+        <p data-lang="zh-Hans" hidden>为提供 App 的功能，我们可能会使用以下信息。</p>
+        <div class="grid">
+          <div class="item">
+            <div data-lang="ko">
+              <strong>프리셋 데이터</strong>
+              <span>사진 앱에서 '편집 내용 복사'를 하면 사진 앱이 클립보드에 올리는 편집 데이터를 받은 그대로 저장합니다. 여기에는 조정의 종류와 값, 형식 버전, 편집을 만든 기기의 플랫폼·빌드 정보, 사진 앱이 기록한 원본 사진 식별자가 들어 있으며, 사진 자체는 들어 있지 않습니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Preset Data</strong>
+              <span>When you use Copy Edits in Photos, we store the edit data that Photos places on the clipboard exactly as received. It contains the types and values of adjustments, a format version, the platform and build of the device where the edit was made, and an identifier of the original photo recorded by Photos. It does not contain the photo itself.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>プリセットデータ</strong>
+              <span>「写真」Appで「編集内容をコピー」を行うと「写真」Appがクリップボードに置く編集データを、受け取ったまま保存します。このデータには調整の種類と値、形式のバージョン、編集を行ったデバイスのプラットフォーム・ビルド情報、「写真」Appが記録した元の写真の識別子が含まれ、写真そのものは含まれません。</span>
+            </div>
+            <div data-lang="zh-Hans" hidden>
+              <strong>预设数据</strong>
+              <span>当你在“照片”App 中使用“拷贝编辑”时，我们会原样储存“照片”App 放到剪贴板上的编辑数据。其中包含调整的类型和数值、格式版本、进行编辑的设备的平台与版本号信息，以及“照片”App 记录的原始照片标识符，但不包含照片本身。</span>
+            </div>
+          </div>
+          <div class="item">
+            <div data-lang="ko">
+              <strong>사진 보관함의 편집 정보와 썸네일</strong>
+              <span>'편집된 사진에서 가져오기'로 사용자가 고른 사진의 편집 데이터를 읽어 프리셋으로 저장하고, 프리셋을 만든 원본 사진의 썸네일을 커버로 표시합니다. 커버로 쓰는 축소 이미지는 기기 안에 저장될 수 있습니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Edit Information and Thumbnails from Your Photo Library</strong>
+              <span>With Import from Edited Photo, we read the edit data of a photo you choose and save it as a preset. We also show a thumbnail of the original photo a preset was made from as its cover. The reduced-size image used as a cover may be stored on your device.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>写真ライブラリの編集情報とサムネイル</strong>
+              <span>「編集済みの写真から読み込む」でユーザーが選んだ写真の編集データを読み取ってプリセットとして保存し、プリセットの元になった写真のサムネイルをカバーとして表示します。カバーに使う縮小画像はデバイス内に保存される場合があります。</span>
+            </div>
+            <div data-lang="zh-Hans" hidden>
+              <strong>照片图库中的编辑信息和缩略图</strong>
+              <span>通过“从已编辑的照片导入”，我们会读取你所选照片的编辑数据并存为预设，同时将创建预设所用原始照片的缩略图显示为封面。用作封面的缩小图像可能会储存在你的设备上。</span>
+            </div>
+          </div>
+          <div class="item">
+            <div data-lang="ko">
+              <strong>프리셋 정보와 앱 설정</strong>
+              <span>프리셋 이름, 저장·사용 시각, 출처(붙여넣기·사진에서 가져오기·파일), 즐겨찾기, 정렬 방식, 첫 실행 안내 완료 여부 등을 저장합니다.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Preset Information and App Settings</strong>
+              <span>We store preset names, when presets were saved and last used, their source (pasted, imported from a photo, or from a file), favorites, sort order, and whether you have completed the first-launch guide.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>プリセット情報とアプリ設定</strong>
+              <span>プリセット名、保存・使用日時、取得元（ペースト・写真から読み込み・ファイル）、お気に入り、並べ替え方法、初回起動ガイドの完了状態などを保存します。</span>
+            </div>
+            <div data-lang="zh-Hans" hidden>
+              <strong>预设信息和 App 设置</strong>
+              <span>我们会储存预设名称、储存和使用时间、来源（粘贴、从照片导入或从文件导入）、个人收藏、排序方式，以及是否已完成首次启动引导等信息。</span>
+            </div>
+          </div>
+          <div class="item">
+            <div data-lang="ko">
+              <strong>광고 관련 정보 (Google)</strong>
+              <span>배너 광고와 광고 동의 관리를 위해 Google의 광고 SDK가 기기 식별자, 광고 식별자, 대략적인 위치, 광고 조회·상호작용 정보, 진단 정보 등을 처리할 수 있습니다. 자세한 내용은 '5. 광고, 동의 및 추적' 항목을 확인해 주세요.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Advertising Information (Google)</strong>
+              <span>To show banner ads and manage ad consent, Google's advertising SDKs may process device identifiers, advertising identifiers, approximate location, ad view and interaction information, and diagnostic information. See Section 5 for details.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>広告関連情報（Google）</strong>
+              <span>バナー広告の表示と広告に関する同意の管理のため、Googleの広告SDKがデバイス識別子、広告識別子、おおよその位置情報、広告の表示・インタラクション情報、診断情報などを処理する場合があります。詳細は「5. 広告、同意およびトラッキング」をご確認ください。</span>
+            </div>
+            <div data-lang="zh-Hans" hidden>
+              <strong>广告相关信息（Google）</strong>
+              <span>为展示横幅广告和管理广告同意，Google 的广告 SDK 可能会处理设备标识符、广告标识符、大致位置、广告展示与互动信息以及诊断信息等。详情请参阅“5. 广告、同意与跟踪”。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">2. 사진 보관함과 클립보드 사용</h2>
+        <h2 data-lang="en" hidden>2. Use of Your Photo Library and the Clipboard</h2>
+        <h2 data-lang="ja" hidden>2. 写真ライブラリとクリップボードの利用</h2>
+        <h2 data-lang="zh-Hans" hidden>2. 照片图库和剪贴板的使用</h2>
+        <p data-lang="ko">PresetLab은 사진 보관함과 클립보드를 앱 기능에 필요한 범위에서만 사용합니다.</p>
+        <p data-lang="en" hidden>PresetLab uses your photo library and the clipboard only to the extent needed for its features.</p>
+        <p data-lang="ja" hidden>PresetLabは、写真ライブラリとクリップボードをアプリの機能に必要な範囲でのみ利用します。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 仅在 App 功能所需的范围内使用照片图库和剪贴板。</p>
+        <ul data-lang="ko">
+          <li>사진 보관함 접근 권한은 '편집된 사진에서 가져오기'로 고른 사진의 편집 데이터를 읽을 때와 프리셋 원본 사진의 썸네일을 커버로 보여 줄 때 사용하며, 사용자가 허용한 범위(전체 또는 선택한 사진) 안에서만 읽습니다.</li>
+          <li>앱은 사진 보관함을 읽기만 하며, 사진을 수정하거나 삭제하거나 새 사진을 저장하지 않습니다. 프리셋을 사진에 적용하는 것은 사용자가 사진 앱의 '편집 내용 붙여넣기'로 직접 합니다.</li>
+          <li>클립보드 내용은 사용자가 시스템 붙여넣기 버튼을 누르거나 '클립보드 직접 읽기'를 선택했을 때만 읽습니다. 다른 앱이 올린 내용을 직접 읽을 때는 iOS가 붙여넣기를 허용할지 물을 수 있습니다.</li>
+          <li>클립보드에 사진 앱 편집 데이터가 있음을 알려 주는 안내는 데이터의 종류만 확인하며 내용은 읽지 않습니다.</li>
+          <li>프리셋을 탭하면 저장해 둔 편집 데이터를 클립보드에 올립니다. 클립보드에 올린 데이터는 iOS 클립보드 규칙에 따라 다른 앱에서도 붙여넣을 수 있습니다.</li>
+          <li>사진 보관함에서 읽은 정보와 클립보드에서 받은 데이터는 개발자에게 전송되지 않습니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Photo library access is used to read the edit data of a photo you choose with Import from Edited Photo and to show thumbnails of the photos your presets were made from as covers. The app reads only within the scope you allow (all photos or selected photos).</li>
+          <li>The app only reads your photo library. It does not modify or delete photos or save new ones. You apply a preset to photos yourself, using Paste Edits in the Photos app.</li>
+          <li>The app reads the clipboard's contents only when you tap the system Paste button or choose Read Clipboard Directly. When reading content placed by another app directly, iOS may ask whether to allow pasting.</li>
+          <li>The notice that tells you Photos edit data is on the clipboard checks only the type of data and does not read its contents.</li>
+          <li>When you tap a preset, the app puts the saved edit data on the clipboard. Data on the clipboard can also be pasted in other apps, following iOS clipboard behavior.</li>
+          <li>Information read from your photo library and data received from the clipboard are not transmitted to the developer.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>写真ライブラリへのアクセス権限は、「編集済みの写真から読み込む」で選んだ写真の編集データを読み取るときと、プリセットの元になった写真のサムネイルをカバーとして表示するときに使用し、ユーザーが許可した範囲（すべての写真または選択した写真）内でのみ読み取ります。</li>
+          <li>アプリは写真ライブラリを読み取るのみで、写真を変更・削除したり、新しい写真を保存したりしません。プリセットを写真に適用するのは、ユーザーが「写真」Appの「編集内容をペースト」で行います。</li>
+          <li>クリップボードの内容は、ユーザーがシステムのペーストボタンを押したとき、または「クリップボードを直接読み込む」を選んだときにのみ読み取ります。ほかのAppが置いた内容を直接読み取る場合、iOSがペーストを許可するかどうかを確認することがあります。</li>
+          <li>クリップボードに「写真」Appの編集データがあることを知らせる案内は、データの種類のみを確認し、内容は読み取りません。</li>
+          <li>プリセットをタップすると、保存した編集データをクリップボードに置きます。クリップボードに置かれたデータは、iOSのクリップボードの仕組みにより、ほかのAppでもペーストできます。</li>
+          <li>写真ライブラリから読み取った情報とクリップボードから受け取ったデータは、開発者へ送信されません。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>照片图库访问权限仅在读取你通过“从已编辑的照片导入”所选照片的编辑数据，以及将创建预设所用原始照片的缩略图显示为封面时使用，并且只在你允许的范围（所有照片或所选照片）内读取。</li>
+          <li>App 只会读取照片图库，不会修改或删除照片，也不会储存新照片。将预设应用到照片，由你在“照片”App 中通过“粘贴编辑”自行完成。</li>
+          <li>只有在你轻点系统粘贴按钮或选择“直接读取剪贴板”时，App 才会读取剪贴板内容。直接读取其他 App 放到剪贴板上的内容时，iOS 可能会询问是否允许粘贴。</li>
+          <li>提示剪贴板中有“照片”App 编辑数据的通知只检查数据类型，不会读取内容。</li>
+          <li>轻点预设时，App 会将储存的编辑数据放到剪贴板上。按照 iOS 剪贴板的机制，剪贴板上的数据也可以粘贴到其他 App 中。</li>
+          <li>从照片图库读取的信息和从剪贴板接收的数据不会传输给开发者。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">3. 저장 위치와 보관</h2>
+        <h2 data-lang="en" hidden>3. Storage Location and Retention</h2>
+        <h2 data-lang="ja" hidden>3. 保存場所と保管</h2>
+        <h2 data-lang="zh-Hans" hidden>3. 储存位置与保留</h2>
+        <p data-lang="ko">프리셋, 커버, 앱 설정은 사용자 기기의 앱 저장 공간에 보관되며, 사용자가 프리셋을 삭제하거나 앱을 삭제할 때까지 유지됩니다. 앱을 삭제하면 앱이 저장한 데이터도 함께 삭제됩니다. 사진 보관함의 사진과 편집 기록은 사진 앱에 그대로 남으며, PresetLab에서 프리셋을 지워도 사진에는 영향이 없습니다.</p>
+        <p data-lang="en" hidden>Presets, covers, and app settings are kept in the app's storage on your device until you delete a preset or delete the app. Deleting the app also deletes the data it stored. Photos and their edit history remain in the Photos app, and deleting a preset in PresetLab does not affect your photos.</p>
+        <p data-lang="ja" hidden>プリセット、カバー、アプリ設定はデバイス内のアプリ用ストレージに保管され、ユーザーがプリセットまたはアプリを削除するまで保持されます。アプリを削除すると、アプリが保存したデータも削除されます。写真ライブラリの写真と編集履歴は「写真」Appにそのまま残り、PresetLabでプリセットを削除しても写真には影響しません。</p>
+        <p data-lang="zh-Hans" hidden>预设、封面和 App 设置保存在你设备上的 App 储存空间中，直到你删除预设或删除 App 为止。删除 App 时，App 储存的数据也会一并删除。照片图库中的照片及其编辑记录会保留在“照片”App 中，在 PresetLab 中删除预设不会影响你的照片。</p>
+        <p data-lang="ko">iCloud 백업이나 컴퓨터 백업을 사용하는 경우 앱 데이터가 기기 백업에 포함될 수 있으며, 이는 Apple의 백업 방식을 따릅니다. PresetLab은 별도의 동기화 기능을 제공하지 않습니다.</p>
+        <p data-lang="en" hidden>If you use iCloud Backup or back up to a computer, app data may be included in your device backup, which follows Apple's backup practices. PresetLab does not provide a separate sync feature.</p>
+        <p data-lang="ja" hidden>iCloudバックアップやコンピュータへのバックアップを利用している場合、アプリのデータがデバイスのバックアップに含まれることがあり、これはAppleのバックアップの仕組みに従います。PresetLabは独自の同期機能を提供していません。</p>
+        <p data-lang="zh-Hans" hidden>如果你使用 iCloud 云备份或电脑备份，App 数据可能会包含在设备备份中，这遵循 Apple 的备份方式。PresetLab 不提供单独的同步功能。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">4. 프리셋 파일 공유</h2>
+        <h2 data-lang="en" hidden>4. Sharing Preset Files</h2>
+        <h2 data-lang="ja" hidden>4. プリセットファイルの共有</h2>
+        <h2 data-lang="zh-Hans" hidden>4. 共享预设文件</h2>
+        <p data-lang="ko">PresetLab은 프리셋을 .presetlab 파일로 만들어 iOS 공유 시트로 보내고, 다른 사람이 보낸 프리셋 파일을 가져오는 기능을 제공합니다.</p>
+        <p data-lang="en" hidden>PresetLab lets you export a preset as a .presetlab file and send it through the iOS share sheet, and import preset files that others send you.</p>
+        <p data-lang="ja" hidden>PresetLabは、プリセットを.presetlabファイルとして書き出してiOSの共有シートで送信する機能と、ほかの人から送られたプリセットファイルを読み込む機能を提供します。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 可以将预设导出为 .presetlab 文件并通过 iOS 共享表单发送，也可以导入他人发送给你的预设文件。</p>
+        <ul data-lang="ko">
+          <li>공유 파일은 사용자가 공유를 선택할 때만 기기 안에서 만들어지고, 사용자가 공유 시트에서 고른 대상(AirDrop, 메시지, 파일 앱 등)으로만 전달됩니다.</li>
+          <li>공유 파일에는 프리셋의 편집 데이터가 들어갑니다. 이 데이터에는 사진 앱이 기록한 원본 사진 식별자가 포함될 수 있습니다. 이 식별자는 보내는 사람 기기의 사진 보관함 안에서만 의미가 있는 값이며 사진 자체가 아닙니다.</li>
+          <li>개발자는 공유 파일을 받거나 별도로 보관하지 않습니다.</li>
+          <li>가져온 파일은 프리셋 형식인지 확인한 뒤 기기 안에만 저장됩니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>A shared file is created on your device only when you choose to share, and it is delivered only to the destination you choose in the share sheet (AirDrop, Messages, the Files app, and so on).</li>
+          <li>A shared file contains the preset's edit data. This data may include the identifier of the original photo recorded by Photos. That identifier is meaningful only within the sender's photo library on the sender's device, and it is not the photo itself.</li>
+          <li>The developer does not receive or separately store shared files.</li>
+          <li>An imported file is checked to confirm it is a preset and is then stored only on your device.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>共有ファイルは、ユーザーが共有を選んだときにのみデバイス内で作成され、ユーザーが共有シートで選んだ宛先（AirDrop、メッセージ、「ファイル」Appなど）にのみ送られます。</li>
+          <li>共有ファイルにはプリセットの編集データが含まれます。このデータには「写真」Appが記録した元の写真の識別子が含まれる場合があります。この識別子は送信者のデバイスの写真ライブラリ内でのみ意味を持つ値で、写真そのものではありません。</li>
+          <li>開発者が共有ファイルを受け取ったり、別途保管したりすることはありません。</li>
+          <li>読み込んだファイルは、プリセットの形式であることを確認したうえで、デバイス内にのみ保存されます。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>共享文件仅在你选择共享时于设备上生成，并且只会发送到你在共享表单中选择的目标（隔空投送、“信息”、“文件”App 等）。</li>
+          <li>共享文件包含预设的编辑数据。该数据可能包含“照片”App 记录的原始照片标识符。此标识符只在发送者设备上的照片图库中有意义，并不是照片本身。</li>
+          <li>开发者不会接收或另行保存共享文件。</li>
+          <li>导入的文件会先确认是否为预设格式，然后仅储存在你的设备上。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">5. 광고, 동의 및 추적</h2>
+        <h2 data-lang="en" hidden>5. Advertising, Consent, and Tracking</h2>
+        <h2 data-lang="ja" hidden>5. 広告、同意およびトラッキング</h2>
+        <h2 data-lang="zh-Hans" hidden>5. 广告、同意与跟踪</h2>
+        <p data-lang="ko">PresetLab은 무료로 제공되며, 앱 내 배너 광고 표시를 위해 Google Mobile Ads(AdMob) SDK와 Google User Messaging Platform(UMP) SDK를 사용합니다. 광고 SDK는 광고 제공, 맞춤형 광고, 광고 성과 측정, 부정 사용 방지, 동의 상태 관리를 위해 기기 식별자, 광고 식별자, IP 주소로 추정한 대략적인 위치, 광고 조회·상호작용 정보, 앱 성능·진단 정보 등을 처리할 수 있습니다.</p>
+        <p data-lang="en" hidden>PresetLab is free and uses the Google Mobile Ads (AdMob) SDK and the Google User Messaging Platform (UMP) SDK to display in-app banner ads. The advertising SDKs may process device identifiers, advertising identifiers, approximate location estimated from your IP address, ad view and interaction information, and app performance and diagnostic information to serve ads, provide personalized ads, measure ad performance, prevent fraudulent use, and manage consent status.</p>
+        <p data-lang="ja" hidden>PresetLabは無料で提供され、アプリ内バナー広告の表示のためにGoogle Mobile Ads（AdMob）SDKおよびGoogle User Messaging Platform（UMP）SDKを使用します。広告SDKは、広告の配信、パーソナライズ広告、広告効果の測定、不正利用の防止、同意状態の管理のために、デバイス識別子、広告識別子、IPアドレスから推定したおおよその位置情報、広告の表示・インタラクション情報、アプリのパフォーマンス・診断情報などを処理する場合があります。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 免费提供，并使用 Google Mobile Ads（AdMob）SDK 和 Google User Messaging Platform（UMP）SDK 在 App 内展示横幅广告。为投放广告、提供个性化广告、衡量广告效果、防止欺诈性使用及管理同意状态，广告 SDK 可能会处理设备标识符、广告标识符、根据 IP 地址估算的大致位置、广告展示与互动信息，以及 App 性能与诊断信息等。</p>
+        <ul data-lang="ko">
+          <li>광고와 동의 절차는 첫 실행 안내를 마친 뒤에 시작합니다.</li>
+          <li>유럽 경제 지역(EEA), 영국 등 법령상 동의가 필요한 지역에서는 UMP 동의 양식을 먼저 표시하며, 그 결과에 따라 광고 요청 여부와 맞춤형 광고 여부가 정해집니다. 이 지역에서는 앱 설정의 광고 개인정보 옵션에서 언제든지 선택을 바꿀 수 있습니다.</li>
+          <li>이어서 iOS의 앱 추적 투명성(ATT) 권한 요청을 표시합니다. 추적을 허용한 경우에만 광고 식별자(IDFA)를 광고에 사용할 수 있습니다.</li>
+          <li>추적이나 맞춤형 광고를 허용하지 않아도 PresetLab의 모든 기능을 사용할 수 있습니다.</li>
+          <li>앱은 프리셋, 사진, 클립보드 데이터를 광고 SDK에 전달하지 않습니다.</li>
+          <li>Google의 데이터 처리 방식은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>과 <a href="https://policies.google.com/technologies/partner-sites">Google이 파트너의 사이트 또는 앱에서 정보를 사용하는 방법</a>, 그리고 사용자의 광고 설정을 따릅니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>The ad and consent process begins after you finish the first-launch guide.</li>
+          <li>In regions where consent is required by law, such as the European Economic Area (EEA) and the UK, the UMP consent form is shown first, and your choices determine whether ads are requested and whether they are personalized. In these regions, you can change your choices at any time from the ad privacy options in the app's settings.</li>
+          <li>Next, the iOS App Tracking Transparency (ATT) permission prompt is shown. The advertising identifier (IDFA) can be used for ads only if you allow tracking.</li>
+          <li>All of PresetLab's features remain available even if you do not allow tracking or personalized ads.</li>
+          <li>The app does not pass presets, photos, or clipboard data to the advertising SDKs.</li>
+          <li>How Google processes data is governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a>, and your ad settings.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>広告と同意の手続きは、初回起動ガイドを終えた後に開始します。</li>
+          <li>欧州経済領域（EEA）や英国など、法令上同意が必要な地域では、まずUMPの同意フォームを表示し、その結果に応じて広告をリクエストするかどうか、パーソナライズ広告を表示するかどうかが決まります。これらの地域では、アプリ設定の広告プライバシーオプションからいつでも選択を変更できます。</li>
+          <li>続いて、iOSのApp Tracking Transparency（ATT）の許可リクエストを表示します。トラッキングを許可した場合にのみ、広告識別子（IDFA）を広告に使用できます。</li>
+          <li>トラッキングやパーソナライズ広告を許可しなくても、PresetLabのすべての機能をご利用いただけます。</li>
+          <li>アプリは、プリセット、写真、クリップボードのデータを広告SDKに渡しません。</li>
+          <li>Googleのデータ処理方法は、<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>、<a href="https://policies.google.com/technologies/partner-sites">Googleによるパートナーのサイトやアプリからの情報の使用方法</a>、およびユーザーの広告設定に従います。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>广告和同意流程在你完成首次启动引导后开始。</li>
+          <li>在欧洲经济区（EEA）、英国等法律要求征得同意的地区，App 会先显示 UMP 同意表单，并根据你的选择决定是否请求广告以及是否展示个性化广告。在这些地区，你可以随时在 App 设置的广告隐私选项中更改选择。</li>
+          <li>随后会显示 iOS 的 App 跟踪透明度（ATT）权限请求。只有在你允许跟踪时，广告标识符（IDFA）才能用于广告。</li>
+          <li>即使不允许跟踪或个性化广告，你也可以使用 PresetLab 的全部功能。</li>
+          <li>App 不会将预设、照片或剪贴板数据传递给广告 SDK。</li>
+          <li>Google 如何处理数据，遵循 <a href="https://policies.google.com/privacy">Google 隐私权政策</a>、<a href="https://policies.google.com/technologies/partner-sites">Google 如何使用来自使用其服务的网站或应用的信息</a>以及你的广告设置。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">6. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>6. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>6. 外部への送信および共有</h2>
+        <h2 data-lang="zh-Hans" hidden>6. 对外传输与共享</h2>
+        <p data-lang="ko">PresetLab은 자체 계정 시스템이나 백엔드 서버를 사용하지 않으며, 별도의 사용 통계·크래시 수집 SDK도 사용하지 않습니다. 프리셋, 커버, 사진 보관함에서 읽은 정보, 클립보드 데이터, 앱 설정은 개발자에게 전송되지 않습니다. 다만 아래 경우에는 데이터가 기기 밖으로 나갈 수 있습니다.</p>
+        <p data-lang="en" hidden>PresetLab does not use its own account system or backend server, and it does not use any separate usage analytics or crash reporting SDK. Presets, covers, information read from your photo library, clipboard data, and app settings are not transmitted to the developer. However, data may leave your device in the following cases.</p>
+        <p data-lang="ja" hidden>PresetLabは自社のアカウントシステムやバックエンドサーバーを使用せず、利用統計やクラッシュ収集のための独立したSDKも使用しません。プリセット、カバー、写真ライブラリから読み取った情報、クリップボードのデータ、アプリ設定は開発者へ送信されません。ただし、以下の場合にはデータがデバイスの外に出ることがあります。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 不使用自有账户系统或后端服务器，也不使用单独的使用统计或崩溃收集 SDK。预设、封面、从照片图库读取的信息、剪贴板数据和 App 设置不会传输给开发者。但在以下情况下，数据可能会离开你的设备。</p>
+        <ul data-lang="ko">
+          <li>Google: 광고 제공, 동의 관리, 광고 측정, 부정 사용 방지 ('5. 광고, 동의 및 추적')</li>
+          <li>사용자가 고른 공유 대상: 사용자가 직접 공유한 프리셋 파일 ('4. 프리셋 파일 공유')</li>
+          <li>Apple: 사용자가 iOS 설정에서 앱 개발자와 분석 정보를 공유하도록 허용한 경우, Apple이 충돌 기록 등 진단 정보를 개발자에게 전달할 수 있습니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Google: ad serving, consent management, ad measurement, and fraud prevention (Section 5)</li>
+          <li>Destinations you choose: preset files you share yourself (Section 4)</li>
+          <li>Apple: if you allow sharing analytics with app developers in iOS Settings, Apple may provide diagnostic information such as crash logs to the developer.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>Google: 広告の配信、同意管理、広告測定、不正利用防止（「5. 広告、同意およびトラッキング」）</li>
+          <li>ユーザーが選んだ共有先: ユーザーが自ら共有したプリセットファイル（「4. プリセットファイルの共有」）</li>
+          <li>Apple: ユーザーがiOSの設定でApp開発者との解析データの共有を許可している場合、Appleがクラッシュログなどの診断情報を開発者に提供することがあります。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>Google：广告投放、同意管理、广告衡量和防止欺诈（“5. 广告、同意与跟踪”）</li>
+          <li>你选择的共享目标：你自行共享的预设文件（“4. 共享预设文件”）</li>
+          <li>Apple：如果你在 iOS 设置中允许与 App 开发者共享分析数据，Apple 可能会向开发者提供崩溃日志等诊断信息。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">7. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>7. Your Choices</h2>
+        <h2 data-lang="ja" hidden>7. ユーザーの選択</h2>
+        <h2 data-lang="zh-Hans" hidden>7. 你的选择</h2>
+        <ul data-lang="ko">
+          <li>사진 보관함 접근 권한은 iOS 설정 → PresetLab → 사진에서 바꿀 수 있습니다. 권한을 허용하지 않아도 클립보드로 프리셋을 저장하고 적용하는 기능은 사용할 수 있습니다.</li>
+          <li>다른 앱에서 붙여넣기 허용 여부는 iOS 설정 → PresetLab → 다른 앱에서 붙여넣기에서 바꿀 수 있습니다.</li>
+          <li>앱 추적 권한은 iOS 설정의 개인정보 보호 및 보안 → 추적에서 바꿀 수 있습니다.</li>
+          <li>광고 개인화 동의가 필요한 지역에서는 앱 설정의 광고 개인정보 옵션에서 선택을 바꿀 수 있습니다.</li>
+          <li>프리셋은 앱에서 하나씩 삭제할 수 있고, 앱을 삭제하면 앱이 저장한 모든 데이터가 기기에서 제거됩니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Photo library access can be changed in iOS Settings → PresetLab → Photos. Saving and applying presets through the clipboard works even without this permission.</li>
+          <li>Whether to allow pasting from other apps can be changed in iOS Settings → PresetLab → Paste from Other Apps.</li>
+          <li>App tracking permission can be changed under Privacy &amp; Security → Tracking in iOS Settings.</li>
+          <li>In regions where ad personalization consent is required, you can change your choices from the ad privacy options in the app's settings.</li>
+          <li>You can delete presets one at a time in the app, and deleting the app removes all data it stored from your device.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>写真ライブラリへのアクセス権限は、iOSの「設定」→「PresetLab」→「写真」から変更できます。この権限を許可しなくても、クリップボードを使ったプリセットの保存と適用は利用できます。</li>
+          <li>ほかのAppからのペーストを許可するかどうかは、iOSの「設定」→「PresetLab」→「ほかのAppからペースト」から変更できます。</li>
+          <li>アプリのトラッキング権限は、iOSの設定の「プライバシーとセキュリティ」→「トラッキング」から変更できます。</li>
+          <li>広告のパーソナライズに同意が必要な地域では、アプリ設定の広告プライバシーオプションから選択を変更できます。</li>
+          <li>プリセットはアプリで1件ずつ削除でき、アプリを削除すると、アプリが保存したすべてのデータがデバイスから消去されます。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>照片图库访问权限可在 iOS“设置”>“PresetLab”>“照片”中更改。即使不允许此权限，仍可通过剪贴板储存和应用预设。</li>
+          <li>是否允许从其他 App 粘贴，可在 iOS“设置”>“PresetLab”>“从其他 App 粘贴”中更改。</li>
+          <li>App 跟踪权限可在 iOS 设置的“隐私与安全性”>“跟踪”中更改。</li>
+          <li>在需要征得个性化广告同意的地区，你可以在 App 设置的广告隐私选项中更改选择。</li>
+          <li>你可以在 App 中逐个删除预设；删除 App 后，App 储存的所有数据都会从设备中移除。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">8. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>8. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>8. 児童の個人情報</h2>
+        <h2 data-lang="zh-Hans" hidden>8. 儿童隐私</h2>
+        <p data-lang="ko">PresetLab은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
+        <p data-lang="en" hidden>PresetLab is not designed for children, and the developer does not knowingly collect personal information from children.</p>
+        <p data-lang="ja" hidden>PresetLabは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 并非为儿童设计的服务，开发者不会故意收集儿童的个人信息。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">9. 변경</h2>
+        <h2 data-lang="en" hidden>9. Changes</h2>
+        <h2 data-lang="ja" hidden>9. 変更</h2>
+        <h2 data-lang="zh-Hans" hidden>9. 变更</h2>
+        <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
+        <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
+        <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
+        <p data-lang="zh-Hans" hidden>如果 App 的功能、所用 SDK 或数据处理方式发生变化，我们可能会更新本文档。如有重大变更，我们会更新本页的生效日期。</p>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">10. 문의</h2>
+        <h2 data-lang="en" hidden>10. Contact</h2>
+        <h2 data-lang="ja" hidden>10. お問い合わせ</h2>
+        <h2 data-lang="zh-Hans" hidden>10. 联系我们</h2>
+        <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
+        <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
+        <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
+        <p data-lang="zh-Hans" hidden>如对本隐私政策有任何疑问，请通过 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a> 与我们联系。</p>
+        <p class="notice" data-lang="ko">이 문서는 PresetLab의 현재 코드와 설정을 기준으로 작성되었습니다. App Store Connect의 App Privacy 답변도 이 문서와 동일한 데이터 처리 기준으로 유지되어야 합니다.</p>
+        <p class="notice" data-lang="en" hidden>This document is written based on PresetLab's current code and configuration. The App Privacy answers on App Store Connect must be kept consistent with the same data-handling practices described here.</p>
+        <p class="notice" data-lang="ja" hidden>本文書はPresetLabの現在のコードおよび設定に基づいて作成されています。App Store ConnectのApp Privacyの回答も、本文書と同一のデータ取扱基準で維持される必要があります。</p>
+        <p class="notice" data-lang="zh-Hans" hidden>本文档基于 PresetLab 当前的代码和配置编写。App Store Connect 中的 App 隐私回答也必须与本文档所述的数据处理标准保持一致。</p>
+      </section>
+    </main>
+
+    <footer>
+      <p><a href="./index.html">Privacy Policies</a></p>
+    </footer>
+  </div>
+
+  <script>
+(function () {
+  var TITLES = {
+    ko: 'PresetLab 개인정보 처리방침',
+    en: 'PresetLab Privacy Policy',
+    ja: 'PresetLabプライバシーポリシー',
+    'zh-Hans': 'PresetLab 隐私政策'
+  };
+
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.hidden = el.dataset.lang !== lang;
+    });
+    document.documentElement.lang = lang;
+    document.title = TITLES[lang];
+  }
+
+  document.getElementById('lang-select').addEventListener('change', function (e) {
+    setLang(e.target.value);
+  });
+})();
+  </script>
+</body>
+</html>
