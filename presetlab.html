@@ -249,10 +249,10 @@ footer {
       <p class="summary" data-lang="ja" hidden>PresetLabは、「写真」Appの「編集内容をコピー」でクリップボードに置かれた編集をプリセットとして保存し、再びクリップボードに置くことで、「写真」Appの「編集内容をペースト」で再利用できるようにするiOSアプリです。アカウントや自社サーバーは運用しておらず、プリセットとアプリ設定はユーザーのデバイス内にのみ保存されます。</p>
       <p class="summary" data-lang="zh-Hans" hidden>PresetLab 是一款 iOS App，可将“照片”App 的“拷贝编辑点”放到剪贴板上的编辑存为预设，之后再放回剪贴板，以便你通过“照片”App 的“粘贴编辑点”再次使用。PresetLab 不运营账户系统或自有服务器，预设和 App 设置仅储存在你的设备上。</p>
       <div class="meta">
-        <span class="pill" data-lang="ko">시행일: 2026년 10월 8일</span>
-        <span class="pill" data-lang="en" hidden>Effective Date: October 8, 2026</span>
-        <span class="pill" data-lang="ja" hidden>施行日: 2026年10月8日</span>
-        <span class="pill" data-lang="zh-Hans" hidden>生效日期：2026年10月8日</span>
+        <span class="pill" data-lang="ko">시행일: 2026년 10월 10일</span>
+        <span class="pill" data-lang="en" hidden>Effective Date: October 10, 2026</span>
+        <span class="pill" data-lang="ja" hidden>施行日: 2026年10月10日</span>
+        <span class="pill" data-lang="zh-Hans" hidden>生效日期：2026年10月10日</span>
         <span class="pill" data-lang="ko">대상: iOS 앱 PresetLab</span>
         <span class="pill" data-lang="en" hidden>Applies to: PresetLab for iOS</span>
         <span class="pill" data-lang="ja" hidden>対象: iOSアプリ PresetLab</span>
@@ -341,6 +341,24 @@ footer {
             <div data-lang="zh-Hans" hidden>
               <strong>广告相关信息（Google）</strong>
               <span>为展示横幅广告和管理广告同意，Google 的广告 SDK 可能会处理设备标识符、广告标识符、大致位置、广告展示与互动信息以及诊断信息等。详情请参阅“5. 广告、同意与跟踪”。</span>
+            </div>
+          </div>
+          <div class="item">
+            <div data-lang="ko">
+              <strong>사용 통계와 크래시 진단 정보 (Google Firebase)</strong>
+              <span>앱 개선과 오류 수정을 위해 Google Firebase Analytics·Crashlytics가 앱이 미리 정의한 범주값 이벤트, 크래시·진단 정보, 앱 인스턴스 ID 등을 처리합니다. 프리셋 이름·내용, 사진 정보는 포함하지 않습니다. 자세한 내용은 '6. 사용 통계 및 크래시 진단' 항목을 확인해 주세요.</span>
+            </div>
+            <div data-lang="en" hidden>
+              <strong>Usage Statistics and Crash Diagnostics (Google Firebase)</strong>
+              <span>To improve the app and fix errors, Google Firebase Analytics and Crashlytics process category-value events predefined by the app, crash and diagnostic information, an app instance ID, and similar data. Preset names and contents and photo information are not included. See Section 6 for details.</span>
+            </div>
+            <div data-lang="ja" hidden>
+              <strong>利用統計とクラッシュ診断情報（Google Firebase）</strong>
+              <span>アプリの改善とエラー修正のため、Google Firebase AnalyticsおよびCrashlyticsが、アプリがあらかじめ定義した区分値のイベント、クラッシュ・診断情報、アプリインスタンスIDなどを処理します。プリセット名・内容や写真の情報は含まれません。詳細は「6. 利用統計およびクラッシュ診断」をご確認ください。</span>
+            </div>
+            <div data-lang="zh-Hans" hidden>
+              <strong>使用统计与崩溃诊断信息（Google Firebase）</strong>
+              <span>为改进 App 和修复错误，Google Firebase Analytics 与 Crashlytics 会处理 App 预先定义的类别值事件、崩溃与诊断信息、App 实例 ID 等。其中不包含预设名称、预设内容和照片信息。详情请参阅“6. 使用统计与崩溃诊断”。</span>
             </div>
           </div>
         </div>
@@ -483,41 +501,88 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">6. 외부 전송 및 공유</h2>
-        <h2 data-lang="en" hidden>6. External Transfer and Sharing</h2>
-        <h2 data-lang="ja" hidden>6. 外部への送信および共有</h2>
-        <h2 data-lang="zh-Hans" hidden>6. 对外传输与共享</h2>
-        <p data-lang="ko">PresetLab은 자체 계정 시스템이나 백엔드 서버를 사용하지 않으며, 별도의 사용 통계·크래시 수집 SDK도 사용하지 않습니다. 프리셋, 커버, 사진 보관함에서 읽은 정보, 클립보드 데이터, 앱 설정은 개발자에게 전송되지 않습니다. 다만 아래 경우에는 데이터가 기기 밖으로 나갈 수 있습니다.</p>
-        <p data-lang="en" hidden>PresetLab does not use its own account system or backend server, and it does not use any separate usage analytics or crash reporting SDK. Presets, covers, information read from your photo library, clipboard data, and app settings are not transmitted to the developer. However, data may leave your device in the following cases.</p>
-        <p data-lang="ja" hidden>PresetLabは自社のアカウントシステムやバックエンドサーバーを使用せず、利用統計やクラッシュ収集のための独立したSDKも使用しません。プリセット、カバー、写真ライブラリから読み取った情報、クリップボードのデータ、アプリ設定は開発者へ送信されません。ただし、以下の場合にはデータがデバイスの外に出ることがあります。</p>
-        <p data-lang="zh-Hans" hidden>PresetLab 不使用自有账户系统或后端服务器，也不使用单独的使用统计或崩溃收集 SDK。预设、封面、从照片图库读取的信息、剪贴板数据和 App 设置不会传输给开发者。但在以下情况下，数据可能会离开你的设备。</p>
+        <h2 data-lang="ko">6. 사용 통계 및 크래시 진단</h2>
+        <h2 data-lang="en" hidden>6. Usage Statistics and Crash Diagnostics</h2>
+        <h2 data-lang="ja" hidden>6. 利用統計およびクラッシュ診断</h2>
+        <h2 data-lang="zh-Hans" hidden>6. 使用统计与崩溃诊断</h2>
+        <p data-lang="ko">PresetLab은 앱 기능을 개선하고 오류를 수정하기 위해 Google Firebase Analytics(사용 통계)와 Firebase Crashlytics(크래시 진단)를 사용합니다. 이 수집은 앱 스토어에 배포된 Release 빌드에서만 이루어지며, 앱이 보내는 값은 모두 앱이 미리 정의한 고정 범주값입니다. 프리셋 이름, 프리셋 ID와 편집 데이터의 내용, 조정 값, 사진 정보, 오류 원문은 이벤트와 크래시 리포트에 포함되지 않습니다.</p>
+        <p data-lang="en" hidden>PresetLab uses Google Firebase Analytics (usage statistics) and Firebase Crashlytics (crash diagnostics) to improve app features and fix errors. This collection takes place only in Release builds distributed through the App Store, and every value the app sends is a fixed category value defined in advance by the app. Preset names, preset IDs, the contents of edit data, adjustment values, photo information, and raw error messages are not included in events or crash reports.</p>
+        <p data-lang="ja" hidden>PresetLabは、アプリの機能改善とエラー修正のため、Google Firebase Analytics（利用統計）とFirebase Crashlytics（クラッシュ診断）を使用します。この収集はApp Storeで配布されるReleaseビルドでのみ行われ、アプリが送信する値はすべてアプリがあらかじめ定義した固定の区分値です。プリセット名、プリセットIDや編集データの内容、調整値、写真の情報、エラーの原文は、イベントやクラッシュレポートに含まれません。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 使用 Google Firebase Analytics（使用统计）和 Firebase Crashlytics（崩溃诊断）来改进 App 功能并修复错误。此类收集仅在通过 App Store 分发的 Release 版本中进行，App 发送的所有值都是 App 预先定义的固定类别值。预设名称、预设 ID 和编辑数据的内容、调整数值、照片信息以及错误原文都不会包含在事件或崩溃报告中。</p>
+        <ul data-lang="ko">
+          <li>사용 통계 이벤트: 화면 조회(라이브러리, 프리셋 상세, 설정, 첫 실행 안내, 사용법 다시 보기), 첫 실행 안내 완료, 프리셋 저장(출처: 붙여넣기 버튼·클립보드 직접 읽기·사진에서 가져오기·파일, 결과: 저장·중복·형식 아님·실패·너무 큼·읽기 실패), 프리셋 복사, 프리셋 공유, 즐겨찾기 켜고 끄기, 이름 바꾸기, 삭제, 사진 앱 열기(화면 위치 구분). 이벤트가 일어난 사실과 위 범주값만 기록하며, 앱의 자동 화면 추적은 꺼 두었습니다.</li>
+          <li>크래시 진단: 앱이 비정상 종료될 때의 충돌 데이터와 기타 진단 정보, 그리고 프리셋 목록 파일(index.json)이 손상되어 복구되거나 백업·재작성에 실패한 경우 앱이 미리 정의한 실패 범주. 이용자의 프리셋 내용은 포함하지 않습니다.</li>
+          <li>SDK가 자동으로 처리하는 정보: 앱 설치 단위로 부여되는 앱 인스턴스 ID와 앱·운영체제 버전 등 기기 비식별 진단 정보. Google 서버는 요청의 IP 주소로 대략적인 지역을 추정할 수 있습니다.</li>
+          <li>식별자 미사용: 사용자 ID와 사용자 속성을 설정하지 않으며, 광고 식별자(IDFA)를 읽지 않는 구성의 SDK만 연동하고 IDFV·광고 식별자·광고 개인화 신호 수집은 꺼 두었습니다. 이 정보는 이용자의 신원과 연결하지 않으며 추적에 사용하지 않습니다.</li>
+          <li>이용 목적: 사용 통계는 기능 이용 현황 파악과 서비스 개선, 크래시 진단은 오류 원인 파악과 안정성 개선(앱 기능)에 한정합니다.</li>
+          <li>이 처리는 광고 동의(UMP)와 앱 추적 투명성(ATT) 선택과는 별개로 동작합니다. 개인정보는 위 범위로 한정되어 있으며, Google이 정보를 보관하는 기간과 처리 방식은 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>과 <a href="https://firebase.google.com/support/privacy">Firebase 개인정보 보호 및 보안</a>을 따릅니다.</li>
+        </ul>
+        <ul data-lang="en" hidden>
+          <li>Usage statistics events: screen views (library, preset detail, settings, first-launch guide, revisiting how to use), completing the first-launch guide, saving a preset (source: Paste button, Read Clipboard Directly, import from a photo, or file; result: saved, duplicate, not a valid format, failed, too large, or unreadable), copying a preset, sharing a preset, turning favorites on or off, renaming, deleting, and opening the Photos app (with where in the app it happened). Only the fact that an event occurred and the category values above are recorded, and the app's automatic screen tracking is turned off.</li>
+          <li>Crash diagnostics: crash data and other diagnostic information when the app terminates abnormally, plus a failure category defined in advance by the app when the preset list file (index.json) is damaged and recovered or when its backup or rewrite fails. The contents of your presets are not included.</li>
+          <li>Information the SDKs process automatically: an app instance ID assigned per app installation and non-device-identifying diagnostic information such as the app and operating system versions. Google's servers may estimate an approximate region from the IP address of the request.</li>
+          <li>No identifiers used: the app does not set a user ID or user properties, integrates only the SDK variant that does not read the advertising identifier (IDFA), and has turned off collection of the IDFV, advertising identifiers, and ad personalization signals. This information is not linked to your identity and is not used for tracking.</li>
+          <li>Purpose: usage statistics are limited to understanding how features are used and improving the app, and crash diagnostics to finding the cause of errors and improving stability (app functionality).</li>
+          <li>This processing operates independently of your ad consent (UMP) and App Tracking Transparency (ATT) choices. The personal information involved is limited to the scope above, and how long Google retains information and how it processes it are governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://firebase.google.com/support/privacy">Privacy and Security in Firebase</a>.</li>
+        </ul>
+        <ul data-lang="ja" hidden>
+          <li>利用統計イベント: 画面の表示（ライブラリ、プリセット詳細、設定、初回起動ガイド、使い方の再表示）、初回起動ガイドの完了、プリセットの保存（取得元: ペーストボタン・クリップボードを直接読み込む・写真から読み込み・ファイル、結果: 保存・重複・形式不正・失敗・サイズ超過・読み取り失敗）、プリセットのコピー、プリセットの共有、お気に入りのオン・オフ、名前の変更、削除、「写真」Appを開く操作（アプリ内の場所の区別を含む）。イベントが発生した事実と上記の区分値のみを記録し、アプリの自動画面トラッキングはオフにしています。</li>
+          <li>クラッシュ診断: アプリが異常終了した際のクラッシュデータとその他の診断情報、およびプリセット一覧ファイル（index.json）が破損して復旧された場合やバックアップ・再書き込みに失敗した場合にアプリがあらかじめ定義した失敗の区分。プリセットの内容は含まれません。</li>
+          <li>SDKが自動的に処理する情報: アプリのインストール単位で付与されるアプリインスタンスIDと、アプリ・OSのバージョンなど端末を特定しない診断情報。Googleのサーバーは、リクエストのIPアドレスからおおよその地域を推定することがあります。</li>
+          <li>識別子の不使用: ユーザーIDやユーザープロパティは設定せず、広告識別子（IDFA）を読み取らない構成のSDKのみを連携し、IDFV・広告識別子・広告パーソナライズシグナルの収集はオフにしています。この情報はユーザーの身元と結び付けず、トラッキングには使用しません。</li>
+          <li>利用目的: 利用統計は機能の利用状況の把握とアプリの改善、クラッシュ診断はエラーの原因の特定と安定性の改善（アプリの機能）に限定します。</li>
+          <li>この処理は、広告の同意（UMP）およびApp Tracking Transparency（ATT）の選択とは別に動作します。対象となる個人情報は上記の範囲に限られ、Googleによる情報の保持期間と処理方法は、<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>および<a href="https://firebase.google.com/support/privacy">Firebaseのプライバシーとセキュリティ</a>に従います。</li>
+        </ul>
+        <ul data-lang="zh-Hans" hidden>
+          <li>使用统计事件：屏幕浏览（资料库、预设详情、设置、首次启动引导、重新查看使用方法）、完成首次启动引导、储存预设（来源：粘贴按钮、直接读取剪贴板、从照片导入、文件；结果：已储存、重复、格式不符、失败、文件过大、读取失败）、拷贝预设、共享预设、开启或关闭个人收藏、重命名、删除，以及打开“照片”App（区分在 App 中的位置）。仅记录事件发生这一事实及上述类别值，并且已关闭 App 的自动屏幕跟踪。</li>
+          <li>崩溃诊断：App 异常终止时的崩溃数据和其他诊断信息，以及预设列表文件（index.json）损坏并被恢复、或其备份与重写失败时 App 预先定义的失败类别。不包含你的预设内容。</li>
+          <li>SDK 自动处理的信息：按 App 安装分配的 App 实例 ID，以及 App 与操作系统版本等不识别设备身份的诊断信息。Google 服务器可能会根据请求的 IP 地址估算大致地区。</li>
+          <li>不使用标识符：App 不设置用户 ID 和用户属性，仅集成不读取广告标识符（IDFA）的 SDK 版本，并已关闭 IDFV、广告标识符和广告个性化信号的收集。这些信息不会与你的身份关联，也不用于跟踪。</li>
+          <li>使用目的：使用统计仅用于了解功能使用情况并改进 App，崩溃诊断仅用于查明错误原因并提升稳定性（App 功能）。</li>
+          <li>此处理独立于你的广告同意（UMP）和 App 跟踪透明度（ATT）选择而运行。所涉及的个人信息仅限于上述范围，Google 保留信息的期限及处理方式遵循 <a href="https://policies.google.com/privacy">Google 隐私权政策</a>和 <a href="https://firebase.google.com/support/privacy">Firebase 中的隐私与安全</a>。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 data-lang="ko">7. 외부 전송 및 공유</h2>
+        <h2 data-lang="en" hidden>7. External Transfer and Sharing</h2>
+        <h2 data-lang="ja" hidden>7. 外部への送信および共有</h2>
+        <h2 data-lang="zh-Hans" hidden>7. 对外传输与共享</h2>
+        <p data-lang="ko">PresetLab은 자체 계정 시스템이나 백엔드 서버를 사용하지 않으며, Google Firebase Analytics·Crashlytics를 통한 비식별 사용 통계와 크래시 진단 정보를 제외하고는 개발자에게 데이터를 보내지 않습니다. 프리셋, 커버, 사진 보관함에서 읽은 정보, 클립보드 데이터, 앱 설정은 개발자에게 전송되지 않습니다. 다만 아래 경우에는 데이터가 기기 밖으로 나갈 수 있습니다.</p>
+        <p data-lang="en" hidden>PresetLab does not use its own account system or backend server, and apart from the non-identifying usage statistics and crash diagnostics sent through Google Firebase Analytics and Crashlytics, it sends no data to the developer. Presets, covers, information read from your photo library, clipboard data, and app settings are not transmitted to the developer. However, data may leave your device in the following cases.</p>
+        <p data-lang="ja" hidden>PresetLabは自社のアカウントシステムやバックエンドサーバーを使用せず、Google Firebase AnalyticsおよびCrashlyticsを通じた、個人を特定しない利用統計とクラッシュ診断情報を除き、開発者へデータを送信しません。プリセット、カバー、写真ライブラリから読み取った情報、クリップボードのデータ、アプリ設定は開発者へ送信されません。ただし、以下の場合にはデータがデバイスの外に出ることがあります。</p>
+        <p data-lang="zh-Hans" hidden>PresetLab 不使用自有账户系统或后端服务器，除通过 Google Firebase Analytics 和 Crashlytics 发送的不识别个人身份的使用统计与崩溃诊断信息外，不会向开发者发送数据。预设、封面、从照片图库读取的信息、剪贴板数据和 App 设置不会传输给开发者。但在以下情况下，数据可能会离开你的设备。</p>
         <ul data-lang="ko">
           <li>Google: 광고 제공, 동의 관리, 광고 측정, 부정 사용 방지 ('5. 광고, 동의 및 추적')</li>
+          <li>Google: 사용 통계 처리(Firebase Analytics)와 크래시 진단 처리(Firebase Crashlytics) ('6. 사용 통계 및 크래시 진단')</li>
           <li>사용자가 고른 공유 대상: 사용자가 직접 공유한 프리셋 파일 ('4. 프리셋 파일 공유')</li>
           <li>Apple: 사용자가 iOS 설정에서 앱 개발자와 분석 정보를 공유하도록 허용한 경우, Apple이 충돌 기록 등 진단 정보를 개발자에게 전달할 수 있습니다.</li>
         </ul>
         <ul data-lang="en" hidden>
           <li>Google: ad serving, consent management, ad measurement, and fraud prevention (Section 5)</li>
+          <li>Google: processing of usage statistics (Firebase Analytics) and crash diagnostics (Firebase Crashlytics) (Section 6)</li>
           <li>Destinations you choose: preset files you share yourself (Section 4)</li>
           <li>Apple: if you allow sharing analytics with app developers in iOS Settings, Apple may provide diagnostic information such as crash logs to the developer.</li>
         </ul>
         <ul data-lang="ja" hidden>
           <li>Google: 広告の配信、同意管理、広告測定、不正利用防止（「5. 広告、同意およびトラッキング」）</li>
+          <li>Google: 利用統計の処理（Firebase Analytics）およびクラッシュ診断の処理（Firebase Crashlytics）（「6. 利用統計およびクラッシュ診断」）</li>
           <li>ユーザーが選んだ共有先: ユーザーが自ら共有したプリセットファイル（「4. プリセットファイルの共有」）</li>
           <li>Apple: ユーザーがiOSの設定でApp開発者との解析データの共有を許可している場合、Appleがクラッシュログなどの診断情報を開発者に提供することがあります。</li>
         </ul>
         <ul data-lang="zh-Hans" hidden>
           <li>Google：广告投放、同意管理、广告衡量和防止欺诈（“5. 广告、同意与跟踪”）</li>
+          <li>Google：使用统计处理（Firebase Analytics）和崩溃诊断处理（Firebase Crashlytics）（“6. 使用统计与崩溃诊断”）</li>
           <li>你选择的共享目标：你自行共享的预设文件（“4. 共享预设文件”）</li>
           <li>Apple：如果你在 iOS 设置中允许与 App 开发者共享分析数据，Apple 可能会向开发者提供崩溃日志等诊断信息。</li>
         </ul>
       </section>
 
       <section>
-        <h2 data-lang="ko">7. 사용자의 선택</h2>
-        <h2 data-lang="en" hidden>7. Your Choices</h2>
-        <h2 data-lang="ja" hidden>7. ユーザーの選択</h2>
-        <h2 data-lang="zh-Hans" hidden>7. 你的选择</h2>
+        <h2 data-lang="ko">8. 사용자의 선택</h2>
+        <h2 data-lang="en" hidden>8. Your Choices</h2>
+        <h2 data-lang="ja" hidden>8. ユーザーの選択</h2>
+        <h2 data-lang="zh-Hans" hidden>8. 你的选择</h2>
         <ul data-lang="ko">
           <li>사진 보관함 접근 권한은 iOS 설정 → PresetLab → 사진에서 바꿀 수 있습니다. 권한을 허용하지 않아도 클립보드로 프리셋을 저장하고 적용하는 기능은 사용할 수 있습니다.</li>
           <li>다른 앱에서 붙여넣기 허용 여부는 iOS 설정 → PresetLab → 다른 앱에서 붙여넣기에서 바꿀 수 있습니다.</li>
@@ -549,10 +614,10 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">8. 아동의 개인정보</h2>
-        <h2 data-lang="en" hidden>8. Children's Privacy</h2>
-        <h2 data-lang="ja" hidden>8. 児童の個人情報</h2>
-        <h2 data-lang="zh-Hans" hidden>8. 儿童隐私</h2>
+        <h2 data-lang="ko">9. 아동의 개인정보</h2>
+        <h2 data-lang="en" hidden>9. Children's Privacy</h2>
+        <h2 data-lang="ja" hidden>9. 児童の個人情報</h2>
+        <h2 data-lang="zh-Hans" hidden>9. 儿童隐私</h2>
         <p data-lang="ko">PresetLab은 아동을 대상으로 설계된 서비스가 아니며, 개발자가 고의로 아동의 개인정보를 수집하지 않습니다.</p>
         <p data-lang="en" hidden>PresetLab is not designed for children, and the developer does not knowingly collect personal information from children.</p>
         <p data-lang="ja" hidden>PresetLabは児童を対象に設計されたサービスではなく、開発者が意図的に児童の個人情報を収集することはありません。</p>
@@ -560,10 +625,10 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">9. 변경</h2>
-        <h2 data-lang="en" hidden>9. Changes</h2>
-        <h2 data-lang="ja" hidden>9. 変更</h2>
-        <h2 data-lang="zh-Hans" hidden>9. 变更</h2>
+        <h2 data-lang="ko">10. 변경</h2>
+        <h2 data-lang="en" hidden>10. Changes</h2>
+        <h2 data-lang="ja" hidden>10. 変更</h2>
+        <h2 data-lang="zh-Hans" hidden>10. 变更</h2>
         <p data-lang="ko">앱 기능, 사용 SDK, 데이터 처리 방식이 바뀌면 이 문서를 업데이트할 수 있습니다. 중요한 변경이 있는 경우 이 페이지의 시행일을 갱신합니다.</p>
         <p data-lang="en" hidden>This document may be updated if the app's features, SDKs, or data processing methods change. If there is a material change, the effective date on this page will be updated.</p>
         <p data-lang="ja" hidden>アプリの機能、使用SDK、データ処理方法が変更された場合、本文書を更新することがあります。重要な変更がある場合は、本ページの施行日を更新します。</p>
@@ -571,10 +636,10 @@ footer {
       </section>
 
       <section>
-        <h2 data-lang="ko">10. 문의</h2>
-        <h2 data-lang="en" hidden>10. Contact</h2>
-        <h2 data-lang="ja" hidden>10. お問い合わせ</h2>
-        <h2 data-lang="zh-Hans" hidden>10. 联系我们</h2>
+        <h2 data-lang="ko">11. 문의</h2>
+        <h2 data-lang="en" hidden>11. Contact</h2>
+        <h2 data-lang="ja" hidden>11. お問い合わせ</h2>
+        <h2 data-lang="zh-Hans" hidden>11. 联系我们</h2>
         <p data-lang="ko">개인정보 처리방침에 관한 문의는 <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>로 남겨 주세요.</p>
         <p data-lang="en" hidden>For questions about this privacy policy, please reach out via <a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>.</p>
         <p data-lang="ja" hidden>本プライバシーポリシーに関するお問い合わせは、<a href="https://github.com/nanlo93/privacy-policies/issues">GitHub Issues</a>までお願いします。</p>
